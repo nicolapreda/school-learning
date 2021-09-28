@@ -1,2 +1,2 @@
-# golang-learning
-📚 My exercises to learn golang language
+# school-learning
+📚 My school exercises for learn programming
