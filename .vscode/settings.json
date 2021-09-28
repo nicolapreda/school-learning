@@ -1,9 +1,0 @@
-{
-    "deepscan.enable": true,
-    "files.associations": {
-        "*.html": "html",
-        "iostream": "cpp",
-        "istream": "cpp",
-        "ostream": "cpp"
-    }
-}
