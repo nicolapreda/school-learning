@@ -1,2 +1,2 @@
 # school-learning
-📚 My school exercises for learn programming
+Basics exercises to learn golang, C++ and HTML/CSS programming and markup languages 
