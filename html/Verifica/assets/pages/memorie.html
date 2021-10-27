@@ -1,12 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Architettura Degli Elaboratori</title>
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--TailWind CSS-->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!--Local CSS-->
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+
 </head>
+
 <body>
-    
+    <div class="bg-gray-800 justify-content-center">
+        <ul class="nav justify-content-center p-3">
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="../../index.html">Elaboratori</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./von_neumann.html">Von
+                    Neumann</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./cpu.html">CPU</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./registri.html">Registri</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-indigo-300 hover:text-indigo-600" href=".#">Memorie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400"
+                    href="./periferiche.html">Periferiche</a>
+            </li>
+        </ul>
+
+    </div>
+    <main class="mx-auto">
+        <!--Background image-->
+        <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
+            <img class="background-image drop-shadow-lg" src="../images/memorie.jpg" alt="">
+            <h1 class="content tracking-tight text-gray-900 p-32">
+                <div class="titles sm:text-5xl text-5xl font-extrabold">
+                    <span class="block text-center filter drop-shadow-lg tracking-normal">Memorie </span>
+                </div>
+            </h1>
+
+        </div>
+
+        <div class="content">
+            <div class="container mt-5">
+                <div class="grid md:grid-cols-2 gap-10 mt-5">
+                    <div class="desc">
+                        <h1 class="title sm:text-4xl text-4xl font-extrabold block text-left">Memoria Centrale</h1>
+                        <p class="text mt-2 font-normal text-left">Svolge funzioni di immagazzinamento delle
+                            informazioni su cui opera il processore
+                            – Dati e programmi
+                            ● In memoria centrale sono caricati dal disco
+                            fisso
+                            – il sistema operativo dal momento
+                            dell'accensione
+                            – i programmi e i dati quando richiesti</p>
+                    </div>
+                    <div class="images">
+                        <img src="../images/cpu.jpg" alt="Informatica" class="drop-shadow-lg">
+                    </div>
+
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10 mt-5">
+                    <div class="desc">
+                        <img src="../images/cpu.jpg" alt="Informatica" class="drop-shadow-lg">
+
+                    </div>
+                    <div class="images">
+                        <p class="mt-5 text mt-2 font-normal text-right">Il sistema operativo viene
+                            copiato in una zona ad
+                            esso riservata della
+                            memoria centrale all’avvio
+                            del computer e lì rimane
+                            fino a quando verrà spento
+                            il computer
+                            ● Dati e programmi sono
+                            caricati di volta in volta
+                            nello spazio restante e
+                            scaricati sul disco quando
+                            non sono più in uso</p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!--Parametri della memoria-->
+            <div class="py-12 mt-5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div class="text-center">
+        
+                    <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        Parametri Della Memoria
+                    </h1>
+                  </div>
+        
+                  <div class="mt-10">
+                    <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                      <div class="relative">
+                        <dt>
+                          <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <!--Icona-->
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                            </svg>
+        
+                          </div>
+                          <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Velocità</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-gray-500">
+                            - Tempo di accesso
+                             tempo impiegato dal processore per accedere ad
+                            uno specifico indirizzo<br>
+                            – Velocità di trasferimento
+                            quantità di dati trasferita in un'unità di tempo,
+                            Anche chiamata ampiezza di banda e si misura
+                            in bit/sec
+                        </dd>
+                      </div>
+        
+                      <div class="relative">
+                        <dt>
+                          <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <!-- Heroicon name: outline/scale -->
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                            </svg>
+                          </div>
+                          <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Modalità Di Accesso</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-gray-500">
+                            – In lettura<br>
+                             la possibilità di poter reperire le informazioni
+                            memorizzate
+                            <br>
+                            – In scrittura<br>
+                             la possibilità di poter modificare le informazioni
+                            memorizzate
+                        </dd>
+                      </div>
+        
+                      <div class="relative">
+                        <dt>
+                          <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <!-- Heroicon name: outline/lightning-bolt -->
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                          </div>
+                          <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Volatilità</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-gray-500">
+                            La possibilità di mantenere o perdere il proprio
+                            contenuto in assenza di alimentazione elettrica
+                        </dd>
+                      </div>
+        
+                      <div class="relative">
+                        <dt>
+                          <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <!-- Heroicon name: outline/annotation -->
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                          </div>
+                          <p class="ml-16 text-lg leading-6 font-medium text-gray-900 text-shadow">Capacità</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-gray-500 text-shadow">
+                            Quantità di dati che può contenere, si misura in byte.
+                        </dd>
+                    </div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+
+              <!--Tipi di memorie-->
+              <div class="container mt-5 mb-5">
+                <div class="cards">
+                    <div class="text-center">
+                    <h1 class="mt-5  text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                      Tipi Di Memorie
+                    </h1>
+                    <div class="grid md:grid-cols-3 gap-10 mt-5">
+                      <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                          <div
+                            class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                            <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>RAM</b></h2>
+                            <p class="font-medium text-violet-100 text-shadow mb-4">Memoria ad accesso casuale,Il tempo di accesso alle sue celle è indipendente
+                                dalla loro posizione fisica. E' volatile ed è di lettura/scrittura </p>
+                          </div>
+          
+                        </div>
+                        <!--Card gradient-->
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                          style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                      </div>
+                      
+                      <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                          <div
+                            class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                            <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>ROM</b></h2>
+                            <p class="font-medium text-violet-100 text-shadow mb-4">Memoria di sola lettura,
+                                
+                                il contenuto, una volta scritto, è inalterabile.
+                                E' Permanente, quindi 
+                                se non viene alimentata non perde il suo contenuto.
+                                Contiene informazioni per eseguire particolari funzioni,
+                                come l'avvio di un computer (BIOS)
+                                </p>
+                          </div>
+          
+                        </div>
+                        <!--Card gradient-->
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                          style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                      </div>
+                      <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                          <div
+                            class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                            <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>cache</b></h2>
+                            <p class="font-medium text-violet-100 text-shadow mb-4">È una memoria di transito dove la CPU memorizza i
+                                dati usati più frequentemente senza doverli
+                                prelevare dalla memoria centrale che è più lenta</p>
+                          </div>
+          
+                        </div>
+                        <!--Card gradient-->
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                          style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

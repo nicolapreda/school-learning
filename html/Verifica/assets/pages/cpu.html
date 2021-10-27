@@ -12,7 +12,7 @@
     <!--TailWind CSS-->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <!--Local CSS-->
-    <link href="../css/index.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -37,7 +37,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-gray-100 hover:text-gray-400"
-                    href="./assets/pages/periferiche.html">Periferiche</a>
+                    href="./periferiche.html">Periferiche</a>
             </li>
         </ul>
 
@@ -46,7 +46,7 @@
         <!--Background image-->
         <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
             <img class="background-image drop-shadow-lg" src="../images/cpu.jpg" alt="">
-            <h1 class="content tracking-tight text-gray-900 p-16">
+            <h1 class="content tracking-tight text-gray-900 p-32">
                 <div class="titles sm:text-5xl text-5xl font-extrabold">
                     <span class="block text-center filter drop-shadow-lg tracking-normal">Unità Di Elaborazione </span>
                     <span class="mt-2 block text-indigo-600 text-center filter drop-shadow-lg tracking-normal">Centrale
@@ -79,16 +79,158 @@
 
                     </div>
                     <div class="images">
-                        <h1 class="title mt-5 sm:text-4xl text-4xl font-extrabold block text-left">Computer</h1>
-                        <p class="text mt-2 font-normal text-left">Il computer
-                            è un dispositivo in grado di effettuare operazioni
-                            matematiche <br>e di prendere decisioni logiche, ed elaborano i dati <br>sotto il controllo
-                            di
-                            insiemi di istruzioni, detti programmi.</p>
+                        <h1 class="title mt-5 sm:text-4xl text-4xl font-extrabold block text-right">Processore</h1>
+                        <p class="text mt-2 font-normal text-right">I circuiti logici che compongono una CPU sono
+                            costituiti da milioni di transistor (microscopici
+                            interruttori acceso/spento) collegati tra loro da
+                            sottilissimi fili. I circuiti sono “stampati” su una sottile lamina di
+                            silicio. Il chip che corrisponde ad una CPU ha una
+                            superficie dell'ordine di una decina di mm2
+                            (Microprocessore)</p>
 
                     </div>
 
                 </div>
+            </div>
+
+            <div class="container mt-5">
+                <div class="cards">
+                    <div class="text-center">
+                    <h1 class="mt-5 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                      Suddiviso In
+                    </h1>
+                    <div class="grid md:grid-cols-3 gap-10 mt-5">
+                      <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                          <div
+                            class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                            <h2 class="text-xl font-semibold mb-2 text-shadow">Unità Di Controllo <b>(CU)</b></h2>
+                            <p class="font-medium text-violet-100 text-shadow mb-4">Controlla il funzionamento dell'intero sistema</p>
+                          </div>
+          
+                        </div>
+                        <!--Card gradient-->
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                          style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                      </div>
+                      
+                      <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                          <div
+                            class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                            <h2 class="text-xl font-semibold mb-2 text-shadow">Unità Aritmetico Logica <b>(ALU)</b></h2>
+                            <p class="font-medium text-violet-100 text-shadow mb-4">Esegue tutte le operazioni aritmetiche e logiche</p>
+                          </div>
+          
+                        </div>
+                        <!--Card gradient-->
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                          style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                      </div>
+                      <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                          <div
+                            class="sm:max-w-sm sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                            <h2 class="text-xl font-semibold mb-2 text-shadow">Registri</h2>
+                            <p class="font-medium text-violet-100 text-shadow mb-4">Piccole memorie velocissime che contengono
+                                informazioni utili per l'esecuzione di un'istruzione</p>
+                          </div>
+          
+                        </div>
+                        <!--Card gradient-->
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                          style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+            </div>
+
+            <!--Funzionamento-->
+            <div class="container mt-5">
+                <div class="text-center">
+                  <div class="max-w-2xl mx-auto py-24 px-4 grid items-center gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+                    <div>
+                      <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Funzionamento</h2>
+                      <p class="mt-4 text-gray-600">L'esecuzione di un programma richiede
+                        – Caricamento del programma in memoria centrale
+                        – Per ogni istruzione del programma, l'esecuzione di
+                        tre operazioni</p>
+
+                      <dl class="mt-16 grid grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-16 lg:gap-x-8">
+                        <div class="border-t border-gray-200 pt-4">
+                          <dt class="font-medium text-gray-900">Fetch</dt>
+                          <dd class="mt-2 text-sm text-gray-500">Preleva, dalla locazione di memoria il
+                            cui indirizzo è specificato nel Program Counter,
+                            l’istruzione da eseguire e la carica nel Registro
+                            Istruzione</dd>
+                        </div>
+                
+                        <div class="border-t border-gray-200 pt-4">
+                          <dt class="font-medium text-gray-900">Decode</dt>
+                          <dd class="mt-2 text-sm text-gray-500">Decodifica l’istruzione da eseguire</dd>
+                        </div>
+                
+                        <div class="border-t border-gray-200 pt-4">
+                          <dt class="font-medium text-gray-900">Execute</dt>
+                          <dd class="mt-2 text-sm text-gray-500">Esegue le operazioni corrispondenti
+                            all’istruzione</dd>
+                        </div>
+            
+                      </dl>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="container mt-16">
+                <div class="grid md:grid-cols-2 gap-10 mt-5">
+                    <div class="desc">
+                        <img src="../images/cpu1.jpg" alt="Informatica" class="drop-shadow-lg">
+
+                    </div>
+                    <div class="images">
+                        <h1 class="title sm:text-4xl text-4xl font-extrabold block text-right">Clock</h1>
+                        <p class="text mt-2 font-normal text-right">Il funzionamento di un microprocessore è regolato da
+                            un orologio interno: il clock
+                            ● Ad intervalli regolari è inviato un segnale, detto
+                            impulso o ciclo di clock, durante il quale il
+                            microprocessore svolge un'operazione elementare
+                            – La durata di un ciclo di clock oggi è inferiore ai ns
+                            ● Il numero di cicli di clock in un'unità di tempo è detta
+                            frequenza di clock,
+                            – Si misura in hertz
+                            – La frequenza di clock è dell'ordine dei Ghz sugli
+                            attuali microprocessori</p>
+
+                    </div>
+
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10 mt-16">
+                    <div class="desc">
+                        <h1 class="title sm:text-4xl text-4xl font-extrabold block text-left">Frequenza Di Clock</h1>
+                        <p class="text mt-2 font-normal text-left">È uno dei parametri caratteristici di un
+                            processore
+                            ● È indice della velocità
+                            – Dire che un computer lavora a 3GHz significa che
+                            in un secondo sono inviati 3 miliardi di impulsi di
+                            clock
+                            – Dati due processori, con lo stesso linguaggio
+                            macchina, il processore con frequenza maggiore
+                            sarà più veloce
+                            – Non è possibile dire nulla con processori con
+                            diverso linguaggio macchina</p>
+                    </div>
+                    <div class="images">
+                        <img src="../images/cpu.jpg" alt="Informatica" class="drop-shadow-lg">
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 

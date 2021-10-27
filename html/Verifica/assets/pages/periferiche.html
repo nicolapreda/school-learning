@@ -1,12 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Architettura Degli Elaboratori</title>
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--TailWind CSS-->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!--Local CSS-->
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+
 </head>
+
 <body>
-    
+    <div class="bg-gray-800 justify-content-center">
+        <ul class="nav justify-content-center p-3">
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="../../index.html">Elaboratori</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./von_neumann.html">Von
+                    Neumann</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./cpu.html">CPU</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./registri.html">Registri</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./memorie.html">Memorie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-indigo-300 hover:text-indigo-600"
+                    href="#">Periferiche</a>
+            </li>
+        </ul>
+
+    </div>
+    <main class="mx-auto">
+        <!--Background image-->
+        <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
+            <img class="background-image drop-shadow-lg" src="../images/periferiche.webp" alt="">
+            <h1 class="content tracking-tight text-gray-900 p-32">
+                <div class="titles sm:text-5xl text-5xl font-extrabold">
+                    <span class="block text-center filter drop-shadow-lg tracking-normal">Periferiche </span>
+                </div>
+            </h1>
+
+        </div>
+
+        <div class="content mt-5">
+            <!--Funzionamento-->
+            <div class="container mt-5">
+                <div class="text-center">
+                  <div class="max-w-2xl mx-auto py-24 px-4 grid items-center gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+                    <div>
+                      <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Composizione</h2>
+                      <p class="mt-4 text-gray-600">Ogni periferica è costituita da 3 componenti principali sotto elencati</p>
+
+                      <dl class="mt-16 grid grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-16 lg:gap-x-8">
+                        <div class="border-t border-gray-200 pt-4">
+                          <dt class="font-medium text-gray-900">Device</dt>
+                          <dd class="mt-2 text-sm text-gray-500">Dispositivo fisico</dd>
+                        </div>
+                
+                        <div class="border-t border-gray-200 pt-4">
+                          <dt class="font-medium text-gray-900">Controller</dt>
+                          <dd class="mt-2 text-sm text-gray-500">Circuito elettronico di controllo</dd>
+                        </div>
+                
+                        <div class="border-t border-gray-200 pt-4">
+                          <dt class="font-medium text-gray-900">Device Driver</dt>
+                          <dd class="mt-2 text-sm text-gray-500">Componente software che deve essere installata
+                            in memoria per il corretto funzionamento del
+                            dispositivo</dd>
+                        </div>
+            
+                      </dl>
+                    </div>
+                  </div>
+            </div>
+            <!--Porte-->
+            <div class="mt-5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center">
+
+                        <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                            Porte
+                        </h1>
+                        <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
+                            Un computer moderno è costituito dalle
+                        componenti hardware principali elencate di seguito. <br>Queste sono interconnesse attraverso dei <b>bus</b>. 
+                        CPU, memoria centrale e interfacce alle
+                        periferiche (controller) comunicano attraverso
+                        bus.<br>
+                        La memoria secondaria e i dispositivi che
+                        permettono l'interazione tra l'uomo e la
+                        macchina (detti dispositivi di ingresso e uscita o
+                        di input/output (I/O)) costituiscono le periferiche
+                        </p>
+                    </div>
+
+        </div>
+    </main>
 </body>
 </html>
