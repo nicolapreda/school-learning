@@ -16,3 +16,20 @@
 .content{
     position: relative;
 }
+
+/*Footer*/
+
+.page-footer {
+    background-color: #444444;
+    margin-top: 5rem;
+  }
+  
+  .link-a {
+    text-decoration: none;
+    /*color: white!important;*/
+  }
+  
+  .social-div {
+    border: none!important;
+  }
+  

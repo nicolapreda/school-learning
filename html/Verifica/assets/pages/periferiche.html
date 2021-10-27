@@ -13,6 +13,8 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <!--Local CSS-->
     <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/ab36464be1.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -36,8 +38,7 @@
                 <a class="nav-link text-gray-100 hover:text-gray-400" href="./memorie.html">Memorie</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-indigo-300 hover:text-indigo-600"
-                    href="#">Periferiche</a>
+                <a class="nav-link text-indigo-300 hover:text-indigo-600" href="#">Periferiche</a>
             </li>
         </ul>
 
@@ -46,7 +47,7 @@
         <!--Background image-->
         <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
             <img class="background-image drop-shadow-lg" src="../images/periferiche.webp" alt="">
-            <h1 class="content tracking-tight text-gray-900 p-32">
+            <h1 class="content tracking-tight text-white p-32">
                 <div class="titles sm:text-5xl text-5xl font-extrabold">
                     <span class="block text-center filter drop-shadow-lg tracking-normal">Periferiche </span>
                 </div>
@@ -58,55 +59,93 @@
             <!--Funzionamento-->
             <div class="container mt-5">
                 <div class="text-center">
-                  <div class="max-w-2xl mx-auto py-24 px-4 grid items-center gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
-                    <div>
-                      <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Composizione</h2>
-                      <p class="mt-4 text-gray-600">Ogni periferica è costituita da 3 componenti principali sotto elencati</p>
+                    <div
+                        class="max-w-2xl mx-auto py-24 px-4 grid items-center gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+                        <div>
+                            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Composizione
+                            </h2>
+                            <p class="mt-4 text-gray-600">Ogni periferica è costituita da 3 componenti principali sotto
+                                elencati</p>
 
-                      <dl class="mt-16 grid grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-16 lg:gap-x-8">
-                        <div class="border-t border-gray-200 pt-4">
-                          <dt class="font-medium text-gray-900">Device</dt>
-                          <dd class="mt-2 text-sm text-gray-500">Dispositivo fisico</dd>
+                            <dl class="mt-16 grid grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-16 lg:gap-x-8">
+                                <div class="border-t border-gray-200 pt-4">
+                                    <dt class="font-medium text-gray-900">Device</dt>
+                                    <dd class="mt-2 text-sm text-gray-500">Dispositivo fisico</dd>
+                                </div>
+
+                                <div class="border-t border-gray-200 pt-4">
+                                    <dt class="font-medium text-gray-900">Controller</dt>
+                                    <dd class="mt-2 text-sm text-gray-500">Circuito elettronico di controllo</dd>
+                                </div>
+
+                                <div class="border-t border-gray-200 pt-4">
+                                    <dt class="font-medium text-gray-900">Device Driver</dt>
+                                    <dd class="mt-2 text-sm text-gray-500">Componente software che deve essere
+                                        installata
+                                        in memoria per il corretto funzionamento del
+                                        dispositivo</dd>
+                                </div>
+
+                            </dl>
                         </div>
-                
-                        <div class="border-t border-gray-200 pt-4">
-                          <dt class="font-medium text-gray-900">Controller</dt>
-                          <dd class="mt-2 text-sm text-gray-500">Circuito elettronico di controllo</dd>
-                        </div>
-                
-                        <div class="border-t border-gray-200 pt-4">
-                          <dt class="font-medium text-gray-900">Device Driver</dt>
-                          <dd class="mt-2 text-sm text-gray-500">Componente software che deve essere installata
-                            in memoria per il corretto funzionamento del
-                            dispositivo</dd>
-                        </div>
-            
-                      </dl>
                     </div>
-                  </div>
+                </div>
+                <!--Porte-->
+                <div class="container mb-16">
+                    <div class="grid md:grid-cols-2 gap-10 mt-5">
+                        <div class="desc">
+                            <h1 class="title sm:text-4xl text-4xl font-extrabold block text-left">Porte</h1>
+                            <p class="text mt-2 font-normal text-left">Un computer moderno è costituito dalle
+                                componenti hardware principali elencate di seguito. <br>Queste sono interconnesse
+                                attraverso dei <b>bus</b>.
+                                CPU, memoria centrale e interfacce alle
+                                periferiche (controller) comunicano attraverso
+                                bus.<br>
+                                La memoria secondaria e i dispositivi che
+                                permettono l'interazione tra l'uomo e la
+                                macchina (detti dispositivi di ingresso e uscita o
+                                di input/output (I/O)) costituiscono le periferiche</p>
+                        </div>
+                        <div class="images">
+                            <img src="../images/periferiche2.jpg" alt="Informatica" class="drop-shadow-lg">
+                        </div>
+
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-10 mt-5">
+                        <div class="desc">
+                            <img src="../images/periferiche1.jpg" alt="Informatica" class="drop-shadow-lg">
+
+                        </div>
+                        <div class="images">
+                            <h1 class="title mt-5 sm:text-4xl text-4xl font-extrabold block text-right">Tipi Di Porte
+                            </h1>
+                            <p class="text mt-2 font-normal text-right">USB (Universal Serial Bus):<br>
+                                Trasmissione seriale molto veloce,
+                                permette il collegamento in serie di dispositivi diversi
+                                (fino a 127) e
+                                permette di aggiungere e rimuovere dispositivi a
+                                computer accesso (hot plugging)</p>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-            <!--Porte-->
-            <div class="mt-5">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center">
-
-                        <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                            Porte
-                        </h1>
-                        <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
-                            Un computer moderno è costituito dalle
-                        componenti hardware principali elencate di seguito. <br>Queste sono interconnesse attraverso dei <b>bus</b>. 
-                        CPU, memoria centrale e interfacce alle
-                        periferiche (controller) comunicano attraverso
-                        bus.<br>
-                        La memoria secondaria e i dispositivi che
-                        permettono l'interazione tra l'uomo e la
-                        macchina (detti dispositivi di ingresso e uscita o
-                        di input/output (I/O)) costituiscono le periferiche
-                        </p>
-                    </div>
-
-        </div>
     </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="links"><a class="link-a text-white" href="#">About me</a><a class="link-a text-white"
+                    href="#hire-me">Hire me</a><a class="link-a text-white" href="#projects">Projects</a></div>
+            <div class="social-icons"><a class="social-div" href="https://twitter.com/diskxo_"><i
+                        class="icon ion-social-twitter"></i></a><a class="social-div"
+                    href="https://github.com/diskxo"><i class="icon ion-social-github"></i></a><a class="social-div"
+                    href="https://t.me/diskxo"><i class="fab fa-telegram"></i></a><a class="social-div"
+                    href="mailto:nicola.preda05@gmail.com"><i class="icon ion-email"></i></a></div>
+        </div>
+    </footer>
 </body>
+
 </html>
