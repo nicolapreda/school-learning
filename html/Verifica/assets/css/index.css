@@ -1,0 +1,18 @@
+/*Backgrounds*/
+.header
+{
+    overflow: hidden;
+    position: relative;
+}
+.background-image{
+    opacity: 0.6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    filter: blur(2px);
+}
+.content{
+    position: relative;
+}

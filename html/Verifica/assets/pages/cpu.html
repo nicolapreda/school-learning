@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Architettura Degli Elaboratori</title>
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--TailWind CSS-->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!--Local CSS-->
+    <link href="../css/index.css" rel="stylesheet">
+
 </head>
+
 <body>
-    
+    <div class="bg-gray-800 justify-content-center">
+        <ul class="nav justify-content-center p-3">
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="../../index.html">Elaboratori</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./von_neumann.html">Von
+                    Neumann</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-indigo-300 hover:text-indigo-600" href="#">CPU</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./registri.html">Registri</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./memorie.html">Memorie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400"
+                    href="./assets/pages/periferiche.html">Periferiche</a>
+            </li>
+        </ul>
+
+    </div>
+    <main class="mx-auto">
+        <!--Background image-->
+        <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
+            <img class="background-image drop-shadow-lg" src="../images/cpu.jpg" alt="">
+            <h1 class="content tracking-tight text-gray-900 p-16">
+                <div class="titles sm:text-5xl text-5xl font-extrabold">
+                    <span class="block text-center filter drop-shadow-lg tracking-normal">Unità Di Elaborazione </span>
+                    <span class="mt-2 block text-indigo-600 text-center filter drop-shadow-lg tracking-normal">Centrale
+                    </span>
+
+                </div>
+            </h1>
+
+        </div>
+        <div class="content">
+            <div class="container mt-5">
+                <div class="grid md:grid-cols-2 gap-10 mt-5">
+                    <div class="desc">
+                        <h1 class="title sm:text-4xl text-4xl font-extrabold block text-left">Processore</h1>
+                        <p class="text mt-2 font-normal text-left">CPU (Central Processing Unit) o processore è il
+                            nucleo di tutto il sistema di elaborazione.<br>
+                            Ha il compito di
+                            eseguire le istruzioni, effettuare calcoli aritmetici e logici
+                            e controllare e coordinare tutto il sistema</p>
+                    </div>
+                    <div class="images">
+                        <img src="../images/cpu.jpg" alt="Informatica" class="drop-shadow-lg">
+                    </div>
+
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10 mt-5">
+                    <div class="desc">
+                        <img src="../images/cpu.jpg" alt="Informatica" class="drop-shadow-lg">
+
+                    </div>
+                    <div class="images">
+                        <h1 class="title mt-5 sm:text-4xl text-4xl font-extrabold block text-left">Computer</h1>
+                        <p class="text mt-2 font-normal text-left">Il computer
+                            è un dispositivo in grado di effettuare operazioni
+                            matematiche <br>e di prendere decisioni logiche, ed elaborano i dati <br>sotto il controllo
+                            di
+                            insiemi di istruzioni, detti programmi.</p>
+
+                    </div>
+
+                </div>
+    </main>
 </body>
+
 </html>
