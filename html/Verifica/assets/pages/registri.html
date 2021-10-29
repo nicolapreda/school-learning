@@ -13,6 +13,8 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <!--Local CSS-->
     <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <!--Animations Library-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
@@ -36,122 +38,178 @@
                 <a class="nav-link text-gray-100 hover:text-gray-400" href="./memorie.html">Memorie</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-gray-100 hover:text-gray-400"
-                    href="./periferiche.html">Periferiche</a>
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./periferiche.html">Periferiche</a>
             </li>
         </ul>
 
     </div>
     <main class="mx-auto">
-        <!--Background image-->
+        <!--Header-->
         <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
             <img class="background-image drop-shadow-lg" src="../images/registri1.jpg" alt="">
-            <h1 class="content tracking-tight text-white p-32">
-                <div class="titles sm:text-5xl text-5xl font-extrabold">
+            <h1 class="content tracking-tight text-gray-100 sm:p-16">
+                <div class="titles sm:text-5xl text-4xl font-extrabold" data-aos="fade-up">
                     <span class="block text-center filter drop-shadow-lg tracking-normal">Registri </span>
-
-
                 </div>
             </h1>
-
         </div>
 
-        <div class="py-12 mt-5">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-
-                    <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
+        <div class="container mt-5 mb-16">
+            <!--Registri - Introduzione-->
+            <div class="relative overflow-hidden">
+              <div class="max-w-7xl mx-auto">
+                <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                  <div class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <div class="sm:text-center lg:text-left" data-aos="fade-right" data-aos="fade-right">
+                      <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                        <span class="block xl:inline">Registri<br></span>
+                      </h1>
+                      <p
+                        class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                         Per eseguire le operazioni elementari il
                         processore utilizza delle memorie di piccole
                         dimensioni fisicamente interne al processore, i
-                        registri alle quali accedere in modo veloce
-                        – per trasferire i dati dalla/alla memoria,
+                        registri alle quali accedere in modo veloce<br>
+                        – per trasferire i dati dalla/alla memoria,<br>
                         – per salvare i risultati parziali delle operazioni
                         aritmetiche e logiche. Sono solitamente poche decine (32-64)
-                    </p>
-                    <h1 class="mt-5 text-1xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
-                        Registri Speciali:
-                    </h1>
-
+                      </p>
+                      <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="mt-10 ">
-                    <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                        <div class="relative">
-                            <dt>
-                                <div
-                                    class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                                    <!--Icona-->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                    </svg>
+              </div>
+              <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5" data-aos="fade-left">
+                <img class="" src="../images/registri2.jpg" alt="">
+              </div>
+            </div>
+          </div>
 
-                                </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Program Counter</p>
-                            </dt>
-                            <dd class="mt-2 ml-16 text-base text-gray-500">
-                                registro che contiene l’indirizzo
-                                di memoria della prossima istruzione da eseguire
-                            </dd>
+          
+        <div class="cards bg-indigo-100 p-32">
+            <!--Suddivisione-->
+            <div class="text-center">
+                <h1 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                    data-aos="fade-up">
+                    Suddiviso In:
+                </h1>
+
+                <h1 class=" mt-5 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl"
+                    data-aos="fade-up">
+                    Registri Speciali
+                </h1>
+
+                <div class="grid md:grid-cols-2 gap-10 mt-5">
+
+                    <!--Instruction Register-->
+                    <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg"
+                        data-aos="fade-right">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                            <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                                <h2 class="text-xl font-semibold mb-2 text-shadow">Instruction Register</h2>
+                                <p class="font-medium text-violet-100 text-shadow mb-4">Registro in cui viene caricata
+                                    l’istruzione da eseguire </p>
+                            </div>
+
                         </div>
 
-                        <div class="relative">
-                            <dt>
-                                <div
-                                    class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                                    <!-- Heroicon name: outline/scale -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                                    </svg>
-                                </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Instruction Register</p>
-                            </dt>
-                            <dd class="mt-2 ml-16 text-base text-gray-500">
-                                Registro in cui viene caricata
-                                l’istruzione da eseguire
-                            </dd>
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                            style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                    </div>
+
+
+
+                    <!--Program Counter-->
+                    <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg"
+                        data-aos="fade-left">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                            <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                                <h2 class="text-xl font-semibold mb-2 text-shadow">Program Counter</h2>
+                                <p class="font-medium text-violet-100 text-shadow mb-4">Registro che contiene
+                                    l’indirizzo
+                                    di memoria della prossima istruzione da eseguire.</p>
+                            </div>
+
                         </div>
 
-
-                    </dl>
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                            style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <h1 class="mt-5 text-1xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
-                        Registri Generici:
-                    </h1>
-                </div>
-                <div class="mt-10">
-                    <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                        <div class="relative">
-                            <dt>
-                                <div
-                                    class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                                    <!--Icona-->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                    </svg>
 
-                                </div>
-                            </dt>
-                            <dd class="mt-2 ml-16 text-base text-gray-500">
-                                Registri che servono per caricare i dati su cui
-l’istruzione opera e i risultati intermedi
-                            </dd>
+                <h1 class=" mt-5 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl"
+                    data-aos="fade-up">
+                    Registri Generici
+                </h1>
+
+                <div class="grid md:grid-cols-1 gap-10 mt-5">
+
+                    <!--Registri Generici-->
+                    <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg"
+                        data-aos="fade-right">
+                        <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                            <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                                <h2 class="text-xl font-semibold mb-2 text-shadow">Registri Generici</h2>
+                                <p class="font-medium text-violet-100 text-shadow mb-4"> Registri che servono per
+                                    caricare i dati su cui
+                                    l’istruzione opera e i risultati intermedi
+                                </p>
+                            </div>
+
                         </div>
 
-
-
-                    </dl>
+                        <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                            style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
     </main>
+
+    <footer class="text-center text-white bg-gray-800 mt-32">
+        <div class="container pt-4">
+            <section class="mb-4">
+                <!-- Mail -->
+                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="mailto:nicola.preda05@gmail.com"
+                    role="button" data-mdb-ripple-color="dark"><i class="far fa-envelope"></i></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://twitter.com/diskxo_"
+                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://nicolapreda.me"
+                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+
+                <!-- Github -->
+                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://github.com/diskxo"
+                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+            </section>
+        </div>
+        <div class="text-center text-gray-100 p-3 bg-gray-900">
+            © 2021 Copyright:
+            <a class="text-gray-200" href="https://nicolapreda.me/">nicolapreda.me</a>
+        </div>
+    </footer>
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!--Animation library-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+        });
+    </script>
+
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/ab36464be1.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

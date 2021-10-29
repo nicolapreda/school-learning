@@ -13,6 +13,9 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <!--Local CSS-->
   <link href="assets/css/index.css" rel="stylesheet" type="text/css">
+  <!--Animations Library-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
 </head>
 
@@ -44,97 +47,94 @@
     <!--Background image-->
     <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
       <img class="background-image drop-shadow-lg" src="assets/images/elaboratori.jpg" alt="">
-      <h1 class="content tracking-tight text-gray-100 p-32">
+      <h1 class="content tracking-tight text-gray-100 sm:p-16">
         <div class="titles sm:text-5xl text-3xl font-extrabold">
-          <span class="block text-center text-shadow tracking-normal">Architettura Degli <br>Elaboratori</span>
+          <span class="block text-center text-shadow tracking-normal" data-aos="fade-up">Architettura Degli
+            <br>Elaboratori</span>
 
         </div>
-        <span class="font-semi-bold block text-center text-gray-300 mt-4 text-2xl text-shadow">Nicola Preda</span>
+        <span class="font-semi-bold block text-center text-gray-300 mt-4 text-2xl text-shadow" data-aos="fade-up">Nicola
+          Preda</span>
       </h1>
 
     </div>
 
-    <div class="content">
+    
       <div class="container mt-5">
         <!--Informatica-->
-        <div class="grid md:grid-cols-2 gap-10 mt-5">
-          <div class="desc">
-            <h1 class="title sm:text-4xl text-4xl font-extrabold block text-left w-20">Informatica</h1>
-            <p class="text mt-2 font-normal text-left">L'informatica è
-              la scienza che si occupa dell'informazione<br> e del
-              suo trattamento in maniera automatica</p>
+        <div class="relative overflow-hidden">
+          <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+              <div class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                <div class="sm:text-center lg:text-left" data-aos="fade-right">
+                  <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                    <span class="block xl:inline">Informatica e </span>
+                    <span class="block text-indigo-600 xl:inline">Computer</span>
+                  </h1>
+                  <p
+                    class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                    <a href="https://it.wikipedia.org/wiki/Informatica" class="text-indigo-500">L'informatica</a> è la scienza che si occupa dell'informazione e del suo trattamento in maniera
+                    automatica.<br>Un <a href="https://it.wikipedia.org/wiki/Computer" class="text-indigo-500">computer</a> è invece un dispositivo in grado di effettuare operazioni matematiche e
+                    prendere decisioni logiche. </p>
+                  <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="images">
-            <img src="assets/images/code.jpg" alt="Informatica" class="drop-shadow-lg">
+          <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5" data-aos="fade-left">
+            <img class="" src="./assets/images/elaboratori.jpg" alt="">
           </div>
-
-        </div>
-
-        <!--Computer-->
-        <div class="grid md:grid-cols-2 gap-10 mt-5">
-          <div class="images">
-            <img src="assets/images/code.jpg" alt="Informatica" class="drop-shadow-lg">
-
-          </div>
-          <div class="desc">
-            <h1 class="title mt-5 sm:text-4xl text-4xl font-extrabold block text-right">Computer</h1>
-            <p class="text mt-2 font-normal text-right">Il computer
-              è un dispositivo in grado di effettuare operazioni
-              matematiche <br>e di prendere decisioni logiche, ed elaborano i dati <br>sotto il controllo di
-              insiemi di istruzioni, detti programmi.</p>
-
-          </div>
-
         </div>
 
         <div class="cards">
           <div class="text-center">
-          <h1 class="mt-5 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Suddiviso In
-          </h1>
-          <div class="grid md:grid-cols-2 gap-32 mt-5">
-            <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
-              <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
-                <div
-                  class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
-                  <h2 class="text-xl font-semibold mb-2 text-shadow">Hardware</h2>
-                  <p class="font-medium text-violet-100 text-shadow mb-4">Equipaggiamento fisico ed elettronico di un
-                    computer. Approfondimento <a class="text-gray-200" href="#software">qui</a></p>
+            <h1 class="mt-5 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+              data-aos="fade-up">
+              Suddiviso In
+            </h1>
+            <div class="grid lg:grid-cols-2 gap-32 mt-5">
+              <div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden lg:max-w-2xl"
+                data-aos="fade-right">
+                <div class="lg:flex">
+                  <div class="lg:flex-shrink-0">
+                    <img class="h-72 w-full object-cover  lg:w-48" src="assets/images/hardware.jpg"
+                      alt="Man looking at item at a store">
+                  </div>
+                  <div class="p-8">
+                    <a href="https://it.wikipedia.org/wiki/Hardware"
+                      class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Hardware</a>
+                    <p class="mt-2 text-gray-500">è la parte materiale di un computer, ovvero tutte quelle parti
+                      elettroniche, elettriche, meccaniche, magnetiche, ottiche che ne consentono il funzionamento</p>
+                  </div>
                 </div>
-
               </div>
-              <!--Card gradient-->
-              <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
-                style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
-              </div>
-            </div>
-            <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
-              <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
-                <div
-                  class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
-                  <h2 class="text-xl font-semibold mb-2 text-shadow">Software</h2>
-                  <p class="font-medium text-violet-100 text-shadow mb-4">Equipaggiamento logico di un computer,
-                    costituito
-                    dai programmi che fanno svolgere al calcolatore un
-                    insieme di funzioni. Approfondimento <a class="text-gray-200" href="#software">qui</a></p>
+              <div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden lg:max-w-2xl"
+                data-aos="fade-left">
+                <div class="lg:flex">
+                  <div class="lg:flex-shrink-0">
+                    <img class="h-72 w-full object-cover  lg:w-48" src="assets/images/software.jpg"
+                      alt="Man looking at item at a store">
+                  </div>
+                  <div class="p-8">
+                    <a href="https://it.wikipedia.org/wiki/Software"
+                      class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Software</a>
+                    <p class="mt-2 text-gray-500">Equipaggiamento logico di un computer, costituito
+                      dai programmi che fanno svolgere al calcolatore un
+                      insieme di funzioni.</p>
+                  </div>
                 </div>
-
-              </div>
-              <!--Card gradient-->
-              <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
-                style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
               </div>
             </div>
           </div>
-        </div>
         </div>
 
       </div>
 
       <!--Struttura computer-->
-      <div class="py-12 mt-5">
+      <div class="py-12 mt-32 bg-indigo-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center">
+          <div class="text-center" data-aos="fade-up">
 
             <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Struttura Di Un Computer
@@ -146,17 +146,11 @@
           </div>
 
           <div class="mt-10">
-            <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+            <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10" data-aos="fade-up">
               <div class="relative">
                 <dt>
                   <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <!--Icona-->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
-
+                    <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-keyboard"></i></div>
                   </div>
                   <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Unità Di Input</p>
                 </dt>
@@ -168,12 +162,7 @@
               <div class="relative">
                 <dt>
                   <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <!-- Heroicon name: outline/scale -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                    </svg>
+                    <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-tv"></i></div>
                   </div>
                   <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Unità Di Output</p>
                 </dt>
@@ -185,12 +174,7 @@
               <div class="relative">
                 <dt>
                   <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <!-- Heroicon name: outline/lightning-bolt -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+                    <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-microchip"></i></div>
                   </div>
                   <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Unità centrale di elaborazione</p>
                 </dt>
@@ -203,12 +187,7 @@
               <div class="relative">
                 <dt>
                   <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <!-- Heroicon name: outline/annotation -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                    </svg>
+                    <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-memory"></i></div>
                   </div>
                   <p class="ml-16 text-lg leading-6 font-medium text-gray-900 text-shadow">Unità di memoria centrale</p>
                 </dt>
@@ -221,12 +200,7 @@
               <div class="relative">
                 <dt>
                   <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <!-- Heroicon name: outline/annotation -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                    </svg>
+                    <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-memory"></i></div>
                   </div>
                   <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Unità di memorizzazione secondaria</p>
                 </dt>
@@ -240,81 +214,116 @@
         </div>
       </div>
 
-      <div class="programming_languages">
-        <div class="py-12 mt-5">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
+      <!--Linguaggi Di Programmazione-->
+      <div class="py-12 mt-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center" data-aos="fade-up">
 
-              <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                Linguaggi Di Programmazione
-              </h1>
-              <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
-                Si tratta di linguaggi per la comunicazione tra uomo e computer. <br>
-                Esistono tre tipi principali di linguaggi di programmazione
-              </p>
+            <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              Linguaggi Di Programmazione
+            </h1>
+            <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
+              Si tratta di linguaggi per la comunicazione tra uomo e computer. <br>
+              Esistono tre tipi principali di linguaggi di programmazione
+            </p>
 
-              <div class="grid md:grid-cols-3 gap-10 mt-5">
-                <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
-                  <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
-                    <div
-                      class=" sm:flex-none md:w-auto md:flex-auto flex flex-col  relative z-10 p-6 xl:p-8">
-                      <h2 class="text-xl font-semibold mb-2 text-shadow">Linguaggio Macchina</h2>
-                      <p class="font-medium text-violet-100 text-shadow mb-4">Equipaggiamento fisico ed elettronico di
-                        un computer. Approfondimento <a class="text-gray-200" href="#software">qui</a></p>
-                    </div>
-
+            <div class="grid md:grid-cols-3 gap-10 mt-5">
+              <!--Linguaggio Macchina-->
+              <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-right">
+                <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                  <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col  relative z-10 p-6 xl:p-8">
+                    <h2 class="text-xl font-semibold mb-2 text-shadow">Linguaggio Macchina</h2>
+                    <p class="font-medium text-violet-100 text-shadow mb-4">Equipaggiamento fisico ed elettronico di
+                      un computer. Approfondimento <a class="text-gray-200" href="#software">qui</a></p>
                   </div>
-                  <!--Card gradient-->
-                  <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
-                    style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
-                  </div>
+
                 </div>
-                <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
-                  <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
-                    <div
-                      class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
-                      <h2 class="text-xl font-semibold mb-2 text-shadow">Linguaggio Assembly</h2>
-                      <p class="font-medium text-violet-100 text-shadow mb-4">Equipaggiamento logico di un computer,
-                        costituito
-                        dai programmi che fanno svolgere al calcolatore un
-                        insieme di funzioni. Approfondimento <a class="text-gray-200" href="#software">qui</a></p>
-                    </div>
 
-                  </div>
-                  <!--Card gradient-->
-                  <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
-                    style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
-                  </div>
+                <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                  style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
                 </div>
-                <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
-                  <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
-                    <div
-                      class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
-                      <h2 class="text-xl font-semibold mb-2 text-shadow">Linguaggi ad alto livello</h2>
-                      <p class="font-medium text-violet-100 text-shadow mb-4">Equipaggiamento logico di un computer,
-                        costituito
-                        dai programmi che fanno svolgere al calcolatore un
-                        insieme di funzioni. Approfondimento <a class="text-gray-200" href="#software">qui</a></p>
-                    </div>
+              </div>
+              <!--Linguaggio assembly-->
+              <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-up">
+                <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                  <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                    <h2 class="text-xl font-semibold mb-2 text-shadow">Linguaggio Assembly</h2>
+                    <p class="font-medium text-violet-100 text-shadow mb-4">Equipaggiamento logico di un computer,
+                      costituito
+                      dai programmi che fanno svolgere al calcolatore un
+                      insieme di funzioni. Approfondimento <a class="text-gray-200" href="#software">qui</a></p>
+                  </div>
 
+                </div>
+                <!--Card gradient-->
+                <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                  style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+                </div>
+              </div>
+              <!--Linguaggi ad alto livello-->
+              <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-left">
+                <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+                  <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                    <h2 class="text-xl font-semibold mb-2 text-shadow">Linguaggi ad alto livello</h2>
+                    <p class="font-medium text-violet-100 text-shadow mb-4">Equipaggiamento logico di un computer,
+                      costituito
+                      dai programmi che fanno svolgere al calcolatore un
+                      insieme di funzioni. Approfondimento <a class="text-gray-200" href="#software">qui</a></p>
                   </div>
-                  <!--Card gradient-->
-                  <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
-                    style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
-                  </div>
+
+                </div>
+                <!--Card gradient-->
+                <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+                  style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    
   </main>
+
+  <footer class="text-center text-white bg-gray-800 mt-32">
+    <div class="container pt-4">
+      <section class="mb-4">
+        <!-- Mail -->
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="mailto:nicola.preda05@gmail.com"
+          role="button" data-mdb-ripple-color="dark"><i class="far fa-envelope"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://twitter.com/diskxo_" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://nicolapreda.me" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+
+        <!-- Github -->
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://github.com/diskxo" role="button"
+          data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+      </section>
+    </div>
+    <div class="text-center text-gray-100 p-3 bg-gray-900">
+      © 2021 Copyright:
+      <a class="text-gray-200" href="https://nicolapreda.me/">nicolapreda.me</a>
+    </div>
+  </footer>
 
   <!--Bootstrap JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <!--Animation library-->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+    });
+  </script>
+
+  <!--FontAwesome-->
+  <script src="https://kit.fontawesome.com/ab36464be1.js" crossorigin="anonymous"></script>
 
 </body>
 

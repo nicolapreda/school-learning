@@ -1,35 +1,43 @@
+/*Body settings*/
+body {
+  overflow-x: hidden;
+}
+
 /*Backgrounds*/
-.header
-{
-    overflow: hidden;
-    position: relative;
+.header {
+  overflow: hidden;
+  position: relative;
 }
-.background-image{
-    opacity: 0.6;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    filter: blur(2px);
+
+.background-image {
+  opacity: 0.6;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  filter: blur(2px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
 }
-.content{
-    position: relative;
+
+.content {
+  position: relative;
 }
 
 /*Footer*/
-
 .page-footer {
-    background-color: #444444;
-    margin-top: 5rem;
-  }
-  
-  .link-a {
-    text-decoration: none;
-    /*color: white!important;*/
-  }
-  
-  .social-div {
-    border: none!important;
-  }
-  
+  background-color: #444444;
+  margin-top: 5rem;
+}
+
+.link-a {
+  text-decoration: none;
+  /*color: white!important;*/
+}
+
+.social-div {
+  border: none !important;
+}/*# sourceMappingURL=index.css.map */
