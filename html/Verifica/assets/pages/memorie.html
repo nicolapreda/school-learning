@@ -5,7 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Architettura Degli Elaboratori</title>
+  <title>Memorie</title>
+  <!--Favicon-->
+  <link rel="icon" type="image/png" href="../icons/favicon.ico" />
+
+  <!--Meta Settings-->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nicolapreda-school.altervista.org/">
+  <meta property="og:title" content="Architettura Degli Elaboratori">
+  <meta property="og:image" content="./assets/images/elaboratori.jpg">
+  <meta property="og:description" content="Architettura degli elaboratori - Nicola Preda">
+  <meta property="og:locale" content="it_IT">
+
   <!--Bootstrap CSS-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -56,7 +67,7 @@
       </h1>
     </div>
 
-    
+
     <div class="container mt-5">
       <!--Memorie-->
       <div class="relative overflow-hidden">
@@ -71,8 +82,9 @@
                 <p
                   class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                   Svolge funzioni di immagazzinamento delle
-              informazioni su cui opera il processore, per esempio su dati e programmi. Vengono caricati in memoria del disco fisso il sistema operativo e i programmi (quando richiesti)
-              </p>
+                  informazioni su cui opera il processore, per esempio su dati e programmi. Vengono caricati in memoria
+                  del disco fisso il sistema operativo e i programmi (quando richiesti)
+                </p>
                 <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 </div>
               </div>
@@ -84,148 +96,152 @@
         </div>
       </div>
     </div>
-    
-      <!--Parametri della memoria-->
-      <div class="mt-16 mt-5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center">
 
-            <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
-              Parametri Della Memoria
-            </h1>
-          </div>
-
-          <div class="mt-10">
-            <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-              <div class="relative" data-aos="fade-right">
-                <dt>
-                  <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-lock"></i></div>
-
-                  </div>
-                  <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Velocità</p>
-                </dt>
-                <dd class="mt-2 ml-16 text-base text-gray-500">
-                  - Tempo di accesso
-                  tempo impiegato dal processore per accedere ad
-                  uno specifico indirizzo<br>
-                  – Velocità di trasferimento
-                  quantità di dati trasferita in un'unità di tempo,
-                  Anche chiamata ampiezza di banda e si misura
-                  in bit/sec
-                </dd>
-              </div>
-
-              <div class="relative" data-aos="fade-left">
-                <dt>
-                  <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <div class="w-6 h-6 text-center" fill="none"><i class="far fa-save"></i></div>
-                  </div>
-                  <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Modalità Di Accesso</p>
-                </dt>
-                <dd class="mt-2 ml-16 text-base text-gray-500">
-                  – In lettura<br>
-                  la possibilità di poter reperire le informazioni
-                  memorizzate
-                  <br>
-                  – In scrittura<br>
-                  la possibilità di poter modificare le informazioni
-                  memorizzate
-                </dd>
-              </div>
-
-              <div class="relative"data-aos="fade-right">
-                <dt>
-                  <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-cloud"></i></div>
-                  </div>
-                  <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Volatilità</p>
-                </dt>
-                <dd class="mt-2 ml-16 text-base text-gray-500">
-                  La possibilità di mantenere o perdere il proprio
-                  contenuto in assenza di alimentazione elettrica
-                </dd>
-              </div>
-
-              <div class="relative" data-aos="fade-left">
-                <dt>
-                  <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <div class="w-6 h-6 text-center" fill="none"><i class="far fa-save"></i></div>
-                  </div>
-                  <p class="ml-16 text-lg leading-6 font-medium text-gray-900 text-shadow">Capacità</p>
-                </dt>
-                <dd class="mt-2 ml-16 text-base text-gray-500 text-shadow">
-                  Quantità di dati che può contenere, si misura in byte.
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </div>
-
-      <!--Tipi di memorie-->
-
-      <div class="cards bg-indigo-100 p-16 mt-32">
+    <!--Parametri della memoria-->
+    <div class="mt-16 mt-5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h1 class="mt-5  text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
-            Tipi Di Memorie
+
+          <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+            data-aos="fade-up">
+            Parametri Della Memoria
           </h1>
-          <div class="grid md:grid-cols-3 gap-10 mt-5">
-            <!--RAM-->
-            <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-right">
-              <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
-                <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
-                  <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>RAM</b></h2>
-                  <p class="font-medium text-violet-100 text-shadow mb-4">Memoria ad accesso casuale,Il tempo di
-                    accesso alle sue celle è indipendente
-                    dalla loro posizione fisica. E' volatile ed è di lettura/scrittura </p>
-                </div>
+        </div>
 
-              </div>
-              <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
-                style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
-              </div>
+        <div class="mt-10">
+          <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+            <div class="relative" data-aos="fade-right">
+              <dt>
+                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-lock"></i></div>
+
+                </div>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Velocità</p>
+              </dt>
+              <dd class="mt-2 ml-16 text-base text-gray-500">
+                - <b>Tempo di accesso</b>
+                tempo impiegato dal processore per accedere ad
+                uno specifico indirizzo<br>
+                – <b>Velocità di trasferimento</b>
+                quantità di dati trasferita in un'unità di tempo,
+                Anche chiamata ampiezza di banda e si misura
+                in bit/sec
+              </dd>
             </div>
 
-            <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-up">
-              <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
-                <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
-                  <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>ROM</b></h2>
-                  <p class="font-medium text-violet-100 text-shadow mb-4">Memoria di sola lettura,
-
-                    il contenuto, una volta scritto, è inalterabile.
-                    E' Permanente, quindi
-                    se non viene alimentata non perde il suo contenuto.
-                    Contiene informazioni per eseguire particolari funzioni,
-                    come l'avvio di un computer (BIOS)
-                  </p>
+            <div class="relative" data-aos="fade-left">
+              <dt>
+                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div class="w-6 h-6 text-center" fill="none"><i class="far fa-save"></i></div>
                 </div>
-
-              </div>
-              <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
-                style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
-              </div>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Modalità Di Accesso</p>
+              </dt>
+              <dd class="mt-2 ml-16 text-base text-gray-500">
+                – <b>In lettura</b><br>
+                la possibilità di poter reperire le informazioni
+                memorizzate
+                <br>
+                – <b>In scrittura</b><br>
+                la possibilità di poter modificare le informazioni
+                memorizzate
+              </dd>
             </div>
 
-            <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-left">
-              <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
-                <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
-                  <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>cache</b></h2>
-                  <p class="font-medium text-violet-100 text-shadow mb-4">È una memoria di transito dove la CPU
-                    memorizza i
-                    dati usati più frequentemente senza doverli
-                    prelevare dalla memoria centrale che è più lenta</p>
+            <div class="relative" data-aos="fade-right">
+              <dt>
+                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-cloud"></i></div>
                 </div>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Volatilità</p>
+              </dt>
+              <dd class="mt-2 ml-16 text-base text-gray-500">
+                La possibilità di mantenere o perdere il proprio
+                contenuto in assenza di alimentazione elettrica
+              </dd>
+            </div>
 
+            <div class="relative" data-aos="fade-left">
+              <dt>
+                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div class="w-6 h-6 text-center" fill="none"><i class="far fa-save"></i></div>
+                </div>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900 text-shadow">Capacità</p>
+              </dt>
+              <dd class="mt-2 ml-16 text-base text-gray-500 text-shadow">
+                Quantità di dati che può contenere, si misura in <a href="https://it.wikipedia.org/wiki/Byte"class="text-indigo-500">byte</a>.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <!--Tipi di memorie-->
+
+    <div class="cards bg-indigo-100 p-16 mt-32">
+      <div class="text-center">
+        <h1 class="mt-5  text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+          Tipi Di Memorie
+        </h1>
+        <div class="grid md:grid-cols-3 gap-10 mt-5">
+
+          <!--RAM-->
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-right" id="ram">
+            <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+              <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>RAM</b></h2>
+                <p class="font-medium text-violet-100 text-shadow mb-4">Memoria ad accesso casuale,Il tempo di
+                  accesso alle sue celle è indipendente
+                  dalla loro posizione fisica. E' volatile ed è di lettura/scrittura </p>
               </div>
-              <!--Card gradient-->
-              <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
-                style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+              style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+            </div>
+          </div>
+
+          <!--ROM-->
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-up" id="rom">
+            <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+              <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>ROM</b></h2>
+                <p class="font-medium text-violet-100 text-shadow mb-4">Memoria di sola lettura,
+
+                  il contenuto, una volta scritto, è inalterabile.
+                  E' Permanente, quindi
+                  se non viene alimentata non perde il suo contenuto.
+                  Contiene informazioni per eseguire particolari funzioni,
+                  come l'avvio di un computer (BIOS)
+                </p>
               </div>
+
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+              style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
+            </div>
+          </div>
+
+          <!--Cache-->
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-left" id="cache">
+            <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
+              <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
+                <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>cache</b></h2>
+                <p class="font-medium text-violet-100 text-shadow mb-4">È una memoria di transito dove la CPU
+                  memorizza i
+                  dati usati più frequentemente senza doverli
+                  prelevare dalla memoria centrale che è più lenta</p>
+              </div>
+
+            </div>
+            <!--Card gradient-->
+            <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
+              style="background: rgba(0, 0, 0, 0) linear-gradient(to top, rgb(135, 94, 245), rgba(135, 94, 245, 0)) repeat scroll 0% 0%;">
             </div>
           </div>
         </div>
       </div>
+    </div>
 
     </div>
   </main>
