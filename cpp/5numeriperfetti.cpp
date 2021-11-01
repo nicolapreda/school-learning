@@ -4,24 +4,30 @@ using namespace std;
 
 int main()
 {
-    int somma = 0, current = 1;
+    long long n = 1, somma_div = 0;
 
     for (int n_perfetti = 1; n_perfetti <= 5; n_perfetti++)
     {
-        for (int numero = current; numero != somma; numero++)
+        while (n != somma_div)
         {
-            for (int divisore = 1; divisore < numero; divisore++)
+            
+            for (int i = 1; i < n; i++)
             {
-                if (numero % divisore == 0)
+                if (n % i == 0)
                 {
-                    somma += divisore;
+                    somma_div += i;
                 }
             }
-            current = numero;
+            if (n != somma_div)
+            {
+                n++;
+                somma_div = 0;
+            }
         }
+            cout << n <<" è un numero perfetto!" << endl;
+            somma_div = 0;
+            n++;
 
-        cout << somma << " è un numero perfetto" << endl;
-        somma = 0;
-        
     }
+
 }
