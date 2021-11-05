@@ -14,7 +14,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nicolapreda-school.altervista.org/">
     <meta property="og:title" content="Architettura Degli Elaboratori">
-    <meta property="og:image" content="./assets/images/elaboratori.jpg">
+    <meta property="og:image" content="../images/elaboratori.jpg">
     <meta property="og:description" content="Architettura degli elaboratori - Nicola Preda">
     <meta property="og:locale" content="it_IT">
 
@@ -25,8 +25,6 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <!--Local CSS-->
     <link href="../css/index.css" rel="stylesheet" type="text/css">
-    <!--Animations Library-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
@@ -44,6 +42,9 @@
                 <a class="nav-link text-gray-100 hover:text-gray-400" href="./cpu.html">CPU</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./motherboard.html">Scheda Madre</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-indigo-300 hover:text-indigo-600" href="#">Registri</a>
             </li>
             <li class="nav-item">
@@ -58,9 +59,9 @@
     <main class="mx-auto">
         <!--Header-->
         <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
-            <img class="background-image drop-shadow-lg" src="../images/registri1.jpg" alt="">
-            <h1 class="content tracking-tight text-gray-100 sm:p-16">
-                <div class="titles sm:text-5xl text-4xl font-extrabold" data-aos="fade-up">
+            <img class="background-image drop-shadow-lg" src="../images/registri1.webp" alt="Registri">
+            <h1 class="content tracking-tight text-gray-100 sm:p-32 p-8">
+                <div class="titles sm:text-5xl text-4xl font-extrabold" >
                     <span class="block text-center filter drop-shadow-lg tracking-normal">Registri </span>
                 </div>
             </h1>
@@ -72,7 +73,7 @@
                 <div class="max-w-7xl mx-auto">
                     <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                         <div class="mt-5 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                            <div class="sm:text-center lg:text-left" data-aos="fade-right" data-aos="fade-right">
+                            <div class="sm:text-center lg:text-left"  >
                                 <h1
                                     class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                                     <span class="block xl:inline">Registri<br></span>
@@ -82,10 +83,10 @@
                                     Per eseguire le operazioni elementari il
                                     processore utilizza delle memorie di piccole
                                     dimensioni fisicamente interne al processore, i
-                                    registri alle quali accedere in modo veloce<br>
-                                    – per trasferire i dati dalla/alla memoria,<br>
-                                    – per salvare i risultati parziali delle operazioni
-                                    aritmetiche e logiche. Sono solitamente poche decine (32-64)
+                                    registri alle quali accedere in modo veloce per trasferire i dati dalla/alla memoria e 
+                                    per salvare i risultati parziali delle operazioni
+                                    aritmetiche e logiche. Sono solitamente poche decine (32-64).<br>
+                                    <a href="https://it.wikipedia.org/wiki/Registro_(informatica)" class="text-indigo-500">Approfondimento</a>
                                 </p>
                                 <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 </div>
@@ -93,23 +94,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5" data-aos="fade-left">
-                    <img class="" src="../images/registri2.jpg" alt="">
+                <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5" >
+                    <img src="../images/registri2.webp" alt="Transistor Di Un Processore">
                 </div>
             </div>
         </div>
 
 
-        <div class="cards bg-indigo-100 p-32">
+        <div class="cards bg-indigo-100 md:p-32 p-5">
             <!--Suddivisione-->
             <div class="text-center">
                 <h1 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
-                    data-aos="fade-up">
+                    >
                     Suddiviso In:
                 </h1>
 
                 <h1 class=" mt-5 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl"
-                    data-aos="fade-up">
+                    >
                     Registri Speciali
                 </h1>
 
@@ -117,12 +118,11 @@
 
                     <!--Instruction Register-->
                     <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg"
-                        data-aos="fade-right">
+                        >
                         <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
                             <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                                 <h2 class="text-xl font-semibold mb-2 text-shadow">Instruction Register</h2>
-                                <p class="font-medium text-violet-100 text-shadow mb-4">Registro in cui viene caricata
-                                    l’istruzione da eseguire </p>
+                                <p class="font-medium text-violet-100 text-shadow mb-4">Nell'architettura dei calcolatori, il registro istruzione (spesso abbreviato in IR, in inglese instruction register) è un registro della CPU che immagazzina l'istruzione in fase di elaborazione. Ogni istruzione viene caricata dentro il registro istruzione che la deposita mentre viene decodificata, la prepara per l'esecuzione e quindi la elabora. Questo processo può necessitare di molti passaggi </p>
                             </div>
 
                         </div>
@@ -136,13 +136,11 @@
 
                     <!--Program Counter-->
                     <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg"
-                        data-aos="fade-left">
+                        >
                         <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
                             <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                                 <h2 class="text-xl font-semibold mb-2 text-shadow">Program Counter</h2>
-                                <p class="font-medium text-violet-100 text-shadow mb-4">Registro che contiene
-                                    l’indirizzo
-                                    di memoria della prossima istruzione da eseguire.</p>
+                                <p class="font-medium text-violet-100 text-shadow mb-4">il program counter (spesso abbreviato in PC e, nelle architetture prive di segmentazione, detto instruction pointer) è un registro della CPU la cui funzione è quella di conservare l'indirizzo di memoria della prossima istruzione (in linguaggio macchina) da eseguire. È un registro puntatore cioè punta a un dato che si trova in memoria all'indirizzo corrispondente al valore contenuto nel registro stesso.</p>
                             </div>
 
                         </div>
@@ -154,15 +152,15 @@
                 </div>
 
                 <h1 class=" mt-5 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl"
-                    data-aos="fade-up">
+                    >
                     Registri Generici
                 </h1>
 
-                <div class="grid md:grid-cols-1 gap-10 mt-5">
+                <div class="grid md:grid-cols-1  mt-5 md:pl-64 md:pr-64">
 
                     <!--Registri Generici-->
                     <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg"
-                        data-aos="fade-right">
+                        >
                         <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
                             <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                                 <h2 class="text-xl font-semibold mb-2 text-shadow">Registri Generici</h2>
@@ -185,40 +183,30 @@
 
     <footer class="text-center text-white bg-gray-800 mt-32">
         <div class="container pt-4">
-            <section class="mb-4">
-                <!-- Mail -->
-                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="mailto:nicola.preda05@gmail.com"
-                    role="button" data-mdb-ripple-color="dark"><i class="far fa-envelope"></i></a>
-
-                <!-- Twitter -->
-                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://twitter.com/diskxo_"
-                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
-
-                <!-- Google -->
-                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://nicolapreda.me"
-                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
-
-                <!-- Github -->
-                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://github.com/diskxo"
-                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
-            </section>
+          <section class="mb-4">
+            <!-- Mail -->
+            <a target="_blank" class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500" href="mailto:nicola.preda05@gmail.com"
+              role="button" data-mdb-ripple-color="dark"><i class="far fa-envelope"></i></a>
+    
+            <!-- Twitter -->
+            <a target="_blank" class="btn btn-link btn-floating btn-lg text-gray-200 hover:text-indigo-500 m-1" href="https://twitter.com/diskxo_" role="button"
+              data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+    
+            <!-- Google -->
+            <a target="_blank" class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500" href="https://nicolapreda.me" role="button"
+              data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+    
+            <!-- Github -->
+            <a target="_blank" class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500" href="https://github.com/diskxo" role="button"
+              data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+          </section>
         </div>
         <div class="text-center text-gray-100 p-3 bg-gray-900">
-            © 2021 Copyright:
-            <a class="text-gray-200" href="https://nicolapreda.me/">nicolapreda.me</a>
+          © 2021 Copyright:
+          <a class="text-gray-200" href="https://nicolapreda.me/">nicolapreda.me</a>
         </div>
-    </footer>
-    <!--Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <!--Animation library-->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-        });
-    </script>
+      </footer>
+    
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/ab36464be1.js" crossorigin="anonymous"></script>

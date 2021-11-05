@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nicolapreda-school.altervista.org/">
     <meta property="og:title" content="Architettura Degli Elaboratori">
-    <meta property="og:image" content="./assets/images/elaboratori.jpg">
+    <meta property="og:image" content="../images/elaboratori.jpg">
     <meta property="og:description" content="Architettura degli elaboratori - Nicola Preda">
     <meta property="og:locale" content="it_IT">
 
@@ -24,8 +24,6 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <!--Local CSS-->
     <link href="../css/index.css" rel="stylesheet" type="text/css">
-    <!--Animations Library-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
 </head>
@@ -44,6 +42,9 @@
                 <a class="nav-link text-gray-100 hover:text-gray-400" href="./cpu.html">CPU</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-gray-100 hover:text-gray-400" href="./motherboard.html">Scheda Madre</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-gray-100 hover:text-gray-400" href="./registri.html">Registri</a>
             </li>
             <li class="nav-item">
@@ -58,9 +59,9 @@
     <main class="mx-auto">
         <!--Header-->
         <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
-            <img class="background-image drop-shadow-lg" src="../images/periferiche.webp" alt="">
-            <h1 class="content tracking-tight text-gray-100 sm:p-16">
-                <div class="titles sm:text-5xl text-4xl font-extrabold" data-aos="fade-up">
+            <img class="background-image drop-shadow-lg" src="../images/periferiche.webp" alt="Esempio di periferica">
+            <h1 class="content tracking-tight text-gray-100 sm:p-32 p-16">
+                <div class="titles sm:text-5xl text-4xl font-extrabold" >
                     <span class="block text-center filter drop-shadow-lg tracking-normal">Periferiche </span>
                 </div>
             </h1>
@@ -71,28 +72,37 @@
             <div class="container mt-5">
                 <div class="text-center">
                     <div
-                        class="max-w-2xl mx-auto py-24 px-4 grid items-center gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
+                        class="max-w-2xl mx-auto py-24 px-4 grid items-center gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 ">
                         <div>
-                            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
-                                data-aos="fade-up">Composizione
-                            </h2>
-                            <p class="mt-4 text-gray-600" data-aos="fade-up">Ogni periferica è costituita da 3
-                                componenti principali sotto
-                                elencati</p>
+                            <div class="grid lg:grid-cols-2 gap-5 mt-5">
+                                <div class="image">
+                                    <img src="../images/keyboard.gif" alt="Tastiera, esempio di periferica">
 
-                            <dl class="mt-16 grid grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-16 lg:gap-x-8">
-                                <div class="border-t border-gray-300 pt-4" data-aos="fade-right">
-                                    <dt class="font-medium text-gray-900">Device</dt>
-                                    <dd class="mt-2 text-sm text-gray-500">Dispositivo fisico</dd>
+                                </div>
+                                <div class="content">
+                                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                                    >Descrizione e Composizione
+                                </h2>
+                                <p class="mt-4 text-gray-600" >La periferica è collegata agli altri componenti hardware del computer via cavo o in maniera wireless ed è controllata dal sistema operativo (SO) attraverso un driver ed un controller di periferica; essa si interfaccia in input e/o output con l'unità di elaborazione che sovrintende a tutte le funzioni del computer. Può anche avere un proprio microprocessore. <br><br>Ogni periferica è costituita da 3
+                                    componenti principali sotto
+                                    elencati</p>
+                                    
+                                </div>
+                            </div>
+                            
+                            <dl class="mt-32 grid sm:grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-16 lg:gap-x-8">
+                                <div class="border-t border-gray-300 pt-4">
+                                    <dt class="text-3xl text-gray-900">Device</dt>
+                                    <dd class="mt-2 text-sm text-gray-500">Parte fisica della periferica, che include un qualsiasi dispositivo hardware che fa parte di un sistema informatico e/o di elaborazione elettronico. Può essere di ingresso o di uscita</dd>
                                 </div>
 
-                                <div class="border-t border-gray-300 pt-4" data-aos="fade-up">
-                                    <dt class="font-medium text-gray-900">Controller</dt>
-                                    <dd class="mt-2 text-sm text-gray-500">Circuito elettronico di controllo</dd>
+                                <div class="border-t border-gray-300 pt-4" >
+                                    <dt class="text-3xl text-gray-900">Controller</dt>
+                                    <dd class="mt-2 text-sm text-gray-500">Il controller è un dispositivo elettronico di un computer, dedicato a gestire e a far accedere al bus una o più unità periferiche; possiede una propria memoria interna e una serie di registri specializzati.</dd>
                                 </div>
 
-                                <div class="border-t border-gray-300 pt-4" data-aos="fade-left">
-                                    <dt class="font-medium text-gray-900">Device Driver</dt>
+                                <div class="border-t border-gray-300 pt-4">
+                                    <dt class="text-3xl text-gray-900">Device Driver</dt>
                                     <dd class="mt-2 text-sm text-gray-500">Componente software che deve essere
                                         installata
                                         in memoria per il corretto funzionamento del
@@ -109,17 +119,17 @@
 
                 <div class="text-center">
 
-                    <div class="grid lg:grid-cols-3 gap-5 mt-5">
+                    <div class="grid lg:grid-cols-3 gap-5 mt-5 lg:p-2">
                         <!--Controller-->
                         <div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden lg:max-w-2xl"
-                            data-aos="fade-right">
+                            >
                             <div class="2xl:flex">
                                 <div class="2xl:flex-shrink-0">
-                                    <img class="h-80 w-full object-cover  2xl:w-48" src="../images/periferiche3.jpg"
-                                        alt="Man looking at item at a store">
+                                    <img class="h-80 w-full object-cover  2xl:w-48" src="../images/periferiche3.webp"
+                                        alt="Schede per il controllo delle periferiche e delle componenti (Arduino, Raspberry...)">
                                 </div>
                                 <div class="p-8">
-                                    <a href="#"
+                                    <a href="https://it.wikipedia.org/wiki/Controller_(informatica)" target="_blank"
                                         class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Controller</a>
                                     <p class="mt-2 text-gray-500">E' il circuito elettronico che opera da interfaccia
                                         tra la
@@ -134,15 +144,15 @@
                         </div>
                         <!--Driver-->
                         <div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden lg:max-w-2xl"
-                            data-aos="fade-up">
+                            >
                             <div class="2xl:flex">
                                 <div class="2xl:flex-shrink-0">
-                                    <img class="h-80 w-full object-cover  2xl:w-48" src="../images/periferiche4.jpg"
-                                        alt="Man looking at item at a store">
+                                    <img class="h-80 w-full object-cover  2xl:w-48" src="../images/periferiche4.webp"
+                                        alt="CD ROM">
                                 </div>
                                 <div class="p-8">
-                                    <a href="#"
-                                        class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Driver
+                                    <a href="https://it.wikipedia.org/wiki/Driver_di_periferica"
+                                    target="_blank"  class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Driver
                                     </a>
                                     <p class="mt-2 text-gray-500">Il driver è il programma che gestisce la periferica,
                                         ed è parte del software di sistema. Un tempo serviva un CD ROM per
@@ -154,15 +164,15 @@
                         </div>
                         <!--Porte-->
                         <div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden lg:max-w-2xl"
-                            data-aos="fade-left">
+                            >
                             <div class="2xl:flex">
                                 <div class="2xl:flex-shrink-0">
-                                    <img class="h-80 w-full object-cover  2xl:w-48" src="../images/periferiche5.jpg"
-                                        alt="Man looking at item at a store">
+                                    <img class="h-80 w-full object-cover  2xl:w-48" src="../images/periferiche5.webp"
+                                        alt="Porta USB">
                                 </div>
                                 <div class="p-8">
-                                    <a href="#"
-                                        class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Porte
+                                    <a href=https://it.wikipedia.org/wiki/Porta_(informatica)" 
+                                    target="_blank" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Porte
                                     </a>
                                     <p class="mt-2 text-gray-500">Le periferiche sono connesse fisicamente al computer
                                         attraverso opportune porte (connettori). La modalità di collegamento può essere
@@ -186,7 +196,7 @@
                             <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                                 <div
                                     class="mt-5 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                                    <div class="sm:text-center lg:text-left" data-aos="fade-right">
+                                    <div class="sm:text-center lg:text-left" >
                                         <h1
                                             class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                                             <span class="block xl:inline">Tipi Di </span>
@@ -208,8 +218,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5" data-aos="fade-left">
-                            <img class="" src="../images/periferiche1.jpg" alt="">
+                        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5">
+                            <img src="../images/periferiche1.webp" alt="Chiavetta USB Collegata">
                         </div>
                     </div>
                 </div>
@@ -218,42 +228,31 @@
 
     <footer class="text-center text-white bg-gray-800 mt-32">
         <div class="container pt-4">
-            <section class="mb-4">
-                <!-- Mail -->
-                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="mailto:nicola.preda05@gmail.com"
-                    role="button" data-mdb-ripple-color="dark"><i class="far fa-envelope"></i></a>
-
-                <!-- Twitter -->
-                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://twitter.com/diskxo_"
-                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
-
-                <!-- Google -->
-                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://nicolapreda.me"
-                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
-
-                <!-- Github -->
-                <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://github.com/diskxo"
-                    role="button" data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
-            </section>
+          <section class="mb-4">
+            <!-- Mail -->
+            <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500" href="mailto:nicola.preda05@gmail.com"
+              role="button" data-mdb-ripple-color="dark"><i class="far fa-envelope"></i></a>
+    
+            <!-- Twitter -->
+            <a class="btn btn-link btn-floating btn-lg text-gray-200 hover:text-indigo-500 m-1" href="https://twitter.com/diskxo_" role="button"
+              data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+    
+            <!-- Google -->
+            <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500" href="https://nicolapreda.me" role="button"
+              data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+    
+            <!-- Github -->
+            <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500" href="https://github.com/diskxo" role="button"
+              data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+          </section>
         </div>
         <div class="text-center text-gray-100 p-3 bg-gray-900">
-            © 2021 Copyright:
-            <a class="text-gray-200" href="https://nicolapreda.me/">nicolapreda.me</a>
+          © 2021 Copyright:
+          <a class="text-gray-200" href="https://nicolapreda.me/">nicolapreda.me</a>
         </div>
-    </footer>
-
-
-    <!--Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <!--Animation library-->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-        });
-    </script>
+      </footer>
+    
+    
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/ab36464be1.js" crossorigin="anonymous"></script>

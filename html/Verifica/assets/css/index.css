@@ -1,6 +1,31 @@
 /*Body settings*/
+@-webkit-keyframes openanimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes openanimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
+  -webkit-animation: openanimation 1s ease forwards;
+  animation: openanimation 1s ease forwards;
   overflow-x: hidden;
+}
+
+/*Navbar*/
+.nav {
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 /*Backgrounds*/
@@ -16,7 +41,8 @@ body {
   top: 0;
   width: 100%;
   height: auto;
-  filter: blur(2px);
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
   background-position: center;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -40,4 +66,5 @@ body {
 
 .social-div {
   border: none !important;
-}/*# sourceMappingURL=index.css.map */
+}
+/*# sourceMappingURL=index.css.map */

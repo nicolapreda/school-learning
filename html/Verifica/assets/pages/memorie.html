@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nicolapreda-school.altervista.org/">
   <meta property="og:title" content="Architettura Degli Elaboratori">
-  <meta property="og:image" content="./assets/images/elaboratori.jpg">
+  <meta property="og:image" content="../images/elaboratori.jpg">
   <meta property="og:description" content="Architettura degli elaboratori - Nicola Preda">
   <meta property="og:locale" content="it_IT">
 
@@ -24,8 +24,6 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <!--Local CSS-->
   <link href="../css/index.css" rel="stylesheet" type="text/css">
-  <!--Animations Library-->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
@@ -43,6 +41,10 @@
         <a class="nav-link text-gray-100 hover:text-gray-400" href="./cpu.html">CPU</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link text-gray-100 hover:text-gray-400" href="./motherboard.html">Scheda Madre</a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link text-gray-100 hover:text-gray-400" href="./registri.html">Registri</a>
       </li>
       <li class="nav-item">
@@ -57,12 +59,11 @@
   <main class="mx-auto">
     <!--Header-->
     <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
-      <img class="background-image drop-shadow-lg" src="../images/memorie.jpg" alt="">
-      <h1 class="content tracking-tight text-gray-100 sm:p-16">
-        <div class="titles sm:text-5xl text-4xl font-extrabold" data-aos="fade-up">
-          <span class="block text-center filter drop-shadow-lg tracking-normal">Tipi Di </span>
-          <span class="mt-2 block text-indigo-500 text-center filter drop-shadow-lg tracking-normal">Memorie
-          </span>
+      <img class="background-image drop-shadow-lg" src="../images/memorie.webp" alt="Tipi di memorie">
+      <h1 class="content tracking-tight text-gray-100 sm:p-32 p-16">
+        <div class="titles sm:text-5xl text-4xl font-extrabold" >
+          <span class="block text-center filter drop-shadow-lg tracking-normal">Tipi Di<br>Memorie</span>
+
         </div>
       </h1>
     </div>
@@ -74,7 +75,7 @@
         <div class="max-w-7xl mx-auto">
           <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <div class="mt-5 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div class="sm:text-center lg:text-left" data-aos="fade-right">
+              <div class="sm:text-center lg:text-left" >
                 <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                   <span class="block xl:inline">Memoria </span>
                   <span class="block text-indigo-600 xl:inline">Centrale</span>
@@ -91,8 +92,8 @@
             </div>
           </div>
         </div>
-        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5" data-aos="fade-left">
-          <img class="" src="../images/memorie.jpg" alt="">
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5" >
+          <img src="../images/memorie.webp" alt="Memoria Centrale">
         </div>
       </div>
     </div>
@@ -103,17 +104,17 @@
         <div class="text-center">
 
           <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
-            data-aos="fade-up">
+            >
             Parametri Della Memoria
           </h1>
         </div>
 
         <div class="mt-10">
           <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-            <div class="relative" data-aos="fade-right">
+            <div class="relative" >
               <dt>
                 <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                  <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-lock"></i></div>
+                  <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-bolt"></i></div>
 
                 </div>
                 <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Velocità</p>
@@ -129,10 +130,10 @@
               </dd>
             </div>
 
-            <div class="relative" data-aos="fade-left">
+            <div class="relative" >
               <dt>
                 <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                  <div class="w-6 h-6 text-center" fill="none"><i class="far fa-save"></i></div>
+                  <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-lock"></i></div>
                 </div>
                 <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Modalità Di Accesso</p>
               </dt>
@@ -147,7 +148,7 @@
               </dd>
             </div>
 
-            <div class="relative" data-aos="fade-right">
+            <div class="relative" >
               <dt>
                 <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                   <div class="w-6 h-6 text-center" fill="none"><i class="fas fa-cloud"></i></div>
@@ -160,7 +161,7 @@
               </dd>
             </div>
 
-            <div class="relative" data-aos="fade-left">
+            <div class="relative" >
               <dt>
                 <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                   <div class="w-6 h-6 text-center" fill="none"><i class="far fa-save"></i></div>
@@ -168,7 +169,8 @@
                 <p class="ml-16 text-lg leading-6 font-medium text-gray-900 text-shadow">Capacità</p>
               </dt>
               <dd class="mt-2 ml-16 text-base text-gray-500 text-shadow">
-                Quantità di dati che può contenere, si misura in <a  target="_blank" href="https://it.wikipedia.org/wiki/Byte"class="text-indigo-500">byte</a>.
+                Quantità di dati che può contenere, si misura in <a target="_blank"
+                  href="https://it.wikipedia.org/wiki/Byte" class="text-indigo-500" target="_blank">byte</a>.
               </dd>
             </div>
           </dl>
@@ -180,13 +182,14 @@
 
     <div class="cards bg-indigo-100 p-16 mt-32">
       <div class="text-center">
-        <h1 class="mt-5  text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+        <h1 class="mt-5  text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" >
           Tipi Di Memorie
         </h1>
         <div class="grid md:grid-cols-3 gap-10 mt-5">
 
           <!--RAM-->
-          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-right" id="ram">
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" 
+            id="ram">
             <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
               <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                 <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>RAM</b></h2>
@@ -202,7 +205,8 @@
           </div>
 
           <!--ROM-->
-          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-up" id="rom">
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" 
+            id="rom">
             <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
               <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                 <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>ROM</b></h2>
@@ -223,7 +227,8 @@
           </div>
 
           <!--Cache-->
-          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-left" id="cache">
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" 
+            id="cache">
             <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
               <div class="sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                 <h2 class="text-xl font-semibold mb-2 text-shadow">Memoria <b>cache</b></h2>
@@ -250,38 +255,29 @@
     <div class="container pt-4">
       <section class="mb-4">
         <!-- Mail -->
-        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="mailto:nicola.preda05@gmail.com"
-          role="button" data-mdb-ripple-color="dark"><i class="far fa-envelope"></i></a>
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500"
+          href="mailto:nicola.preda05@gmail.com" target="_blank" role="button" data-mdb-ripple-color="dark"><i
+            class="far fa-envelope"></i></a>
 
         <!-- Twitter -->
-        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://twitter.com/diskxo_" role="button"
-          data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 hover:text-indigo-500 m-1"
+          href="https://twitter.com/diskxo_" target="_blank" role="button" data-mdb-ripple-color="dark"><i
+            class="fab fa-twitter"></i></a>
 
         <!-- Google -->
-        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://nicolapreda.me" role="button"
-          data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500"
+          href="https://nicolapreda.me" target="_blank" role="button" data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
 
         <!-- Github -->
-        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://github.com/diskxo" role="button"
-          data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500"
+          href="https://github.com/diskxo" target="_blank" role="button" data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
       </section>
     </div>
     <div class="text-center text-gray-100 p-3 bg-gray-900">
       © 2021 Copyright:
-      <a class="text-gray-200" href="https://nicolapreda.me/">nicolapreda.me</a>
+      <a class="text-gray-200" target="_blank" href="https://nicolapreda.me/">nicolapreda.me</a>
     </div>
   </footer>
-  <!--Bootstrap JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-  <!--Animation library-->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-    });
-  </script>
 
   <!--FontAwesome-->
   <script src="https://kit.fontawesome.com/ab36464be1.js" crossorigin="anonymous"></script>

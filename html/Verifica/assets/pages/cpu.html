@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nicolapreda-school.altervista.org/">
   <meta property="og:title" content="Architettura Degli Elaboratori">
-  <meta property="og:image" content="./assets/images/elaboratori.jpg">
+  <meta property="og:image" content="../images/elaboratori.jpg">
   <meta property="og:description" content="Architettura degli elaboratori - Nicola Preda">
   <meta property="og:locale" content="it_IT">
 
@@ -24,8 +24,6 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <!--Local CSS-->
   <link href="../css/index.css" rel="stylesheet" type="text/css">
-  <!--Animations Library-->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
@@ -43,6 +41,9 @@
         <a class="nav-link text-indigo-300 hover:text-indigo-600" href="#">CPU</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link text-gray-100 hover:text-gray-400" href="./motherboard.html">Scheda Madre</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-gray-100 hover:text-gray-400" href="./registri.html">Registri</a>
       </li>
       <li class="nav-item">
@@ -52,17 +53,15 @@
         <a class="nav-link text-gray-100 hover:text-gray-400" href="./periferiche.html">Periferiche</a>
       </li>
     </ul>
-
   </div>
+
   <main class="mx-auto">
     <!--Header-->
     <div class="header bg-gray-100 p-5" style="background-color: rgb(155, 155, 155);">
-      <img class="background-image drop-shadow-lg" src="../images/cpu.jpg" alt="">
+      <img class="background-image drop-shadow-lg" src="../images/cpu.webp" alt="">
       <h1 class="content tracking-tight text-gray-100 sm:p-16">
-        <div class="titles sm:text-5xl text-4xl font-extrabold" data-aos="fade-up">
-          <span class="block text-center filter drop-shadow-lg tracking-normal">Unità Di </span>
-          <span class="mt-2 block text-indigo-500 text-center filter drop-shadow-lg tracking-normal">Elaborazione
-            Centrale</span>
+        <div class="titles sm:text-5xl text-4xl font-extrabold" >
+          <span class="block text-center filter drop-shadow-lg tracking-normal">Unità Di<br>Elaborazione Centrale</span>
         </div>
       </h1>
     </div>
@@ -75,16 +74,21 @@
         <div class="max-w-7xl mx-auto">
           <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <div class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div class="sm:text-center lg:text-left" data-aos="fade-right" data-aos="fade-right">
+              <div class="sm:text-center lg:text-left"  >
                 <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                   <span class="block xl:inline">Processore o<br></span>
                   <span class="block text-indigo-600 xl:inline">CPU</span>
                 </h1>
                 <p
                   class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  E' il nucleo di tutto il sistema di elaborazione.
-                  Ha il compito di eseguire le istruzioni, effettuare calcoli aritmetici e logici e controllare e
-                  coordinare tutto il sistema.
+                  E' l'unità o sottosistema logico e fisico che sovraintende alle funzionalità logiche di elaborazione
+                  principali del computer.<br>Attualmente la CPU è implementata attraverso un microprocessore digitale
+                  general purpose, basato tipicamente su un'architettura a registri generali.
+
+                  La CPU ha dunque il compito di eseguire le istruzioni di un programma presente nella ROM in fase di
+                  boot, nella memoria centrale (o primaria, es. RAM) dopo averlo prelevato dalla memoria secondaria (o
+                  di massa) o da altri dispositivi.
+                  <br><a href="https://it.wikipedia.org/wiki/CPU" class="text-indigo-500"target="_blank">Scopri di più</a>
                 </p>
                 <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 </div>
@@ -92,28 +96,32 @@
             </div>
           </div>
         </div>
-        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5" data-aos="fade-left">
-          <img class="" src="../images/cpu.jpg" alt="">
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5 lg:mt-24" >
+          <img class="" src="../images/cpu.webp" alt="">
         </div>
       </div>
     </div>
 
 
 
-    <div class="cards bg-indigo-100 p-32">
+    <div class="cards bg-indigo-100 py-12 mt-5 p-5">
       <div class="text-center">
-        <h1 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">
+        <h1 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" >
           Suddiviso In
         </h1>
 
         <!--CU-->
+
         <div class="grid md:grid-cols-3 gap-10 mt-5">
-          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-right">
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" >
             <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
               <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                 <h2 class="text-xl font-semibold mb-2 text-shadow">Unità Di Controllo <b>(CU)</b></h2>
-                <p class="font-medium text-violet-100 text-shadow mb-4">Controlla il funzionamento dell'intero
-                  sistema</p>
+                <p class="font-medium text-violet-100 text-shadow mb-4">E' un componente delle CPU che ha il compito di
+                  coordinare tutte le azioni necessarie per l'esecuzione di una istruzione e di insiemi di istruzioni. È
+                  il componente che dà la possibilità al microprocessore di eseguire istruzioni diverse. Le azioni che
+                  coordinano i vari settori della CPU (la ALU, i registri, il Write-Back) vengono dette micro-operazioni
+                  o micro-istruzioni. Un insieme di micro-istruzioni viene detto micro-programma. </p>
               </div>
 
             </div>
@@ -124,12 +132,15 @@
           </div>
 
           <!--ALU-->
-          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-up">
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" >
             <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
               <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                 <h2 class="text-xl font-semibold mb-2 text-shadow">Unità Aritmetico Logica <b>(ALU)</b></h2>
-                <p class="font-medium text-violet-100 text-shadow mb-4">Esegue tutte le operazioni aritmetiche e
-                  logiche</p>
+                <p class="font-medium text-violet-100 text-shadow mb-4">Una unità aritmetica e logica o unità
+                  aritmetico-logica, in informatica, è una tipologia particolare di processore digitale che si
+                  contraddistingue per essere preposta all'esecuzione di operazioni aritmetiche o logiche.
+                  Esegue infatti tutte le operazioni aritmetiche e
+                  logiche del processore.</p>
               </div>
             </div>
             <div class="absolute bottom-0 left-0 right-0 h-20 hidden sm:block"
@@ -138,12 +149,20 @@
           </div>
 
           <!--Registri-->
-          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" data-aos="fade-left">
+          <div class="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg" >
             <div class="w-full flex md:flex-col bg-gradient-to-br from-purple-500 to-indigo-500">
               <div class=" sm:flex-none md:w-auto md:flex-auto flex flex-col relative z-10 p-6 xl:p-8">
                 <h2 class="text-xl font-semibold mb-2 text-shadow">Registri</h2>
-                <p class="font-medium text-violet-100 text-shadow mb-4">Piccole memorie velocissime che contengono
-                  informazioni utili per l'esecuzione di un'istruzione</p>
+                <p class="font-medium text-violet-100 text-shadow mb-4">Per eseguire le operazioni elementari il
+                  processore utilizza delle memorie di piccole
+                  dimensioni fisicamente interne al processore, <a href="./registri.html"target="_blank" class="text-indigo-100">i
+                    registri</a>,
+                  alle quali accedere in modo veloce
+                  per trasferire i dati dalla/alla memoria e
+                  per salvare i risultati parziali delle operazioni
+                  aritmetiche e logiche.
+
+                  Sono solitamente poche decine (32-64)</p>
               </div>
 
             </div>
@@ -163,15 +182,15 @@
       <div
         class="max-w-2xl mx-auto py-24 px-4 grid items-center gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
         <div>
-          <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up">Funzionamento
+          <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl" >Funzionamento
           </h2>
-          <p class="mt-4 text-gray-600" data-aos="fade-up">L'esecuzione di un programma richiede
+          <p class="mt-4 text-gray-600" >L'esecuzione di un programma richiede
             – Caricamento del programma in memoria centrale
             – Per ogni istruzione del programma, l'esecuzione di
             tre operazioni</p>
 
-          <dl class="mt-16 grid grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-16 lg:gap-x-8">
-            <div class="border-t border-gray-200 pt-4" data-aos="fade-right">
+          <dl class="mt-16 grid md:grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-16 lg:gap-x-8">
+            <div class="border-t border-gray-200 pt-4" >
               <dt class="font-medium text-gray-900">Fetch</dt>
               <dd class="mt-2 text-sm text-gray-500">Preleva, dalla locazione di memoria il
                 cui indirizzo è specificato nel Program Counter,
@@ -179,12 +198,12 @@
                 Istruzione</dd>
             </div>
 
-            <div class="border-t border-gray-200 pt-4" data-aos="fade-up">
+            <div class="border-t border-gray-200 pt-4" >
               <dt class="font-medium text-gray-900">Decode</dt>
               <dd class="mt-2 text-sm text-gray-500">Decodifica l’istruzione da eseguire</dd>
             </div>
 
-            <div class="border-t border-gray-200 pt-4" data-aos="fade-left">
+            <div class="border-t border-gray-200 pt-4" >
               <dt class="font-medium text-gray-900">Execute</dt>
               <dd class="mt-2 text-sm text-gray-500">Esegue le operazioni corrispondenti
                 all’istruzione</dd>
@@ -199,16 +218,15 @@
     <div class="cards mt-16 ">
       <div class="text-center">
 
-        <div class="grid lg:grid-cols-2 gap-10 mt-5">
+        <div class="grid lg:grid-cols-2 gap-10 mt-5 p-5">
           <div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden lg:max-w-2xl"
-            data-aos="fade-right">
+            >
             <div class="lg:flex">
               <div class="lg:flex-shrink-0">
-                <img class="h-72 w-full object-cover  lg:w-48" src="../images/cpu1.jpg"
-                  alt="Man looking at item at a store">
+                <img class="h-72 w-full object-cover  lg:w-48" src="../images/cpu1.webp" alt="Clock di un processore">
               </div>
               <div class="p-8">
-                <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Clock</a>
+                <a href="https://it.wikipedia.org/wiki/Clock"target="_blank" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Clock</a>
                 <p class="mt-2 text-gray-500">Regola il funzionamento del processore: ad intervalli regolari viene
                   inviato un segnale, detto impulso di clock, durante il quale il
                   microprocessore svolge un'operazione elementare. <br> La durata di un ciclo di clock oggi è inferiore
@@ -216,14 +234,13 @@
               </div>
             </div>
           </div>
-          <div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden lg:max-w-2xl" data-aos="fade-left">
+          <div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg overflow-hidden lg:max-w-2xl" >
             <div class="lg:flex">
               <div class="lg:flex-shrink-0">
-                <img class="h-72 w-full object-cover  lg:w-48" src="../images/cpu2.jpg"
-                  alt="Man looking at item at a store">
+                <img class="h-72 w-full object-cover  lg:w-48" src="../images/cpu2.webp" alt="Transistor della CPU">
               </div>
               <div class="p-8">
-                <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Frequenza Di
+                <a href="https://it.wikipedia.org/wiki/Clock"target="_blank" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Frequenza Di
                   Clock</a>
                 <p class="mt-2 text-gray-500">È uno dei parametri caratteristici di un
                   processore, infatti è indice della velocità.
@@ -244,38 +261,34 @@
     <div class="container pt-4">
       <section class="mb-4">
         <!-- Mail -->
-        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="mailto:nicola.preda05@gmail.com"
-          role="button" data-mdb-ripple-color="dark"><i class="far fa-envelope"></i></a>
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500"
+          href="mailto:nicola.preda05@gmail.com" target="_blank" role="button" data-mdb-ripple-color="dark"><i
+            class="far fa-envelope"></i></a>
 
         <!-- Twitter -->
-        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://twitter.com/diskxo_" role="button"
-          data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 hover:text-indigo-500 m-1"
+          href="https://twitter.com/diskxo_" target="_blank" role="button" data-mdb-ripple-color="dark"><i
+            class="fab fa-twitter"></i></a>
 
         <!-- Google -->
-        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://nicolapreda.me" role="button"
-          data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500"
+          href="https://nicolapreda.me" target="_blank" role="button" data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
 
         <!-- Github -->
-        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1" href="https://github.com/diskxo" role="button"
-          data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+        <a class="btn btn-link btn-floating btn-lg text-gray-200 m-1 hover:text-indigo-500"
+          href="https://github.com/diskxo"target="_blank"  role="button" data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
       </section>
     </div>
     <div class="text-center text-gray-100 p-3 bg-gray-900">
       © 2021 Copyright:
-      <a class="text-gray-200" href="https://nicolapreda.me/">nicolapreda.me</a>
+      <a class="text-gray-200" target="_blank" href="https://nicolapreda.me/">nicolapreda.me</a>
     </div>
   </footer>
+
   <!--Bootstrap JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-  <!--Animation library-->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-    });
-  </script>
 
   <!--FontAwesome-->
   <script src="https://kit.fontawesome.com/ab36464be1.js" crossorigin="anonymous"></script>
