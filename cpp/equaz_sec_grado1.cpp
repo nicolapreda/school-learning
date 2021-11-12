@@ -26,7 +26,7 @@ int main()
 
     if (delta > 0)
     {
-        x1 = (-b + sqrt(delta)) / (2 * a);
+        x1 = (-b + abs(delta)) / (2 * a);
         x2 = (-b - sqrt(delta)) / (2 * a);
         cout << "x1= " << x1 << endl;
         cout << "x2= " << x2 << endl;

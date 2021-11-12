@@ -16,5 +16,5 @@ int main(){
         }
         
     }
-    cout<<"Il massimo comun divisore è: "<<max_divisore<<endl;
+    cout<<"Il minimo comune multiplo è: "<<max_divisore<<endl;
 }
