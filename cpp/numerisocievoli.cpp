@@ -1,26 +1,45 @@
+/*
+    Autore: Nicola Preda
+    Data: 12/11/21
+    Classe: 3 ID
+    Funzionamento: programma che calcola se n numeri in input sono socievoli. 
+
+*/
+
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
 int main()
 {
-    int valori, n, somma_precedente = 0;
+    int valori, n, first, somma_precedente = 0;
     bool socievoli = true;
-    cout << "Inserisci il numero di valori che vuoi inserire: \n";
-    cin >> valori;
+    do
+    {
+        cout << "Inserisci il numero di valori che vuoi inserire(minimo due): \n";
+        cin >> valori;
+
+    } while (valori < 2);
+
     for (int c = 0; c < valori; c++)
     {
         cout << "Inserisci un numero\n";
         cin >> n;
 
-        if (somma_precedente != n)
+        if (c == 0)
         {
-            socievoli = false;
+            first = n;
+        }
+        else
+        {
+            if (somma_precedente != n)
+            {
+                socievoli = false;
+            }
         }
         somma_precedente = 0;
-        
-        for (int d = 1; d <= n; d++)
+
+        for (int d = 1; d < n; d++)
         {
             if (n % d == 0)
             {
@@ -28,6 +47,11 @@ int main()
             }
         }
     }
+    if (somma_precedente == first)
+    {
+        socievoli = true;
+    }
+
     if (socievoli == true)
     {
         cout << "I numeri da te inseriti sono socievoli!\n";
