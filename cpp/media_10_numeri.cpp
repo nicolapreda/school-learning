@@ -32,4 +32,4 @@ int main()
     cout<<"Somma: "<<somma<<endl;
     media = somma / 10;
     cout<<"Media: "<<media<<endl;
-}
+    }
