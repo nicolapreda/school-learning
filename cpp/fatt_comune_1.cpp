@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int x, y;
+    int x, y, min_divisore = 0;
 
     do
     {
@@ -18,5 +18,13 @@ int main()
         cin >> y;
     } while (y <= 0);
 
+    for(int i = 2; min_divisore != i; i++){
+        if (x%i == 0 && y%i == 0)
+        {
+            min_divisore = i;
+        }
+        
+    }
+    cout<<min_divisore<<endl;
     
 }
