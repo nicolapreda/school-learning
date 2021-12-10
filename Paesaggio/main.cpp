@@ -40,10 +40,14 @@ int main(){
 	setlinestyle(0,0,4); // Spessore linea
 	
 	line(0,linea_orizzonte,getmaxx(),linea_orizzonte);
-	
-	/*Set cielo*/
+	/*Set terra*/
 	setfillstyle(1,cielo_giorno);
 	floodfill(0, 0,terreno);
+	
+	/*Set cielo*/
+	setfillstyle(1,porta);
+	floodfill(getmaxx(), getmaxy(),terreno);
+	
 	//Set Sole
 	int x_sole = rand() % 900 + 50;
 	int y_sole = getmaxy() - linea_orizzonte - 300;
@@ -58,20 +62,22 @@ int main(){
 	int n_nuvole = rand() % 5 + 1;
 	for(int c = 0; c < n_nuvole; c++){
 		int xnuvola = rand() % 1500 + 50;
-		int ynuvola = rand() % linea_orizzonte;
-		circle (xnuvola, ynuvola,rand() % 60 + 10);
+		int ynuvola = rand() % (linea_orizzonte - 20);
+		int stangle = 0, endangle = 360;
+		int xradius = rand() % 75 + 25, yradius = rand() % 30 + 20;
+		ellipse(xnuvola, xnuvola, stangle, endangle, xradius, yradius);
 		setfillstyle(1,nuvole);
-    	floodfill(xnuvola , ynuvola, nuvole);
-    	
-		circle (xnuvola + 30, ynuvola + 30,rand() % 60 + 10);
+		floodfill(xnuvola , xnuvola,nuvole);
+		
+		ellipse(xnuvola +30, ynuvola + 50, stangle, endangle, xradius, yradius);
 		setfillstyle(1,nuvole);
-    	floodfill(xnuvola + 30 , ynuvola + 30, nuvole);
+		floodfill(xnuvola +30 , ynuvola + 50,nuvole);
 	}
 			
 	//Casa
 	setcolor(casa);
 	int x_casa = rand() % 1500 + 50;
-	int h_casa = rand() % 300 + 50;
+	int h_casa = rand() % 250 + 120;
 	int l_casa = rand() % 500 + 200;
 	
 	rectangle(x_casa, linea_orizzonte - h_casa, x_casa + l_casa,linea_orizzonte);
@@ -113,6 +119,7 @@ int main(){
 		//Set arco erba
 		arc(x_erba, y_erba, x_erba, y_erba + lunghezza_erba, 2);
 	}
+	
 	//Albero
 	setcolor(COLOR(108,54,0));
     int xtronco=rand()%getmaxx();
