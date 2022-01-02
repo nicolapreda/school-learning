@@ -1,0 +1,24 @@
+Creare l'applicazione grafica c++ che
+permetta all'utente di giocare a mastermind
+nel seguente modo:
+1) il giocatore sceglie la modalità di gioco
+        - la sequenza è composta da 4, 5 o 6 colori
+        - i colori possibili vanno da 4 a 10
+        - nella sequenza i colori possono essere
+                ripetuti o NON RIPETUTI
+        - nella modalità facile si indica quali palline
+                sono corrette o hanno un colore corretto
+2) il giocatore ha 10 tentativi per indovinare
+        e deve poter visualizzare sempre i tentativi
+        e le risposte precedenti\
+
+GENREA LA SEQUENZA CASUALE
+GENERA LA SEQUENZA CASUALE NON RIPETUTA
+CONTROLLO DEI CORRETTI
+CONTROLLO DEI CORRETTI CON LA LORO POSIZIONE
+CONTROLLO DEI COLORI CORRETTI NELLA POSIZIONE ERRATA
+CONTROLLO DEI COLORI CORRETTI NELLA POSIZIONE ERRATA CON LA LORO POSIZIONE
+CICLO PER I 10 TENTATIVI
+CONTROLLO DELLA VINCITA
+CONTROLLO DELLA PERDITA
+INTERFACCIA GRAFICA

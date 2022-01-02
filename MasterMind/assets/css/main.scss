@@ -1,0 +1,29 @@
+.fullboard{
+    border: 5px solid black;
+    background-color: black;
+    height: 805px;
+    width: 400px;
+}
+
+.board{
+    display: grid;
+    width: 292px;
+    height: 100%;
+    float: left;
+}
+.pegs{
+    display: grid;
+    height: 100%;
+    width: 20%;
+
+    float: right;
+    margin-top: 0px;
+
+}
+
+.colorBoard{
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(3, 100px);
+    
+}
