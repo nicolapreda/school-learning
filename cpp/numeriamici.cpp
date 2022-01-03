@@ -28,9 +28,9 @@ int main()
     if (somma_1 == n_2 && somma_2 == n_1)
     {
         cout<<"I numeri sono amici\n";
-        return 0;
+        
     }else{
         cout<<"I numeri non sono amici\n";
     }
-
+    return 0;
 }

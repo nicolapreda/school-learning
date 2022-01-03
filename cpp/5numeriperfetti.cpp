@@ -11,7 +11,7 @@ int main()
         while (n != somma_div)
         {
             
-            for (int i = 1; i < n; i++)
+            for (long long i = 1; i < n; i++)
             {
                 if (n % i == 0)
                 {
@@ -29,5 +29,6 @@ int main()
             n++;
 
     }
+    return 0;
 
 }
