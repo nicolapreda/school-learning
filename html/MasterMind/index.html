@@ -25,41 +25,39 @@
             <div class="d-flex justify-content-center">
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input" type="checkbox" value="" id="RepeatedColors" onclick="CheckRepeatedColors()"> 
                     <label class="form-check-label" for="flexCheckDefault">
                         Colori Ripetuti nella sequenza generata
                     </label>
                 </div>
             </div>
-            <select class="custom-select mt-3" id="lSequence">
+
+            <select class="custom-select mt-3" id="nSequence">
                 <option selected>Seleziona la sequenza</option>
                 <option value="4">Quattro Colori</option>
                 <option value="5">Cinque Colori</option>
                 <option value="6">Sei Colori</option>
             </select>
-            <select class="custom-select mt-3">
+            <select class="custom-select mt-3" id="nColors">
                 <option selected>Seleziona il numero possibile di colori</option>
-                <option value="1">Quattro Colori</option>
-                <option value="2">Cinque Colori</option>
-                <option value="3">Sei Colori</option>
-                <option value="3">Sette Colori</option>
-                <option value="3">Otto Colori</option>
-                <option value="3">Nove Colori</option>
-                <option value="3">Dieci Colori</option>
+                <option value="4">Quattro Colori</option>
+                <option value="5">Cinque Colori</option>
+                <option value="6">Sei Colori</option>
+                <option value="7">Sette Colori</option>
+                <option value="8">Otto Colori</option>
+                <option value="9">Nove Colori</option>
+                <option value="10">Dieci Colori</option>
             </select>
-
 
         </div>
     </div>
 
     <div class="container">
         <div class="content">
-            <div class="heading d-flex justify-content-center mb-4">
-                <button type="button" class="btn btn-secondary btn-lg btn-block">Inizia il giuoco</button>
-            </div>
             <div class="heading d-flex justify-content-center mb-5">
-                <button type="button" class="btn btn-secondary btn-lg btn-block">Ferma il giuoco</button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block" id="start">Inizia il giuoco</button>
             </div>
+            
             <div class="row">
 
                 <div class="col-6">
