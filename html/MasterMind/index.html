@@ -6,30 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mastermind</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <!--Game scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="assets/js/app.js"></script>
+
+    <!--Insert favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
 </head>
 
 <body>
-    <div class="header">
-        <div class="heading d-flex justify-content-center m-5">
-            <h1>Mastermind</h1>
-        </div>
-    </div>
+
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light mb-5">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/pngwing.com.png" width="30" height="30" class="d-inline-block align-top"
+                alt="Mastermind">
+            Mastermind
+        </a>
+    </nav>
+
     <div class="container">
         <div class="options">
             <h1 class="d-flex justify-content-center mb-5">Opzioni</h1>
             <div class="d-flex justify-content-center">
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="RepeatedColors" onclick="CheckRepeatedColors()">
+                    <input class="form-check-input" type="checkbox" value="" id="RepeatedColors"
+                        onclick="CheckRepeatedColors()">
                     <label class="form-check-label" for="flexCheckDefault">
                         Colori Ripetuti nella sequenza generata
                     </label>
                 </div>
             </div>
+
+            <select class="custom-select mt-3" id="modeType">
+                <option selected>Modalità</option>
+                <option value="easy">Facile</option>
+                <option value="normal">Normale</option>
+                <option value="difficult">Difficile</option>
+            </select>
 
             <select class="custom-select mt-3" id="nSequence">
                 <option selected>Seleziona la sequenza</option>
@@ -37,6 +60,7 @@
                 <option value="5">Cinque Colori</option>
                 <option value="6">Sei Colori</option>
             </select>
+
             <select class="custom-select mt-3" id="nColors">
                 <option selected>Seleziona il numero possibile di colori</option>
                 <option value="4">Quattro Colori</option>
@@ -51,370 +75,29 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="content">
             <div class="heading d-flex justify-content-center mb-5">
                 <button type="button" class="btn btn-secondary btn-lg btn-block" id="start">Inizia il giuoco</button>
             </div>
 
-            <div class="row">
+            <div class="row" id="gameContainer" style="display: none;">
 
-                <div class="col-6">
-                    <div class="game">
-
-
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="d-flex m-3">
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-
-                            <div class="square square-lg m-2">
-                                <button class="w-h-100 socket">
-                            </div>
-                            <div class="roundresult">
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="square square-lg mr-1">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                    <div class="square square-lg">
-                                        <button class="w-h-100 socketresult" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-7">
+                    <div class="game" id="gameContent">
+                        <div class="d-flex m-3" id="slot1"></div><hr />
+                        <div class="d-flex m-3" id="slot2"></div><hr />
+                        <div class="d-flex m-3" id="slot3"></div><hr />
+                        <div class="d-flex m-3" id="slot4"></div><hr />
+                        <div class="d-flex m-3" id="slot5"></div><hr />
+                        <div class="d-flex m-3" id="slot6"></div><hr />
+                        <div class="d-flex m-3" id="slot7"></div><hr />
+                        <div class="d-flex m-3" id="slot8"></div><hr />
+                        <div class="d-flex m-3" id="slot9"></div><hr />
+                        <div class="d-flex m-3" id="slot10"></div><hr />
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                     <div class="d-flex">
                         <div class="square square-lg m-2">
                             <button class="w-h-100 color" style="background-color: blue">
@@ -435,6 +118,8 @@
 
                     </div>
                     <div class="d-flex">
+                        <div class="currentColor"></div> 
+
                         <div class="square square-lg m-2">
                             <button class="w-h-100 color" style="background-color: white">
                         </div>
@@ -453,11 +138,11 @@
 
                     </div>
                     <div class="d-flex">
-                        <button type="button" class="btn btn-light">Invia Sequenza</button>
-                            </div>
-                        </div>
+                        <button type="button" class="btn btn-light" id="submit">Invia Sequenza</button>
                     </div>
                 </div>
+            </div>
+        </div>
 
 </body>
 
