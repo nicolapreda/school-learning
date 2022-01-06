@@ -78,15 +78,29 @@ $(document).ready(function () {
       code[i] = possibleColors[Math.floor(Math.random() * 6)];
     }
     console.log(code);
+    
 
     //Insert sockets into the interface
     for (var i = 1; i <= 10; i++) {
       for (var s = 1; s <= parseInt(nSequence.value); s++) {
-
+        //
         document.getElementById('slot' + i).insertAdjacentHTML('afterbegin', '<div class="square square-lg m-2"><button class="w-h-100 socket" id="socket' + s + '"></div>');
       }
-      //Insert Socket results
-      document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="roundresult"><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div><div class="square square-lg"><button class="w-h-100 socketresult" disabled></div></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div><div class="square square-lg"><button class="w-h-100 socketresult" disabled></div></div></div>');
+
+      document.getElementById('slot' + i).insertAdjacentHTML('afterbegin','<div class="roundresult">');
+      for (var s = 0; s < parseInt(nSequence.value); s++) {
+        if(s % 2 == 0){
+        //Insert Socket results
+        document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div>');
+
+        }
+        else{
+          document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div></div>');
+
+        }
+
+      }
+
     }
     
     //change the current color when the user clicks on the color board
