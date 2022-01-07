@@ -1,6 +1,8 @@
 $(document).ready(function () {
   //Array  with possible colors
   var possibleColors = ["blue", "green", "red", "yellow", "orange", "pink", "white", "black", "brown", "lightgreen"];
+  var currentColor = "white";
+  
   let typeMode = document.getElementById("modeType");
   let checkBoxSequence = document.getElementById("nSequence");
   checkBoxSequence.addEventListener("change", function () {
@@ -45,10 +47,6 @@ $(document).ready(function () {
 
 
 
-
-    //let gameContent = document.getElementById('gameContainer');
-    //gameContent.style.display = 'initial';
-
     //Set the colors
 
     let colors = ["rgb(0, 0, 255)", // Blue
@@ -71,14 +69,6 @@ $(document).ready(function () {
         document.getElementById('colorsContent2').insertAdjacentHTML('beforeend', '<div class="square square-lg m-2"><button class="w-h-100 color" style="background-color:' + colors[c] + '" id="' + colors[c] + '"></div>');
       }
     };
-
-    //Set sequence code
-    let code = [];
-    for (let i = 0; i < parseInt(nSequence.value); i++) {
-      code[i] = possibleColors[Math.floor(Math.random() * 6)];
-    }
-    console.log(code);
-    
 
     //Insert sockets into the interface
     for (var i = 1; i <= 10; i++) {
@@ -103,6 +93,26 @@ $(document).ready(function () {
 
     }
     
+
+    var currentBoardCells = [];
+    var currentPegCells = [];
+    var currentRow = 10;
+    var cellColor = [];
+
+    
+    //Set sequence code
+    let code = [];
+    for (let i = 0; i < parseInt(nSequence.value); i++) {
+      code[i] = possibleColors[Math.floor(Math.random() * parseInt(nSequence.value))];
+      currentBoardCells[i] = 'board' + i;
+      currentPegCells[i] = 'peg' + i;
+    
+    }
+    console.log(currentBoardCells)
+    console.log(currentPegCells)
+    console.log(code);
+
+
     //change the current color when the user clicks on the color board
     $(".color").click(function () {
       let color = $(this).attr("id");
@@ -113,10 +123,19 @@ $(document).ready(function () {
     //change the color of a board cell on click
     $(".socket").click(function () {
       var id = $(this).attr("id");
-
+      if(isValid(id)){
         $(this).css("background-color", currentColor);
+
+      }
       
     });
+
+    function changeCurrentRow(){
+      currentRow -= 1;
+      var mult = 4;
+
+      currentBoardCells = 
+    }
 
   });
 });
