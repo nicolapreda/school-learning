@@ -3,6 +3,7 @@ using namespace std;
 
 int main()
 {
+
     int a, b, resto, mcd, mcm;
     cout << "Inserisci il primo numero:" << endl;
     cin >> a;
