@@ -132,9 +132,14 @@ $(document).ready(function () {
 
     function changeCurrentRow(){
       currentRow -= 1;
-      var mult = 4;
 
-      currentBoardCells = 
+      for (let i = 0; i < parseInt(nSequence.value); i++) {
+
+        currentBoardCells[i] = 'board' + i + (10 - currentRow);
+        currentPegCells[i] = 'peg' + i + (10 - currentRow);
+      
+      }
+      
     }
 
   });
