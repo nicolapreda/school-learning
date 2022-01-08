@@ -70,20 +70,22 @@ $(document).ready(function () {
       }
     };
 
-    //Insert sockets into the interface
+    //Insert boards into the interface
+    var boardId = 0
     for (var i = 1; i <= 10; i++) {
-      for (var s = 1; s <= parseInt(nSequence.value); s++) {
+      for (var s = 0; s < parseInt(nSequence.value); s++) {
         //
-        document.getElementById('slot' + i).insertAdjacentHTML('afterbegin', '<div class="square square-lg m-2"><button class="w-h-100 socket" id="socket' + s + '"></div>');
-      }
+        document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="square square-lg m-2"><button class="w-h-100 socket" id="board' + boardId +  '"></div>');
+      boardId++
+    }
 
       document.getElementById('slot' + i).insertAdjacentHTML('afterbegin', '<div class="roundresult">');
       for (var s = 0; s < parseInt(nSequence.value); s++) {
         if (s % 2 == 0) {
-          //Insert Socket results
+          //Insert boards results
           document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div>');
 
-        }
+        } 
         else {
           document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div></div>');
 
@@ -123,10 +125,10 @@ $(document).ready(function () {
     //change the color of a board cell on click
     $(".socket").click(function () {
       var id = $(this).attr("id");
-      if (isValid(id)) {
+      if(isValid(id)){
         $(this).css("background-color", currentColor);
-
       }
+      
 
     });
 
@@ -137,20 +139,29 @@ $(document).ready(function () {
       changeCurrentRow();
     });
 
+    function isValid(id){
+      if(currentBoardCells.includes(id) && hasWon === false){
+        return true;
+      }
+      return false;
+    }
+
 
     //check if the player has won
     function checkWin(){
-      if(code[0] === cell1Color &&
-          code[1] === cell2Color &&
-          code[2] === cell3Color &&
-          code[3] === cell4Color){
-          hasWon = true;
-          alert("Congratulations, you have won!\nThe code will now be displayed.");
-          
+      hasWon = true;
+      for(var c = 0; c<parseInt(nSequence.value); c++){
+        if(code[c] != cellColor[c]){
+          hasWon = false;
+        }
       }
-
+      if(hasWon == true){
+        alert("Congratulations, you have won!\nThe code will now be displayed.");
+      }
+          
+    }
       return hasWon; 
-  }
+  
 
     function changeCurrentRow() {
       currentRow -= 1;
@@ -161,7 +172,26 @@ $(document).ready(function () {
         currentPegCells[i] = 'peg' + i + (10 - currentRow);
 
       }
-      console.log()
+      
+    }
+
+    function updatePegs(){
+      var cells = []
+      for(var c = 0; c < parseInt(nSequence.value); c++){
+        cells[c] = $("#"+currentBoardCells[c]);
+        cellColor[c] = colors[cellColor[c].css("background-color")];
+      }
+
+
+      cell1Color = colors[cell1.css("background-color")];
+      cell2Color = colors[cell2.css("background-color")];
+      cell3Color = colors[cell3.css("background-color")];
+      cell4Color = colors[cell4.css("background-color")];
+
+      let peg1 = $("#"+currentPegCells[0]);
+      let peg2 = $("#"+currentPegCells[1]);
+      let peg3 = $("#"+currentPegCells[2]);
+      let peg4 = $("#"+currentPegCells[3]);
     }
 
   });
