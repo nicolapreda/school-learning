@@ -3,14 +3,36 @@ using namespace std;
 
 int main()
 {
-    int m, n, mcm;
-    cout << "Inserisci il primo numero intero\n";
-    cin >> n;
+
+    int a, b, resto, mcd, mcm;
+    cout << "Inserisci il primo numero:" << endl;
+    cin >> a;
     do
     {
-        cout << "Inserisci il secondo numero intero(maggiore del primo)\n";
-        cin >> m;
-    }while(m <= n);
-    //Algoritmo di euclide 
-    
+
+        cout << "Inserisci il secondo numero (deve essere maggiore del primo da te inserito): " << endl;
+        cin >> b;
+    } while (b <= a);
+
+    while (resto != 0)
+    {
+        resto = a % b;
+        if (resto == 0)
+        {
+            mcd = b;
+            break;
+        }
+        else
+        {
+            a = b;
+            b = resto;
+        }
+    }
+    cout<<"L'MCD dei due numeri è: "<<mcd<<endl;
+    cout<<b<<endl;
+    mcm = (a * b) / mcd;
+    cout << mcm;
+
+    return 0;
 }
+
