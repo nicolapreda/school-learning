@@ -11,7 +11,6 @@ int main()
         cout << "Inserisci il secondo numero intero(maggiore del primo)\n";
         cin >> m;
     }while(m <= n);
-
     //Algoritmo di euclide 
     
 }

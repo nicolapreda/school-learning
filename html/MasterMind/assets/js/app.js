@@ -2,7 +2,7 @@ $(document).ready(function () {
   //Array  with possible colors
   var possibleColors = ["blue", "green", "red", "yellow", "orange", "pink", "white", "black", "brown", "lightgreen"];
   var currentColor = "white";
-  
+
   let typeMode = document.getElementById("modeType");
   let checkBoxSequence = document.getElementById("nSequence");
   checkBoxSequence.addEventListener("change", function () {
@@ -77,14 +77,14 @@ $(document).ready(function () {
         document.getElementById('slot' + i).insertAdjacentHTML('afterbegin', '<div class="square square-lg m-2"><button class="w-h-100 socket" id="socket' + s + '"></div>');
       }
 
-      document.getElementById('slot' + i).insertAdjacentHTML('afterbegin','<div class="roundresult">');
+      document.getElementById('slot' + i).insertAdjacentHTML('afterbegin', '<div class="roundresult">');
       for (var s = 0; s < parseInt(nSequence.value); s++) {
-        if(s % 2 == 0){
-        //Insert Socket results
-        document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div>');
+        if (s % 2 == 0) {
+          //Insert Socket results
+          document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div>');
 
         }
-        else{
+        else {
           document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div></div>');
 
         }
@@ -92,21 +92,21 @@ $(document).ready(function () {
       }
 
     }
-    
+
 
     var currentBoardCells = [];
     var currentPegCells = [];
     var currentRow = 10;
     var cellColor = [];
 
-    
+
     //Set sequence code
     let code = [];
     for (let i = 0; i < parseInt(nSequence.value); i++) {
       code[i] = possibleColors[Math.floor(Math.random() * parseInt(nSequence.value))];
       currentBoardCells[i] = 'board' + i;
       currentPegCells[i] = 'peg' + i;
-    
+
     }
     console.log(currentBoardCells)
     console.log(currentPegCells)
@@ -123,23 +123,45 @@ $(document).ready(function () {
     //change the color of a board cell on click
     $(".socket").click(function () {
       var id = $(this).attr("id");
-      if(isValid(id)){
+      if (isValid(id)) {
         $(this).css("background-color", currentColor);
 
       }
-      
+
     });
 
-    function changeCurrentRow(){
+    //do actions when the submit button is clicked
+    $(".submit").click(function () {
+      updatePegs();
+      checkWin();
+      changeCurrentRow();
+    });
+
+
+    //check if the player has won
+    function checkWin(){
+      if(code[0] === cell1Color &&
+          code[1] === cell2Color &&
+          code[2] === cell3Color &&
+          code[3] === cell4Color){
+          hasWon = true;
+          alert("Congratulations, you have won!\nThe code will now be displayed.");
+          
+      }
+
+      return hasWon; 
+  }
+
+    function changeCurrentRow() {
       currentRow -= 1;
 
       for (let i = 0; i < parseInt(nSequence.value); i++) {
 
         currentBoardCells[i] = 'board' + i + (10 - currentRow);
         currentPegCells[i] = 'peg' + i + (10 - currentRow);
-      
+
       }
-      
+      console.log()
     }
 
   });
