@@ -14,8 +14,6 @@ $(document).ready(function () {
     "lightgreen",
   ];
 
-
-
   //Get Game difficulty
   var typeMode = document.getElementById("modeType");
   // Get combination length
@@ -23,7 +21,6 @@ $(document).ready(function () {
   checkBoxSequence.addEventListener("change", function () {
     var nSequence = parseInt(this.value);
     return nSequence;
-    
   });
 
   //Generate non repeated numbers
@@ -53,24 +50,35 @@ $(document).ready(function () {
   var checkBoxNColors = document.getElementById("nColors");
   checkBoxNColors.addEventListener("change", function () {
     var nColors = parseInt(this.value);
-    return nColors
+    return nColors;
   });
-
 
   //Define start button
   var startBtn = document.getElementById("start");
   //When start button is clicked
   $(startBtn).click(function () {
-    if(nSequence.value == "Seleziona la sequenza" || nColors.value == "Seleziona il numero possibile di colori" || typeMode.value == "Modalità"){
-      alert("Seleziona la modalità di gioco, la sequenza e il numero possibile di colori prima di iniziare il gioco!")
+    if (
+      nSequence.value == "Seleziona la sequenza" ||
+      nColors.value == "Seleziona il numero possibile di colori" ||
+      typeMode.value == "Modalità"
+    ) {
+      alert(
+        "Seleziona la modalità di gioco, la sequenza e il numero possibile di colori prima di iniziare il gioco!"
+      );
       return;
     }
-    
+
+    //Disable options
+    checkBoxSequence.setAttribute("disabled", "");
+    checkBoxNColors.setAttribute("disabled", "");
+    startBtn.setAttribute("disabled", "");
+    typeMode.setAttribute("disabled", "");
+    colors.slice(0, -nColors);
 
     var hasWon = false;
 
     var currentBoardCells = [];
-    
+
     var cellColor = [];
 
     var currentBoardNumber = parseInt(nSequence.value);
@@ -85,27 +93,22 @@ $(document).ready(function () {
       repeatedColors = false;
     }
 
+    //Disable checkbox
+    isRepeatedColors.setAttribute("disabled", "");
+
     //Set sequence code
     var code = [];
     for (let i = 0; i < parseInt(nSequence.value); i++) {
-      if(repeatedColors == true){
-        code[i] = colors[Math.floor(Math.random() * (parseInt(nColors.value) - 1))];
-      }else{
-        code[i] = colors[generateUniqueRandom(parseInt(nColors.value))]
+      if (repeatedColors == true) {
+        code[i] =
+          colors[Math.floor(Math.random() * (parseInt(nColors.value) - 1))];
+      } else {
+        code[i] = colors[generateUniqueRandom(parseInt(nColors.value))];
       }
-      
+
       currentBoardCells[i] = "board" + i;
     }
     console.log(code);
-
-    //Disable options
-    checkBoxSequence.setAttribute("disabled", "");
-    checkBoxNColors.setAttribute("disabled", "");
-    isRepeatedColors.setAttribute("disabled", "");
-    startBtn.setAttribute("disabled", "");
-    typeMode.setAttribute("disabled", "");
-    colors.slice(0, -nColors);
-  
 
     //Create color backgrounds
     for (var c = 0; c < parseInt(nColors.value); c++) {
@@ -138,36 +141,151 @@ $(document).ready(function () {
 
     //Insert boards into the interface
     var boardId = 0;
+    var resultId = 0;
     for (var i = 1; i <= 10; i++) {
-      for (var s = 0; s < parseInt(nSequence.value); s++) {
-        //
-        document
-          .getElementById("slot" + i)
-          .insertAdjacentHTML(
-            "beforeend",
-            '<div class="square square-lg m-2"><button class="w-h-100 socket" id="board' +
-              boardId +
-              '"></div>'
-          );
-        boardId++;
+      /*Mod facile: posso vedere quali sono nella posizione giusta con il colore giusto
+      e nella posizione sbagliata ma con un colore presente nella sequenza e 
+      quelli nella posizione sbagliata NON presenti nella sequenza
+      
+      Mod Normale: posso sapere se ci sono colori nella posizione giusta e con il colore giusto
+      e quelli nella posizione sbagliata ma con un colore presente nella sequenza
+
+      Mod difficile: posso sapere se ci sono colori nella posizione giusta con il colore giusto*/
+
+      switch (typeMode.value) {
+        case "easy":
+          for (var s = 0; s < parseInt(nSequence.value); s++) {
+            document
+              .getElementById("slot" + i)
+              .insertAdjacentHTML(
+                "beforeend",
+                '<div class="square square-lg m-2"><div class="container"><div class="row"><button class="w-h-100 socket" id="board' +
+                  boardId +
+                  '"></button></div><div class="row d-flex justify-content-center"><button class="w-h-100 result mt-2" disabled id="result"' +
+                  boardId +
+                  "></button></div></div></div>"
+              );
+            boardId++;
+          }
+          break;
+        case "normal":
+        case "difficult":
+          for (var s = 0; s < parseInt(nSequence.value); s++, boardId++) {
+            document
+              .getElementById("slot" + i)
+              .insertAdjacentHTML(
+                "beforeend",
+                '<div class="square square-lg m-2"><button class="w-h-100 socket" id="board' +
+                  boardId +
+                  '"></div>'
+              );
+              
+          }
+          switch (parseInt(nSequence.value)){
+            case 4:
+              document
+              .getElementById("slot" + i)
+              .insertAdjacentHTML(
+                "beforeend", '<div class="container" id="container' + i + '">')
+                document
+                .getElementById("container" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="row"> <div class="d-flex"> <div class="square square-lg mr-1"><button class="w-h-100 result" id="result' +
+                    resultId +
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 1) +
+                    '"></div></div>'
+                );
+              resultId += 2;
+              document
+                .getElementById("container" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="row"><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    resultId +
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 1) +
+                    '"></div></div>'
+                );
+              resultId += 2;
+              break;
+            case 5:
+
+              document
+              .getElementById("slot" + i)
+              .insertAdjacentHTML(
+                "beforeend", '<div class="container" id="container' + i + '">')
+                document
+                .getElementById("container" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="row"> <div class="d-flex"> <div class="square square-lg mr-1"><button class="w-h-100 result" id="result' +
+                    resultId +
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 1) + 
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 2) +
+                    '"></div></div>'
+                );
+              resultId += 3;
+              document
+                .getElementById("container" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="row"><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    resultId +
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 1) +
+                    '"></div></div>'
+                );
+              resultId += 2;
+              break;
+            case 6:
+              document
+              .getElementById("slot" + i)
+              .insertAdjacentHTML(
+                "beforeend", '<div class="container" id="container' + i + '">')
+                document
+                .getElementById("container" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="row"> <div class="d-flex"> <div class="square square-lg mr-1"><button class="w-h-100 result" id="result' +
+                    resultId +
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 1) + 
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 2) +
+                    '"></div></div>'
+                );
+              resultId += 3;
+              document
+                .getElementById("container" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="row"> <div class="d-flex"> <div class="square square-lg mr-1"><button class="w-h-100 result" id="result' +
+                    resultId +
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 1) + 
+                    '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
+                    (resultId + 2) +
+                    '"></div></div>'
+                );
+              resultId += 3;
+              
+              
+              break;
+          }
+          
+            
+
+            
+          
+          break;
+        
       }
 
-      //document.getElementById('slot' + i).insertAdjacentHTML('afterbegin', '<div class="roundresult">');
-
-      /*for (var s = 0; s < parseInt(nSequence.value); s++) {
-        if (s % 2 == 0) {
-          //Insert boards results
-          document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div>');
-
-        } 
-        else {
-          document.getElementById('slot' + i).insertAdjacentHTML('beforeend', '<div class="square square-lg mr-1"><button class="w-h-100 socketresult" disabled></div></div>');
-
-        }
-
-      }*/
     }
-
 
     //change the current color when the user clicks on the color board
     $(".color").click(function () {
@@ -191,19 +309,17 @@ $(document).ready(function () {
         cellColor[i] = document.getElementById(
           currentBoardCells[i]
         ).style.backgroundColor;
-        if(cellColor[i] == ""){
+        if (cellColor[i] == "") {
           completed = false;
         }
-        
       }
-      if(completed == true){
+      if (completed == true) {
         checkWin();
+        updateResults();
         changeCurrentRow();
-      }
-      else{
+      } else {
         alert("Prima completa tutta la sequenza!");
       }
-      
     });
 
     function isValid(id) {
@@ -229,21 +345,28 @@ $(document).ready(function () {
       }
       return hasWon;
     }
-    
+
     function changeCurrentRow() {
       currentRow -= 1;
-      if(currentRow != 0){
+      if (currentRow != 0) {
         for (let i = 0; i < parseInt(nSequence.value); i++) {
           currentBoardCells[i] = "board" + currentBoardNumber;
           currentBoardNumber++;
         }
+      } else {
+        alert("Hai perso! :(");
       }
-      else{
-        alert("Hai perso! :(")
-      }
-      
     }
 
-    
+    function updateResults(){
+      switch (typeMode.value){
+        case "easy":
+          break;
+        case "normal":
+          break;
+        case "difficult":
+          break;
+      }
+    }
   });
 });
