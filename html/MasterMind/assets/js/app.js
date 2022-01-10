@@ -78,11 +78,11 @@ $(document).ready(function () {
     var hasWon = false;
 
     var currentBoardCells = [];
-
+    var currentResultsCells = [];
     var cellColor = [];
 
     var currentBoardNumber = parseInt(nSequence.value);
-    console.log(currentBoardNumber);
+    var currentResultsNumber = parseInt(nSequence.value);
 
     // Get the checkbox
     var isRepeatedColors = document.getElementById("repeatedColors");
@@ -107,6 +107,7 @@ $(document).ready(function () {
       }
 
       currentBoardCells[i] = "board" + i;
+      currentResultsCells[i] = "result" + i;
     }
     console.log(code);
 
@@ -143,15 +144,6 @@ $(document).ready(function () {
     var boardId = 0;
     var resultId = 0;
     for (var i = 1; i <= 10; i++) {
-      /*Mod facile: posso vedere quali sono nella posizione giusta con il colore giusto
-      e nella posizione sbagliata ma con un colore presente nella sequenza e 
-      quelli nella posizione sbagliata NON presenti nella sequenza
-      
-      Mod Normale: posso sapere se ci sono colori nella posizione giusta e con il colore giusto
-      e quelli nella posizione sbagliata ma con un colore presente nella sequenza
-
-      Mod difficile: posso sapere se ci sono colori nella posizione giusta con il colore giusto*/
-
       switch (typeMode.value) {
         case "easy":
           for (var s = 0; s < parseInt(nSequence.value); s++) {
@@ -179,15 +171,16 @@ $(document).ready(function () {
                   boardId +
                   '"></div>'
               );
-              
           }
-          switch (parseInt(nSequence.value)){
+          switch (parseInt(nSequence.value)) {
             case 4:
               document
-              .getElementById("slot" + i)
-              .insertAdjacentHTML(
-                "beforeend", '<div class="container" id="container' + i + '">')
-                document
+                .getElementById("slot" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="container" id="container' + i + '">'
+                );
+              document
                 .getElementById("container" + i)
                 .insertAdjacentHTML(
                   "beforeend",
@@ -211,19 +204,20 @@ $(document).ready(function () {
               resultId += 2;
               break;
             case 5:
-
               document
-              .getElementById("slot" + i)
-              .insertAdjacentHTML(
-                "beforeend", '<div class="container" id="container' + i + '">')
-                document
+                .getElementById("slot" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="container" id="container' + i + '">'
+                );
+              document
                 .getElementById("container" + i)
                 .insertAdjacentHTML(
                   "beforeend",
                   '<div class="row"> <div class="d-flex"> <div class="square square-lg mr-1"><button class="w-h-100 result" id="result' +
                     resultId +
                     '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
-                    (resultId + 1) + 
+                    (resultId + 1) +
                     '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
                     (resultId + 2) +
                     '"></div></div>'
@@ -243,17 +237,19 @@ $(document).ready(function () {
               break;
             case 6:
               document
-              .getElementById("slot" + i)
-              .insertAdjacentHTML(
-                "beforeend", '<div class="container" id="container' + i + '">')
-                document
+                .getElementById("slot" + i)
+                .insertAdjacentHTML(
+                  "beforeend",
+                  '<div class="container" id="container' + i + '">'
+                );
+              document
                 .getElementById("container" + i)
                 .insertAdjacentHTML(
                   "beforeend",
                   '<div class="row"> <div class="d-flex"> <div class="square square-lg mr-1"><button class="w-h-100 result" id="result' +
                     resultId +
                     '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
-                    (resultId + 1) + 
+                    (resultId + 1) +
                     '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
                     (resultId + 2) +
                     '"></div></div>'
@@ -266,25 +262,18 @@ $(document).ready(function () {
                   '<div class="row"> <div class="d-flex"> <div class="square square-lg mr-1"><button class="w-h-100 result" id="result' +
                     resultId +
                     '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
-                    (resultId + 1) + 
+                    (resultId + 1) +
                     '" disabled></button></div><div class="d-flex"><div class="square square-lg mr-1"><button class="w-h-100 result" disabled id="result' +
                     (resultId + 2) +
                     '"></div></div>'
                 );
               resultId += 3;
-              
-              
+
               break;
           }
-          
-            
 
-            
-          
           break;
-        
       }
-
     }
 
     //change the current color when the user clicks on the color board
@@ -358,11 +347,26 @@ $(document).ready(function () {
       }
     }
 
-    function updateResults(){
-      switch (typeMode.value){
+    function updateResults() {
+      /*Mod facile: posso vedere quali sono nella posizione giusta con il colore giusto
+      e nella posizione sbagliata ma con un colore presente nella sequenza e 
+      quelli nella posizione sbagliata NON presenti nella sequenza
+      
+      Mod Normale: posso sapere se ci sono colori nella posizione giusta e con il colore giusto
+      e quelli nella posizione sbagliata ma con un colore presente nella sequenza
+
+      Mod difficile: posso sapere se ci sono colori nella posizione giusta con il colore giusto*/
+
+      switch (typeMode.value) {
         case "easy":
+          
           break;
         case "normal":
+          for (var i = 0; i < parseInt(nSequence.value); i++) {
+            if( == code[i]){
+              
+            }
+          }
           break;
         case "difficult":
           break;
