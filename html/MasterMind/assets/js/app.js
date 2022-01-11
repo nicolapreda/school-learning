@@ -153,9 +153,9 @@ $(document).ready(function () {
                 "beforeend",
                 '<div class="square square-lg m-2"><div class="container"><div class="row"><button class="w-h-100 socket" id="board' +
                   boardId +
-                  '"></button></div><div class="row d-flex justify-content-center"><button class="w-h-100 result mt-2" disabled id="result"' +
+                  '"></button></div><div class="row d-flex justify-content-center"><button class="w-h-100 result mt-2" disabled id="result' +
                   boardId +
-                  "></button></div></div></div>"
+                  '"></button></div></div></div>'
               );
             boardId++;
           }
@@ -341,6 +341,9 @@ $(document).ready(function () {
         for (let i = 0; i < parseInt(nSequence.value); i++) {
           currentBoardCells[i] = "board" + currentBoardNumber;
           currentBoardNumber++;
+
+          currentResultsCells[i] = "result" + currentResultsNumber;
+          currentResultsNumber++;
         }
       } else {
         alert("Hai perso! :(");
@@ -359,16 +362,52 @@ $(document).ready(function () {
 
       switch (typeMode.value) {
         case "easy":
-          
+          for (var i = 0; i < parseInt(nSequence.value); i++) {
+            
+            if(cellColor[i] == code[i]){
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "green"
+            }
+            else if(code.includes(cellColor[i])){
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "yellow"
+            }
+            else{
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "gray"
+
+            }
+
+          }
           break;
         case "normal":
           for (var i = 0; i < parseInt(nSequence.value); i++) {
-            if( == code[i]){
-              
+            
+            if(cellColor[i] == code[i]){
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "green"
             }
+            else if(code.includes(cellColor[i])){
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "yellow"
+            }
+            else{
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "gray"
+
+            }
+
           }
           break;
         case "difficult":
+          for (var i = 0; i < parseInt(nSequence.value); i++) {
+            
+            if(cellColor[i] == code[i]){
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "green"
+            }
+            else if(code.includes(cellColor[i])){
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "yellow"
+            }
+            else{
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "gray"
+
+            }
+
+          }
           break;
       }
     }
