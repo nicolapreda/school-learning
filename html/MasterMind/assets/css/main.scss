@@ -1,5 +1,14 @@
+.navbar-custom{
+    background-color: #152232;
+    padding: 1rem;
+}
+
+body{
+    background-color: rgb(11,22,34);
+}
+
 .options {
-    border: 3px solid #c7bf8d;
+    background-color: rgb(21,31,46);
     border-radius: 20px;
     padding: 50px;
 }
@@ -8,10 +17,11 @@
     padding: 50px;
     border-radius: 20px;
     margin-top: 5rem;
-    border: 3px solid #c7bf8d;
+    background-color: rgb(21,31,46);
+    
     .socket {
         border-radius: 50%;
-        background-color: #c7bf8d;
+        background-color: #0a101a;
         width: 50px;
         height: 50px;
     }
@@ -28,9 +38,10 @@
         height: 50px;
     }
     .game {
-        background-color: #b37a55;
+        background-color: #0a101a;
         border-radius: 20px;
         padding: 10px;
+        float: right;
     }
     
     .roundresult {

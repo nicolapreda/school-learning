@@ -1,6 +1,6 @@
 $(document).ready(function () {
   //Set the colors
-  var currentColor = "white";
+  var currentColor = "";
   var colors = [
     "blue",
     "green",
@@ -46,6 +46,26 @@ $(document).ready(function () {
     }
   }
 
+  //Shuffle an array
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+  
+
   //Check selected colors
   var checkBoxNColors = document.getElementById("nColors");
   checkBoxNColors.addEventListener("change", function () {
@@ -53,10 +73,15 @@ $(document).ready(function () {
     return nColors;
   });
 
+  // Get the "Repeated colors" checkbox
+  var isRepeatedColors = document.getElementById("repeatedColors");
+
   //Define start button
   var startBtn = document.getElementById("start");
+
   //When start button is clicked
   $(startBtn).click(function () {
+    //Check if rules are valid
     if (
       nSequence.value == "Seleziona la sequenza" ||
       nColors.value == "Seleziona il numero possibile di colori" ||
@@ -67,35 +92,42 @@ $(document).ready(function () {
       );
       return;
     }
+    if(parseInt(nColors.value) < parseInt(nSequence.value) && isRepeatedColors.checked == false){
+      alert("Imposta un numero di colori disponibili maggiore rispetto alla lunghezza della sequenza da indovinare!")
+      return;
+    }
+
+    //how game when start button is clicked
+    $(".submit").css("display", "inline-block");
+    $("#gameContent").css("display", "inline-block");
 
     //Disable options
     checkBoxSequence.setAttribute("disabled", "");
     checkBoxNColors.setAttribute("disabled", "");
     startBtn.setAttribute("disabled", "");
     typeMode.setAttribute("disabled", "");
+    isRepeatedColors.setAttribute("disabled", "");
     colors.slice(0, -nColors);
 
     var hasWon = false;
 
+  //Set current board, results and colors number
     var currentBoardCells = [];
     var currentResultsCells = [];
     var cellColor = [];
-
+    //Set current board and results number
     var currentBoardNumber = parseInt(nSequence.value);
     var currentResultsNumber = parseInt(nSequence.value);
+    //Set current row
+    var currentRow = 10;
 
-    // Get the checkbox
-    var isRepeatedColors = document.getElementById("repeatedColors");
-
+    //Check if checkbox "Repeated colors" is checked
     if (isRepeatedColors.checked == true) {
       repeatedColors = true;
     } else {
       repeatedColors = false;
     }
-
-    //Disable checkbox
-    isRepeatedColors.setAttribute("disabled", "");
-
+    
     //Set sequence code
     var code = [];
     for (let i = 0; i < parseInt(nSequence.value); i++) {
@@ -103,7 +135,7 @@ $(document).ready(function () {
         code[i] =
           colors[Math.floor(Math.random() * (parseInt(nColors.value) - 1))];
       } else {
-        code[i] = colors[generateUniqueRandom(parseInt(nColors.value))];
+        code[i] = colors[generateUniqueRandom(parseInt(nColors.value) - 1)];
       }
 
       currentBoardCells[i] = "board" + i;
@@ -137,8 +169,6 @@ $(document).ready(function () {
           );
       }
     }
-
-    var currentRow = 10;
 
     //Insert boards into the interface
     var boardId = 0;
@@ -276,14 +306,14 @@ $(document).ready(function () {
       }
     }
 
-    //change the current color when the user clicks on the color board
+    // Change the current color when the user clicks on the color board
     $(".color").click(function () {
       let color = $(this).attr("id");
       currentColor = color;
       $(".currentColor").css("background-color", color);
     });
 
-    // change the color of a board cell on click
+    // Change the color of a board cell on click
     $(".socket").click(function () {
       var id = $(this).attr("id");
       if (isValid(id)) {
@@ -291,7 +321,7 @@ $(document).ready(function () {
       }
     });
 
-    // do actions when the submit button is clicked
+    // Do actions when the submit button is clicked
     $(".submit").click(function () {
       var completed = true;
       for (var i = 0; i < parseInt(nSequence.value); i++) {
@@ -318,7 +348,7 @@ $(document).ready(function () {
       return false;
     }
 
-    //check if the player has won
+    // Check if the player has won
     function checkWin() {
       hasWon = true;
 
@@ -329,7 +359,7 @@ $(document).ready(function () {
       }
       if (hasWon == true) {
         alert(
-          "Congratulations, you have won!\nThe code will now be displayed."
+          "Congratulazioni, hai vinto!"
         );
       }
       return hasWon;
@@ -346,7 +376,7 @@ $(document).ready(function () {
           currentResultsNumber++;
         }
       } else {
-        alert("Hai perso! :(");
+        alert("Hai perso!");
       }
     }
 
@@ -359,6 +389,13 @@ $(document).ready(function () {
       e quelli nella posizione sbagliata ma con un colore presente nella sequenza
 
       Mod difficile: posso sapere se ci sono colori nella posizione giusta con il colore giusto*/
+
+
+      //Shuffle currentResultsCells array (For normal and difficult mode)
+      var randomPosition = [];
+      randomPosition = currentResultsCells
+      shuffle(randomPosition)
+      console.log(randomPosition)
 
       switch (typeMode.value) {
         case "easy":
@@ -381,13 +418,13 @@ $(document).ready(function () {
           for (var i = 0; i < parseInt(nSequence.value); i++) {
             
             if(cellColor[i] == code[i]){
-              document.getElementById(currentResultsCells[i]).style.backgroundColor = "green"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "green"
             }
             else if(code.includes(cellColor[i])){
-              document.getElementById(currentResultsCells[i]).style.backgroundColor = "yellow"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "yellow"
             }
             else{
-              document.getElementById(currentResultsCells[i]).style.backgroundColor = "gray"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "gray"
 
             }
 
@@ -396,14 +433,12 @@ $(document).ready(function () {
         case "difficult":
           for (var i = 0; i < parseInt(nSequence.value); i++) {
             
+
             if(cellColor[i] == code[i]){
-              document.getElementById(currentResultsCells[i]).style.backgroundColor = "green"
-            }
-            else if(code.includes(cellColor[i])){
-              document.getElementById(currentResultsCells[i]).style.backgroundColor = "yellow"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "green"
             }
             else{
-              document.getElementById(currentResultsCells[i]).style.backgroundColor = "gray"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "gray"
 
             }
 
