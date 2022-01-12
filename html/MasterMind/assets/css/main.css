@@ -13,11 +13,33 @@ body {
   padding: 50px;
 }
 
+.startSection {
+  margin-top: 5rem;
+}
+
+.startSection .startButton {
+  border-radius: 20px 20px 0 0;
+  background-color: #3db4f2;
+  border: 0;
+}
+
 .content {
   padding: 50px;
-  border-radius: 20px;
-  margin-top: 5rem;
+  border-radius: 0 0 20px 20px;
   background-color: #151f2e;
+}
+
+.content .commandsContent {
+  background-color: #0a101a;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.content .submit {
+  background-color: #3db4f2;
+  border: 0;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 .content .socket {
@@ -25,18 +47,25 @@ body {
   background-color: #0a101a;
   width: 50px;
   height: 50px;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 .content .result {
   border-radius: 50%;
-  background-color: #c7bf8d;
+  background-color: #ffffff;
   width: 25px;
   height: 25px;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 .content .color {
   width: 50px;
   height: 50px;
+  border: 0;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 .content .game {
@@ -51,9 +80,8 @@ body {
 }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   border: 0;
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #13161b;
 }
 /*# sourceMappingURL=main.css.map */

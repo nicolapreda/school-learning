@@ -27,8 +27,7 @@
     <!-- Image and text -->
     <nav class="navbar navbar-light mb-5 navbar-custom">
         <a class="navbar-brand text-white" href="#">
-            <img src="assets/img/icon.png" width="30" height="30" class="d-inline-block align-top"
-                alt="Mastermind">
+            <img src="assets/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="Mastermind">
             Mastermind
         </a>
     </nav>
@@ -39,8 +38,7 @@
             <div class="d-flex justify-content-center">
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="repeatedColors"
-                        >
+                    <input class="form-check-input" type="checkbox" value="" id="repeatedColors">
                     <label class="form-check-label text-white" for="flexCheckDefault">
                         Colori Ripetuti nella sequenza generata
                     </label>
@@ -76,26 +74,37 @@
     </div>
 
     <div class="container mb-5">
-        <div class="content">
-            <div class="heading d-flex justify-content-center mb-5">
-                <button type="button" class="btn btn-secondary btn-lg btn-block" id="start">Inizia il gioco</button>
+        <div class="startSection">
+            <div class="heading d-flex justify-content-center">
+                <button type="button" class="btn custom-css btn-secondary btn-lg btn-block startButton"
+                    id="start">Inizia il gioco</button>
             </div>
+        </div>
+        <div class="content">
 
             <div class="row" id="gameContainer">
 
-                <div class="col-4">
-                    <div class="d-flex">
-                        <button type="button" style="display: none;" class="btn btn-secondary btn-lg btn-block submit mb-1">Invia Sequenza</button>
-                    </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="commandsContent" style="display: none;">
+                        <h3 class="d-flex justify-content-center mb-5 text-white" id="attempts"></h3>
 
-                    <div class="d-flex" id="colorsContent1">
+                        <hr />
+                        <div class="d-flex">
+                            <button type="button" 
+                                class="custom-css btn btn-secondary btn-lg btn-block submit mb-1">Invia
+                                Sequenza</button>
+                        </div>
 
-                    </div>
-                    <div class="d-flex" id="colorsContent2">
+                        <div class="d-flex" id="colorsContent1">
 
+                        </div>
+                        <div class="d-flex" id="colorsContent2">
+
+                        </div>
                     </div>
+                    
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8">
                     <div class="game" id="gameContent" style="display: none;">
                         <div class="d-flex m-3 justify-content-center" id="slot1"></div>
                         <hr />

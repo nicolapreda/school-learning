@@ -1,41 +1,61 @@
-.navbar-custom{
+.navbar-custom {
     background-color: #152232;
     padding: 1rem;
 }
 
-body{
-    background-color: rgb(11,22,34);
+body {
+    background-color: rgb(11, 22, 34);
 }
 
 .options {
-    background-color: rgb(21,31,46);
+    background-color: rgb(21, 31, 46);
     border-radius: 20px;
     padding: 50px;
 }
-
+.startSection {
+    margin-top: 5rem;
+    .startButton {
+        border-radius: 20px 20px 0 0;
+        background-color: rgb(61, 180, 242);
+        border: 0;
+    }
+}
 .content {
     padding: 50px;
-    border-radius: 20px;
-    margin-top: 5rem;
-    background-color: rgb(21,31,46);
+    border-radius: 0 0 20px 20px;
+    background-color: rgb(21, 31, 46);
+    .commandsContent {
+        background-color: #0a101a;
+        padding: 2rem;
+        border-radius: 20px;
+    }
     
+    .submit {
+        background-color: rgb(61, 180, 242);
+        border: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    }
     .socket {
         border-radius: 50%;
         background-color: #0a101a;
         width: 50px;
         height: 50px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
     }
-    .result{
 
+    .result {
         border-radius: 50%;
-        background-color: #c7bf8d;
+        background-color: #ffffff;
         width: 25px;
         height: 25px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
     }
 
     .color {
         width: 50px;
         height: 50px;
+        border: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
     }
     .game {
         background-color: #0a101a;
@@ -43,15 +63,14 @@ body{
         padding: 10px;
         float: right;
     }
-    
+
     .roundresult {
         float: right;
     }
 }
 
 hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     border: 0;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid #13161b;
 }

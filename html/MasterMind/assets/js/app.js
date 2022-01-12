@@ -98,7 +98,8 @@ $(document).ready(function () {
     }
 
     //how game when start button is clicked
-    $(".submit").css("display", "inline-block");
+    $(".commandsContent").css("display", "inline-block");
+
     $("#gameContent").css("display", "inline-block");
 
     //Disable options
@@ -118,8 +119,10 @@ $(document).ready(function () {
     //Set current board and results number
     var currentBoardNumber = parseInt(nSequence.value);
     var currentResultsNumber = parseInt(nSequence.value);
+    
     //Set current row
     var currentRow = 10;
+    document.getElementById("attempts").innerHTML = "Tentativi rimasti: " + currentRow;
 
     //Check if checkbox "Repeated colors" is checked
     if (isRepeatedColors.checked == true) {
@@ -367,6 +370,7 @@ $(document).ready(function () {
 
     function changeCurrentRow() {
       currentRow -= 1;
+      document.getElementById("attempts").innerHTML = "Tentativi rimasti: " + currentRow;
       if (currentRow != 0) {
         for (let i = 0; i < parseInt(nSequence.value); i++) {
           currentBoardCells[i] = "board" + currentBoardNumber;
@@ -402,13 +406,13 @@ $(document).ready(function () {
           for (var i = 0; i < parseInt(nSequence.value); i++) {
             
             if(cellColor[i] == code[i]){
-              document.getElementById(currentResultsCells[i]).style.backgroundColor = "green"
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "#235c24"
             }
             else if(code.includes(cellColor[i])){
               document.getElementById(currentResultsCells[i]).style.backgroundColor = "yellow"
             }
             else{
-              document.getElementById(currentResultsCells[i]).style.backgroundColor = "gray"
+              document.getElementById(currentResultsCells[i]).style.backgroundColor = "#b7b7b7"
 
             }
 
@@ -418,13 +422,13 @@ $(document).ready(function () {
           for (var i = 0; i < parseInt(nSequence.value); i++) {
             
             if(cellColor[i] == code[i]){
-              document.getElementById(randomPosition[i]).style.backgroundColor = "green"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "#235c24"
             }
             else if(code.includes(cellColor[i])){
               document.getElementById(randomPosition[i]).style.backgroundColor = "yellow"
             }
             else{
-              document.getElementById(randomPosition[i]).style.backgroundColor = "gray"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "#b7b7b7"
 
             }
 
@@ -435,10 +439,10 @@ $(document).ready(function () {
             
 
             if(cellColor[i] == code[i]){
-              document.getElementById(randomPosition[i]).style.backgroundColor = "green"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "#235c24"
             }
             else{
-              document.getElementById(randomPosition[i]).style.backgroundColor = "gray"
+              document.getElementById(randomPosition[i]).style.backgroundColor = "#b7b7b7"
 
             }
 
