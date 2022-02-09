@@ -12,35 +12,31 @@
 using namespace std;
 
 // Dichiarazione funzioni
-int maxArray(int array[]);
-int minArray(int array[]);
-int sommaArray(int array[]);
-double mediaArray(int array[]);
+int maxArray(int array[], int l);
+int minArray(int array[], int l);
+int sommaArray(int array[], int l);
+double mediaArray(int array[], int l);
 bool isPrimo(int n);
-
-int maggiorOccorrenza(int array[], int n);
-int occorrenzePerElemento(int array[]);
-int maxValoreOccorrenze(int array[]);
-
+int maggiorOccorrenza(int array[], int l, int n);
+int occorrenzePerElemento(int array[], int l);
+int valoreMassimoOccorrenze(int array[], int l);
 int arrayCasuale(int min, int max, int array[]);
 int carattereinASCII(char carattere[]);
 char ASCIIinCarattere(int ASCII);
-void posizione0(int array[]);
-void cercaElemento(int array[], int elemento);
-int posizioneElemento(int array[], int elemento);
-int confrontoArray(int array1[], int array2[]);
-int confrontoArraySL(int array1[], int array2[]);
+void posizione0(int array[], int l);
+void cercaElemento(int array[], int l, int elemento);
+int posizioneElemento(int array[], int l, int elemento);
+int confrontoArray(int array1[], int array2[], int l1, int l2);
+int confrontoArraySL(int array1[], int array2[], int l);
 void contornoTesto(char testo[]);
-void stampaASCII(int array[]);
+void stampaASCII(int array[], int l);
 float arrotonda(float n, int arr);
-int grandezzaArray(int array[]);
-void intMigliaia(int n);
 string separatoreMigliaia(int n);
 
-int maxArray(int array[])
+int maxArray(int array[], int l)
 {
     int maxelement = 0;
-    for (int i = 0; i < grandezzaArray(array); i++)
+    for (int i = 0; i < l; i++)
     {
         if (array[i] > maxelement)
             maxelement = array[i];
@@ -48,10 +44,10 @@ int maxArray(int array[])
     return maxelement;
 }
 
-int minArray(int array[])
+int minArray(int array[], int l)
 {
     int minelement = array[0];
-    for (int i = 1; i < grandezzaArray(array); i++)
+    for (int i = 1; i < l; i++)
     {
         if (array[i] < minelement)
             minelement = array[i];
@@ -59,10 +55,10 @@ int minArray(int array[])
     return minelement;
 }
 
-int sommaArray(int array[])
+int sommaArray(int array[], int l)
 {
     int somma = 0;
-    for (int i = 0; i < grandezzaArray(array); i++)
+    for (int i = 0; i < l; i++)
     {
         somma += array[i];
     }
@@ -70,87 +66,85 @@ int sommaArray(int array[])
     return somma;
 }
 
-double mediaArray(int array[])
+double mediaArray(int array[], int l)
 {
     int somma = 0;
     double media = 0;
-    for (int i = 0; i < grandezzaArray(array); i++)
+    for (int i = 0; i < l; i++)
     {
         somma += array[i];
     }
-    media = somma / grandezzaArray(array);
+    media = somma / l;
 
     return media;
 }
 
 string separatoreMigliaia(int n)
 {
-	string str = "";
-	string numero = to_string(n);
+    string str = "";
+    string numero = to_string(n);
 
-	int count = 0;
-	for (int i = numero.size() - 1;
-		i >= 0; i--) {
-		count++;
-		str.push_back(numero[i]);
-		if (count == 3) {
-			str.push_back('.');
-			count = 0;
-		}
-	}
-	reverse(str.begin(), str.end());
+    int count = 0;
+    for (int i = numero.size() - 1;
+         i >= 0; i--)
+    {
+        count++;
+        str.push_back(numero[i]);
+        if (count == 3)
+        {
+            str.push_back('.');
+            count = 0;
+        }
+    }
+    reverse(str.begin(), str.end());
 
-
-	return str;
+    return str;
 }
-
 
 bool isPrimo(int n)
 {
-    bool primo = true;
-    for (int i = 2; i < n && primo != false; i++)
-    {
-        if (primo % i == 0)
-        {
-            primo = false;
-        }
-    }
-    return primo;
+        if (n <= 1)
+            return false;
+
+        for (int i = 2; i < n; ++i)
+            if (n % i == 0)
+                return false;
+
+        return true;
+    
 }
-
-int maggiorOccorrenza(int array[])
+int maggiorOccorrenza(int array[], int l)
 {
-    int a = array[0], counter = 0, counter1 = 0;
-    for (int x = 0; x < grandezzaArray(array); x++)
-        if (array[0] == array[x])
-        {
-            counter++;
-        }
 
-    for (int x = 1; x < grandezzaArray(array); x++)
+    int occorrenze = 0;
+    int maxoccorrenze = 0;
+    int occorrenzaMaggiore;
+    for (int i = 0; i < l; i++)
     {
-        for (int y = 0; y < grandezzaArray(array); y++)
+        for (int x = 0; x < l; x++)
         {
-            if (array[x] == array[y])
+            if (array[i] == array[x])
             {
-                counter1++;
+                occorrenze++;
             }
         }
-        if (counter1 > counter)
+        if (occorrenze > maxoccorrenze)
         {
-            counter = counter1;
-            a = array[x];
+            maxoccorrenze = occorrenze;
+            occorrenzaMaggiore = array[i];
         }
+        occorrenze = 0;
     }
-    return a;
+    return occorrenzaMaggiore;
 }
 
 int arrayCasuale(int min, int max, int grandezza)
 {
     int array[grandezza];
+    
     for (int i = 0; i < grandezza; i++)
     {
-        srand(time(NULL));
+        srand (time(0));
         int nCasuale = rand() % max + min;
         array[i] = nCasuale;
     }
@@ -170,9 +164,9 @@ char ASCIIinCarattere(int ascii)
     return carattere;
 }
 
-void posizione0(int array[])
+void posizione0(int array[], int l)
 {
-    for (int i = 0; i < grandezzaArray(array); i++)
+    for (int i = 0; i < l; i++)
     {
         if (array[i] == 0)
         {
@@ -181,9 +175,9 @@ void posizione0(int array[])
     }
 }
 
-void cercaElemento(int array[], int elemento)
+void cercaElemento(int array[], int l, int elemento)
 {
-    for (int i = 0; i < grandezzaArray(array); i++)
+    for (int i = 0; i < l; i++)
     {
         if (array[i] == elemento)
         {
@@ -192,16 +186,15 @@ void cercaElemento(int array[], int elemento)
     }
 }
 
-// Calcolare il valore massimo di occorrenze tra gli elementi interi di un array
-int maxValoreOccorrenze(int array[])
+int valoreMassimoOccorrenze(int array[], int l)
 {
 
     int occorrenze = 0;
     int maxoccorrenze = 0;
 
-    for (int i = 0; i < grandezzaArray(array); i++)
+    for (int i = 0; i < l; i++)
     {
-        for (int x = 0; x < grandezzaArray(array); x++)
+        for (int x = 0; x < l; x++)
         {
             if (array[x] == array[i])
             {
@@ -217,9 +210,9 @@ int maxValoreOccorrenze(int array[])
     return maxoccorrenze;
 }
 
-int posizioneElemento(int array[], int elemento)
+int posizioneElemento(int array[], int l, int elemento)
 {
-    for (int i = 0; i < grandezzaArray(array); i++)
+    for (int i = 0; i < l; i++)
     {
         if (array[i] == elemento)
         {
@@ -229,10 +222,10 @@ int posizioneElemento(int array[], int elemento)
     return -1;
 }
 
-int confrontoArray(int array1[], int array2[])
+int confrontoArray(int array1[], int array2[], int l1, int l2)
 {
 
-    for (int i = 0; i < grandezzaArray(array1) || i < grandezzaArray(array2); i++)
+    for (int i = 0; i < l1 || i < l2; i++)
     {
         if (array1[i] == 0 || array2[i] == 0)
         {
@@ -250,9 +243,9 @@ int confrontoArray(int array1[], int array2[])
     return 0;
 }
 
-int confrontoArraySL(int array1[], int array2[])
+int confrontoArraySL(int array1[], int array2[], int l)
 {
-    for (int i = 0; i < grandezzaArray(array1); i++)
+    for (int i = 0; i < l; i++)
     {
 
         if (array1[i] > array2[i])
@@ -267,8 +260,7 @@ int confrontoArraySL(int array1[], int array2[])
     return 0;
 }
 
-
-//Check
+// Check
 void contornoTesto(char testo[])
 {
     for (int i = 0; i < strlen(testo) * 4; i++)
@@ -293,18 +285,18 @@ void contornoTesto(char testo[])
         cout << "*";
     }
 }
-//Check
-void stampaASCII(int array[])
+// Check
+void stampaASCII(int array[], int l)
 {
 
-    char caratteri[grandezzaArray(array)];
-    for (int i = 0; i < grandezzaArray(array) || array[i] != 0; i++)
+    char caratteri[l];
+    for (int i = 0; i < l || array[i] != 0; i++)
     {
         caratteri[i] = array[i];
     }
     cout << caratteri;
 }
-//Check
+// Check
 float arrotonda(float n, int arr)
 {
     int arrotondamento = pow(10, arr);
@@ -312,17 +304,15 @@ float arrotonda(float n, int arr)
     return (float)valore / arrotondamento;
 }
 
-
-//Check
-int occorrenzePerElemento(int array[])
+// Check
+int occorrenzePerElemento(int array[], int l)
 {
-    int grandezza = grandezzaArray(array);
 
-    int occorrenze[grandezza] = {0};
+    int occorrenze[l] = {0};
 
-    for (int i = 0; i < grandezza; i++)
+    for (int i = 0; i < l; i++)
     {
-        for (int x = 0; x < grandezza; x++)
+        for (int x = 0; x < l; x++)
         {
             if (array[x] == array[i])
             {
@@ -330,10 +320,5 @@ int occorrenzePerElemento(int array[])
             }
         }
     }
-    return occorrenze[grandezza];
-}
-//Check
-int grandezzaArray(int array[])
-{
-    return sizeof(array) / sizeof(array[0]);
+    return occorrenze[l];
 }
