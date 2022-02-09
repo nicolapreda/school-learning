@@ -7,36 +7,40 @@
 #include <stdio.h>
 #include <string.h>
 #include <cmath>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 // Dichiarazione funzioni
-int maxArray(int array[], int n);
-int minArray(int array[], int n);
-int sommaArray(int array[], int n);
-double mediaArray(int array[], int n);
-int maxOccorrenza(int array[], int n);
+int maxArray(int array[]);
+int minArray(int array[]);
+int sommaArray(int array[]);
+double mediaArray(int array[]);
 bool isPrimo(int n);
+
 int maggiorOccorrenza(int array[], int n);
-int interoMigliaia(int n);
+int occorrenzePerElemento(int array[]);
+int maxValoreOccorrenze(int array[]);
+
 int arrayCasuale(int min, int max, int array[]);
 int carattereinASCII(char carattere[]);
 char ASCIIinCarattere(int ASCII);
-void posizione0(int array[], int l);
-void cercaElemento(int array[], int l, int elemento);
-int posizioneElemento(int array[], int l, int elemento);
+void posizione0(int array[]);
+void cercaElemento(int array[], int elemento);
+int posizioneElemento(int array[], int elemento);
 int confrontoArray(int array1[], int array2[]);
-int confrontoArraysl(int array1[], int array2[]);
+int confrontoArraySL(int array1[], int array2[]);
 void contornoTesto(char testo[]);
 void stampaASCII(int array[]);
 float arrotonda(float n, int arr);
-void miglInt(int n);
-int occorrenzePerElemento(int array[]);
+int grandezzaArray(int array[]);
+void intMigliaia(int n);
+string separatoreMigliaia(int n);
 
-int maxArray(int array[], int n)
+int maxArray(int array[])
 {
     int maxelement = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < grandezzaArray(array); i++)
     {
         if (array[i] > maxelement)
             maxelement = array[i];
@@ -44,10 +48,10 @@ int maxArray(int array[], int n)
     return maxelement;
 }
 
-int minArray(int array[], int n)
+int minArray(int array[])
 {
     int minelement = array[0];
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i < grandezzaArray(array); i++)
     {
         if (array[i] < minelement)
             minelement = array[i];
@@ -55,10 +59,10 @@ int minArray(int array[], int n)
     return minelement;
 }
 
-int sommaArray(int array[], int n)
+int sommaArray(int array[])
 {
     int somma = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < grandezzaArray(array); i++)
     {
         somma += array[i];
     }
@@ -66,33 +70,40 @@ int sommaArray(int array[], int n)
     return somma;
 }
 
-double mediaArray(int array[], int n)
+double mediaArray(int array[])
 {
     int somma = 0;
     double media = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < grandezzaArray(array); i++)
     {
         somma += array[i];
     }
-    media = somma / n;
+    media = somma / grandezzaArray(array);
 
     return media;
 }
 
-int maxOccorrenza(int array[], int n)
+string separatoreMigliaia(int n)
 {
-    int nCorrente, occorrenzaCorrente = 0;
+	string str = "";
+	string numero = to_string(n);
 
-    for (int i = 0; i < n; i++)
-    {
-        if (array[i] == nCorrente)
-            occorrenzaCorrente++;
-    }
+	int count = 0;
+	for (int i = numero.size() - 1;
+		i >= 0; i--) {
+		count++;
+		str.push_back(numero[i]);
+		if (count == 3) {
+			str.push_back('.');
+			count = 0;
+		}
+	}
+	reverse(str.begin(), str.end());
+
+
+	return str;
 }
 
-int interoMigliaia(int n)
-{
-}
 
 bool isPrimo(int n)
 {
@@ -107,18 +118,18 @@ bool isPrimo(int n)
     return primo;
 }
 
-int maggiorOccorrenza(int array[], int n)
+int maggiorOccorrenza(int array[])
 {
     int a = array[0], counter = 0, counter1 = 0;
-    for (int x = 0; x < n; x++)
+    for (int x = 0; x < grandezzaArray(array); x++)
         if (array[0] == array[x])
         {
             counter++;
         }
 
-    for (int x = 1; x < n; x++)
+    for (int x = 1; x < grandezzaArray(array); x++)
     {
-        for (int y = 0; y < n; y++)
+        for (int y = 0; y < grandezzaArray(array); y++)
         {
             if (array[x] == array[y])
             {
@@ -134,15 +145,17 @@ int maggiorOccorrenza(int array[], int n)
     return a;
 }
 
-int arrayCasuale(int min, int max, int array[])
+int arrayCasuale(int min, int max, int grandezza)
 {
-
-    for (int i = 0; i < sizeof(array); i++)
+    int array[grandezza];
+    for (int i = 0; i < grandezza; i++)
     {
         srand(time(NULL));
         int nCasuale = rand() % max + min;
         array[i] = nCasuale;
     }
+
+    return array[grandezza];
 }
 
 int carattereinASCII(char carattere[])
@@ -157,9 +170,9 @@ char ASCIIinCarattere(int ascii)
     return carattere;
 }
 
-void posizione0(int array[], int l)
+void posizione0(int array[])
 {
-    for (int i = 0; i < l; i++)
+    for (int i = 0; i < grandezzaArray(array); i++)
     {
         if (array[i] == 0)
         {
@@ -168,9 +181,9 @@ void posizione0(int array[], int l)
     }
 }
 
-void cercaElemento(int array[], int l, int elemento)
+void cercaElemento(int array[], int elemento)
 {
-    for (int i = 0; i < l; i++)
+    for (int i = 0; i < grandezzaArray(array); i++)
     {
         if (array[i] == elemento)
         {
@@ -180,15 +193,15 @@ void cercaElemento(int array[], int l, int elemento)
 }
 
 // Calcolare il valore massimo di occorrenze tra gli elementi interi di un array
-int maxValoreOccorrenze(int array[], int l)
+int maxValoreOccorrenze(int array[])
 {
 
     int occorrenze = 0;
     int maxoccorrenze = 0;
 
-    for (int i = 0; i < l; i++)
+    for (int i = 0; i < grandezzaArray(array); i++)
     {
-        for (int x = 0; x < l; x++)
+        for (int x = 0; x < grandezzaArray(array); x++)
         {
             if (array[x] == array[i])
             {
@@ -204,9 +217,9 @@ int maxValoreOccorrenze(int array[], int l)
     return maxoccorrenze;
 }
 
-int posizioneElemento(int array[], int l, int elemento)
+int posizioneElemento(int array[], int elemento)
 {
-    for (int i = 0; i < l; i++)
+    for (int i = 0; i < grandezzaArray(array); i++)
     {
         if (array[i] == elemento)
         {
@@ -219,7 +232,7 @@ int posizioneElemento(int array[], int l, int elemento)
 int confrontoArray(int array1[], int array2[])
 {
 
-    for (int i = 0; i < sizeof(array1) || i < sizeof(array2); i++)
+    for (int i = 0; i < grandezzaArray(array1) || i < grandezzaArray(array2); i++)
     {
         if (array1[i] == 0 || array2[i] == 0)
         {
@@ -237,9 +250,9 @@ int confrontoArray(int array1[], int array2[])
     return 0;
 }
 
-int confrontoArraysl(int array1[], int array2[])
+int confrontoArraySL(int array1[], int array2[])
 {
-    for (int i = 0; i < sizeof(array1); i++)
+    for (int i = 0; i < grandezzaArray(array1); i++)
     {
 
         if (array1[i] > array2[i])
@@ -254,22 +267,8 @@ int confrontoArraysl(int array1[], int array2[])
     return 0;
 }
 
-int occorrenzeArray(int array[])
-{
-    int occorrenze[sizeof(array)] = {0};
 
-    for (int i = 0; i < sizeof(array); i++)
-    {
-        for (int x = 0; i < sizeof(array); i++)
-        {
-            if (array[i] == array[x])
-            {
-                occorrenze[i]++;
-            }
-        }
-    }
-}
-
+//Check
 void contornoTesto(char testo[])
 {
     for (int i = 0; i < strlen(testo) * 4; i++)
@@ -294,18 +293,18 @@ void contornoTesto(char testo[])
         cout << "*";
     }
 }
-
+//Check
 void stampaASCII(int array[])
 {
 
-    char caratteri[sizeof(array)];
-    for (int i = 0; i < sizeof(array) || array[i] != 0; i++)
+    char caratteri[grandezzaArray(array)];
+    for (int i = 0; i < grandezzaArray(array) || array[i] != 0; i++)
     {
         caratteri[i] = array[i];
     }
     cout << caratteri;
 }
-
+//Check
 float arrotonda(float n, int arr)
 {
     int arrotondamento = pow(10, arr);
@@ -313,53 +312,28 @@ float arrotonda(float n, int arr)
     return (float)valore / arrotondamento;
 }
 
-void miglInt(int n)
+
+//Check
+int occorrenzePerElemento(int array[])
 {
-    int lValore = sizeof(n);
-    vector<int> digitArray;
-    while (n > 0)
+    int grandezza = grandezzaArray(array);
+
+    int occorrenze[grandezza] = {0};
+
+    for (int i = 0; i < grandezza; i++)
     {
-        int digit = n % 10;
-        n /= 10;
-        std::cout << digit << " ";
-        digitArray.push_back(digit);
-    }
-    reverse(digitArray.begin(), digitArray.end()); // reverse the order of digits
-
-    int counter = 0;
-
-    for (int i = lValore, x = 0; i > 0; i--, x++)
-    {
-
-        counter++;
-        if (counter == 3)
-        {
-            cout << ".";
-        }
-        else
-        {
-
-        }
-    }
-}
-
-int occorrenzePerElemento(int array[]){
-    int occorrenze[sizeof(array)] = {0};
-
-    for (int i = 0; i < sizeof(array); i++)
-    {
-        for (int x = 0; x < sizeof(array); x++)
+        for (int x = 0; x < grandezza; x++)
         {
             if (array[x] == array[i])
             {
                 occorrenze[i]++;
-
             }
-            
         }
-        
     }
-
-    return occorrenze[sizeof(array)];
-    
+    return occorrenze[grandezza];
+}
+//Check
+int grandezzaArray(int array[])
+{
+    return sizeof(array) / sizeof(array[0]);
 }
