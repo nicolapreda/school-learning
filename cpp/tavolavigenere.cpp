@@ -3,7 +3,8 @@
 
 using namespace std;
 
-void inizializza(char matrice[26][26]){
+void inizializza(char matrice[26][26])
+{
     // initialize The Vigenère Cipher Encryption Matrix
     for (int i = 0, counter = 0; i < 26; i++, counter = 0 + i)
     {
@@ -16,38 +17,77 @@ void inizializza(char matrice[26][26]){
             matrice[i][j] = 65 + counter;
         }
     }
-
 }
 
-void codifica(char chiaro[], char matrice[26][26], char chiave[]){
-    char codificata[100];
-    // codifica il messaggio in chiaro
-    for (int i = 0, j = 0; i < strlen(chiaro); i++, j++)
+void codifica(char frase[], char matrice[26][26], char verme[])
+{
+    int c = 0;
+    for (int i = 0; i < strlen(frase); i++)
     {
-        codificata[i] = chiaro[i] - 'A';
-        //chiave[i%strlen(chiave)] - 'A'
-        cout<<codificata[i];
+        if (frase[i] != 32)
+        {
+            cout << matrice[(int)frase[i] - 65][(int)verme[c] - 65];
+            c++;
+        }
+        else
+        {
+            cout << " ";
+        }
+        if (c >= strlen(verme))
+        {
+            c = 0;
+        }
     }
-
 }
 
-void stampa(char matrice[26][26]){
+void decodifica(char verme[], char frase[], char matrice[26][26])
+{
+    int c = 0;
+    for (int i = 0; i < strlen(frase); i++)
+    {
+        if (frase[i] != 32)
+        {
+            int colonna = (int)frase[i] - 65;
+            int riga = (int)verme[c] - 65;
+            while((int)matrice[riga][colonna] != (int)frase[i])
+            {
+                colonna++;
+            }
+            cout<<matrice[0][colonna];
+            c++;
+        }
+        else
+        {
+            cout << " ";
+        }
+        if (c >= strlen(verme))
+        {
+            c = 0;
+        }
+    }
+}
 
-    //print matrix
-    for(int i=0; i<26; i++){
-        for(int j=0; j<26; j++){
+void stampa(char matrice[26][26])
+{
+
+    // print matrix
+    for (int i = 0; i < 26; i++)
+    {
+        for (int j = 0; j < 26; j++)
+        {
             cout << matrice[i][j] << " ";
         }
         cout << endl;
     }
 }
 
-int main(){
+int main()
+{
     char chiaro[10] = "provaciao";
     char verme[4] = "abc";
     char tavolaVigenere[26][26];
     inizializza(tavolaVigenere);
     stampa(tavolaVigenere);
-    codifica(chiaro,tavolaVigenere, verme);
-    cout<<endl;
+    codifica(chiaro, tavolaVigenere, verme);
+    cout << endl;
 }
