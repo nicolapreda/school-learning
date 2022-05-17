@@ -56,4 +56,3 @@ echo ""
             echo $(echo $i | cut -d ";" -f 3)
         fi
     done
-    
