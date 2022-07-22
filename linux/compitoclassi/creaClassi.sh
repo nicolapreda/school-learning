@@ -1,9 +1,8 @@
-#create a directory for every class in "CLASSI" folder
-cd "$(dirname "${BASH_SOURCE[0]}")/.."
-for i in CLASSI/*; do
-    if [ -d "$i" ]; then
-        if [ ! -d "$i/class" ]; then
-            mkdir "$i/class"
-        fi
-    fi
+#create a directory for every file in "CLASS" folder
+
+cd ./CLASSI
+for entry in `ls`; do
+    
+    mkdir -p "../${entry}"
+    
 done
