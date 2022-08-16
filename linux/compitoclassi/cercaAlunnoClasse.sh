@@ -5,9 +5,13 @@ then
     exit 1
 fi
 
-#if folder $2 doesnt exist, exit
-cd ./$2
+#check if $1 is in $2
+if [ -f "./${2}/${1}" ]
+then
+    echo "Presente"
+    exit 1
+else
+    echo "Assente"
+    exit 1
+fi
 
-for f in "./${2}"; do
-    echo "$f"
-done

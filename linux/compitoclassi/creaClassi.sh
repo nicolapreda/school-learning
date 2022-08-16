@@ -2,7 +2,5 @@
 
 cd ./CLASSI
 for entry in `ls`; do
-    
     mkdir -p "../${entry}"
-    
 done
