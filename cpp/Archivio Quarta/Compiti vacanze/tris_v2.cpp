@@ -16,9 +16,25 @@ void showMatrix(char matrix[3][3])
         cout << "\n\n";
     }
 }
+
+
+void skipLaunch(int b, char matrix[3][3])
+{
+    if (b == 2 || b == 5 || b == 8)
+    {
+        int a;
+        showMatrix(matrix);
+
+        cout << "Premi 1 per continuare\n";
+        cin >> a;
+        cout << "\n\n";
+    }
+}
+
+
 bool checkWinner(char matrix[3][3], char player)
 {
-    
+
     // check if player has won horizontally
     for (int i = 0; i < 3; i++)
     {
@@ -47,7 +63,7 @@ bool checkWinner(char matrix[3][3], char player)
 
     return false;
 }
-void fillMatrix(char matrix[3][3], char player)
+bool fillMatrix(char matrix[3][3], char player)
 {
 
     // fill matrix with 0
@@ -74,6 +90,7 @@ void fillMatrix(char matrix[3][3], char player)
                 matrix[randomX][randomY] = 'X';
                 turn = 1;
                 b++;
+                skipLaunch(b, matrix);
             }
             else
             {
@@ -87,6 +104,7 @@ void fillMatrix(char matrix[3][3], char player)
                 matrix[randomX][randomY] = 'O';
                 turn = 0;
                 b++;
+                skipLaunch(b, matrix);
             }
             else
             {
@@ -94,23 +112,10 @@ void fillMatrix(char matrix[3][3], char player)
             }
         }
 
-        if (b == 2 || b == 5 || b == 8)
-        {
-            int a;
-            showMatrix(matrix);
-
-            if (checkWinner(matrix, player))
-            {
-                cout << "Hai vinto!" << endl;
-            }
-            else
-            {
-                cout << "Non hai vinto!" << endl;
-            }
-            cout << "Premi 1 per continuare\n";
-            cin >> a;
-        }
+        if (checkWinner(matrix, player))
+            return true;
     }
+    return false;
 }
 
 int main()
@@ -125,8 +130,16 @@ int main()
     }
     cout << endl;
 
-    fillMatrix(matrix, player);
-    showMatrix(matrix);
+    if (fillMatrix(matrix, player))
+    {
+        showMatrix(matrix);
+        cout << "Hai vinto!" << endl;
+    }
+    else
+    {
+        showMatrix(matrix);
+        cout << "Non hai vinto!" << endl;
+    }
 
     return 0;
 }
