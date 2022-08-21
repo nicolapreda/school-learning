@@ -25,7 +25,11 @@ using namespace std;
 class MainGame
 {
 private:
+	void initializeVariables();
+	void initWindow();
+
 	// variables
+	void initMap();
 	// window
 	RenderWindow* window;
 	Event event;
@@ -34,10 +38,12 @@ private:
 	// main font
 	Font font;
 
-	// game variables
-
 	// matrix map
-	int map[5][5];
+	int map[7][7];
+
+	//current position x and y into the map
+	int currentPositionY;
+	int currentPositionX;
 
 public:
 	// constructors

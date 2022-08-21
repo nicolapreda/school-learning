@@ -10,6 +10,7 @@ MainGame::MainGame()
 
 	initializeVariables();
 	initWindow();
+	initMap();
 }
 
 bool MainGame::running()
