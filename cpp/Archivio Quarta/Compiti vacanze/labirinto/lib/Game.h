@@ -25,18 +25,30 @@ using namespace std;
 class MainGame
 {
 private:
-	void initializeVariables();
-	void initWindow();
-
-	// variables
-	void initMap();
-	// window
 	RenderWindow* window;
 	Event event;
 	VideoMode videoMode;
 
+	void initializeVariables();
+	void initWindow();
+	void initPlayer();
+	// variables
+	void initTextureGrid();
+	void initPlaneTable();
+	void initMap();
+	void placeDoors();
+	int checkDoorCollision();
+	bool checkWallCollision();
+	void resultPage(int result);
+	int updateRoom(int addRoom);
+	int updateScore(int addScore);
+	int checkDoor(int room);
+
+	// window
+
 	// main font
 	Font font;
+	Texture playerTexture, wall, floor, doorTexture;
 
 	// matrix map
 	int map[7][7];
@@ -44,6 +56,12 @@ private:
 	//current position x and y into the map
 	int currentPositionY;
 	int currentPositionX;
+
+	Sprite player, grid[187], door[4];
+	RectangleShape planeTable;
+
+	Text scoreString, roomString, lifeString;
+	int life, buttonResultSelected, rightDoor;
 
 public:
 	// constructors
