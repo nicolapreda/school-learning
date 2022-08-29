@@ -64,7 +64,7 @@ void MainGame::initTextureGrid()
 	}
 }
 
-void MainGame::initMap()
+void MainGame::initMap(int length)
 {
 
 	if (updateRoom(0) == 1)
@@ -85,7 +85,6 @@ void MainGame::initMap()
 		currentPositionX = rand() % 7;
 
 		map[currentPositionY][currentPositionX] = 1;
-		int lenght = 5;
 
 		cout << currentPositionY << " ";
 		cout << currentPositionX << endl
@@ -167,7 +166,20 @@ void MainGame::initMap()
 		gridFile.close();
 		cout << "\n\n\n";
 	}
+	else
+	{
+		fstream gridFile;
+		gridFile.open("gridFile.txt");
+		for (int y = 0; y < 7; y++)
+		{
+			for (int x = 0; x < 7; x++)
+			{
+				gridFile >> map[y][x];
+			}
+		}
+	}
 }
+
 void MainGame::placeDoors()
 {
 
@@ -183,7 +195,7 @@ void MainGame::placeDoors()
 		{
 			case 0:
 				door[i].setOrigin(door[i].getLocalBounds().width / 2, door[i].getLocalBounds().height / 2);
-				door[i].setPosition(512, 130);
+				door[i].setPosition(512, 155);
 				break;
 			case 1:
 				door[i].setOrigin(door[i].getLocalBounds().width / 2, door[i].getLocalBounds().height / 2);
@@ -192,12 +204,12 @@ void MainGame::placeDoors()
 			case 2:
 				door[i].setOrigin(door[i].getLocalBounds().width / 2, door[i].getLocalBounds().height / 2);
 				door[i].rotate(90.f);
-				door[i].setPosition(45, 365);
+				door[i].setPosition(85, 365);
 				break;
 			case 3:
 				door[i].setOrigin(door[i].getLocalBounds().width / 2, door[i].getLocalBounds().height / 2);
 				door[i].rotate(90.f);
-				door[i].setPosition(975, 365);
+				door[i].setPosition(955, 365);
 
 			default:
 				break;

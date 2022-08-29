@@ -35,8 +35,9 @@ private:
 	// variables
 	void initTextureGrid();
 	void initPlaneTable();
-	void initMap();
+	void initMap(int lenth);
 	void placeDoors();
+	void winMenu();
 	int checkDoorCollision();
 	bool checkWallCollision();
 	void resultPage(int result);
@@ -50,9 +51,6 @@ private:
 	Font font;
 	Texture playerTexture, wall, floor, doorTexture;
 
-	// matrix map
-	int map[7][7];
-
 	//current position x and y into the map
 	int currentPositionY;
 	int currentPositionX;
@@ -62,6 +60,9 @@ private:
 
 	Text scoreString, roomString, lifeString;
 	int life, buttonResultSelected, rightDoor;
+
+	// matrix map
+	int map[7][7];
 
 public:
 	// constructors

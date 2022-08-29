@@ -5,12 +5,17 @@ MainGame::~MainGame()
 	delete window;
 }
 
-MainGame::MainGame()
+MainGame::MainGame(5)
 {
 
 	initializeVariables();
 	initWindow();
-	initMap();
+	initMap(length);
+
+	if (updateRoom(0) == 5)
+	{
+		winMenu();
+	}
 
 	initPlaneTable();
 
@@ -29,11 +34,11 @@ int MainGame::checkDoor(int room)
 			if (map[y][x] == room)
 			{
 				if (map[y + 1][x] == room + 1)
-					return 0;
+					return 1;
 				else if (map[y][x + 1] == room + 1)
 					return 3;
 				else if (map[y - 1][x] == room + 1)
-					return 1;
+					return 0;
 				else if (map[y][x - 1] == room + 1)
 					return 2;
 			}
@@ -89,18 +94,18 @@ void MainGame::pollEvents()
 				break;
 		}
 	}
-
+	int doorCollision = checkDoorCollision();
+	if (doorCollision == rightDoor)
+	{
+		window->close();
+		updateScore(100);
+		resultPage(0);
+	}
 	// check player movements
 	if (Keyboard::isKeyPressed(Keyboard::Key::A))
 	{
 
 		player.move(-2.0f, 0.0f);
-		if (checkDoorCollision() == rightDoor)
-		{
-			window->close();
-			updateScore(100);
-			resultPage(0);
-		}
 
 		if (checkWallCollision())
 		{
@@ -111,67 +116,30 @@ void MainGame::pollEvents()
 	{
 
 		player.move(0.0f, -2.0f);
-		if (checkDoorCollision() == rightDoor)
-		{
-			window->close();
-			updateScore(100);
-			resultPage(0);
-		}
 
 		if (checkWallCollision())
 		{
 			player.move(0.0f, 2.0f);
-		}
-		if (checkDoorCollision() == rightDoor)
-		{
-			window->close();
-			updateScore(100);
-			resultPage(0);
 		}
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Key::S))
 	{
 
 		player.move(0.0f, 2.0f);
-		if (checkDoorCollision() == rightDoor)
-		{
-			window->close();
-			updateScore(100);
-			resultPage(0);
-		}
 
 		if (checkWallCollision())
 		{
 			player.move(0.0f, -2.0f);
-		}
-
-		if (checkDoorCollision() == rightDoor)
-		{
-			window->close();
-			updateScore(100);
-			resultPage(0);
 		}
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Key::D))
 	{
 
 		player.move(2.0f, 0.0f);
-		if (checkDoorCollision() == rightDoor)
-		{
-			window->close();
-			updateScore(100);
-			resultPage(0);
-		}
 
 		if (checkWallCollision())
 		{
 			player.move(-2.0f, 0.0f);
-		}
-		if (checkDoorCollision() == rightDoor)
-		{
-			window->close();
-			updateScore(100);
-			resultPage(0);
 		}
 	}
 }

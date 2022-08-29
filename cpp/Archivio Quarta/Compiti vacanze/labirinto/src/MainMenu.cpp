@@ -10,7 +10,7 @@ int main()
 
 	// initialize font text and variables for main menu
 	Font font;
-	Text mainMenu[2], title[2];
+	Text mainMenu[3], title[2];
 	font.loadFromFile("./content/fonts/ArcadeClassic.ttf");
 
 	/*
@@ -41,8 +41,10 @@ int main()
 				mainMenu[i].setString("PLAY");
 				break;
 			case 1:
-				mainMenu[i].setString("EXIT");
+				mainMenu[i].setString("LOAD MAP");
 				break;
+			case 2:
+				mainMenu[i].setString("EXIT");
 			default:
 				break;
 		}
@@ -118,6 +120,7 @@ int main()
 								MainMenu.close();
 								while (game.running())
 								{
+
 									game.update();
 									game.render();
 								}
@@ -125,7 +128,18 @@ int main()
 								break;
 							case 1:
 								MainMenu.close();
+								while (game.running())
+								{
 
+									game.update();
+									game.render();
+								}
+
+								break;
+							case 2:
+								MainMenu.close();
+								break;
+							case 3:
 								break;
 							default:
 								break;
