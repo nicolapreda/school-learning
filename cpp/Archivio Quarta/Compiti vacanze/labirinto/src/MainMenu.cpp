@@ -25,7 +25,7 @@ int main()
 	*/
 
 	// initialize text
-	for (int i = 0, h = 340; i < 2; i++, h += 100)
+	for (int i = 0, h = 340; i < 3; i++, h += 100)
 	{
 		mainMenu[i].setFont(font);
 		mainMenu[i].setOutlineThickness(2);
@@ -88,22 +88,23 @@ int main()
 				case Event::KeyReleased:
 					if (event.key.code == Keyboard::Up)
 					{
-						if (mainMenuSelected == 1)
+						if (mainMenuSelected > 0)
 						{
 							mainMenu[mainMenuSelected].setFillColor(Color::Blue);
 							MainMenu.clear();
-							mainMenuSelected = 0;
+							mainMenuSelected--;
 							mainMenu[mainMenuSelected].setFillColor(Color::White);
 						}
 						break;
 					}
 					if (event.key.code == Keyboard::Down)
 					{
-						if (mainMenuSelected == 0)
+						if (mainMenuSelected < 2)
 						{
 							mainMenu[mainMenuSelected].setFillColor(Color::Blue);
 							MainMenu.clear();
-							mainMenuSelected = 1;
+							mainMenuSelected++;
+
 							mainMenu[mainMenuSelected].setFillColor(Color::White);
 						}
 						break;
@@ -117,10 +118,12 @@ int main()
 						switch (x)
 						{
 							case 0:
+								//generate map
+								game.initMap(5);
 								MainMenu.close();
 								while (game.running())
 								{
-
+									game.updateMap();
 									game.update();
 									game.render();
 								}
@@ -128,9 +131,10 @@ int main()
 								break;
 							case 1:
 								MainMenu.close();
+								game.loadMapFromFile();
 								while (game.running())
 								{
-
+									game.loadMapFromFile();
 									game.update();
 									game.render();
 								}
@@ -138,9 +142,9 @@ int main()
 								break;
 							case 2:
 								MainMenu.close();
+
 								break;
-							case 3:
-								break;
+
 							default:
 								break;
 						}
@@ -157,6 +161,7 @@ int main()
 
 			MainMenu.draw(mainMenu[0]);
 			MainMenu.draw(mainMenu[1]);
+			MainMenu.draw(mainMenu[2]);
 			MainMenu.display();
 		}
 	}

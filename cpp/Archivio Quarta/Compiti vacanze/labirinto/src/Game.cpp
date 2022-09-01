@@ -5,12 +5,11 @@ MainGame::~MainGame()
 	delete window;
 }
 
-MainGame::MainGame(5)
+MainGame::MainGame()
 {
 
 	initializeVariables();
 	initWindow();
-	initMap(length);
 
 	if (updateRoom(0) == 5)
 	{

@@ -35,7 +35,7 @@ private:
 	// variables
 	void initTextureGrid();
 	void initPlaneTable();
-	void initMap(int lenth);
+
 	void placeDoors();
 	void winMenu();
 	int checkDoorCollision();
@@ -65,6 +65,9 @@ private:
 	int map[7][7];
 
 public:
+	void initMap(int length);
+	void loadMapFromFile();
+	void updateMap();
 	// constructors
 	MainGame();
 	virtual ~MainGame();

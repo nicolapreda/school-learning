@@ -10,7 +10,7 @@ void MainGame::winMenu()
 	font.loadFromFile("./content/fonts/ArcadeClassic.ttf");
 
 	// initialize window
-	RenderWindow resultView(VideoMode(1020, 730), "Labirynth", Style::Close);
+	RenderWindow winMenu(VideoMode(1020, 730), "Labirynth", Style::Close);
 
 	// set result string
 	resultString.setFont(font);
@@ -35,20 +35,20 @@ void MainGame::winMenu()
 	nextLevelButton.setFont(font);
 	nextLevelButton.setPosition(Vector2f(650.f, 500.f));
 	nextLevelButton.setFillColor(Color::White);
-	nextLevelButton.setString("Go  to  room  " + to_string(updateRoom(0)));
+	nextLevelButton.setString("Play again");
 	nextLevelButton.setCharacterSize(30);
 
-	while (resultView.isOpen())
+	while (winMenu.isOpen())
 	{
 		Event event;
 
-		while (resultView.waitEvent(event))
+		while (winMenu.waitEvent(event))
 		{
 
 			switch (event.type)
 			{
 				case Event::Closed:
-					resultView.close();
+					winMenu.close();
 					break;
 				case Event::KeyReleased:
 					if (event.key.code == Keyboard::Left)
@@ -56,7 +56,7 @@ void MainGame::winMenu()
 						if (buttonResultSelected == 1)
 						{
 							exitButton.setFillColor(Color::White);
-							resultView.clear();
+							winMenu.clear();
 							buttonResultSelected = 0;
 							nextLevelButton.setFillColor(Color::Blue);
 						}
@@ -67,7 +67,7 @@ void MainGame::winMenu()
 						if (buttonResultSelected == 0)
 						{
 							nextLevelButton.setFillColor(Color::White);
-							resultView.clear();
+							winMenu.clear();
 							buttonResultSelected = 1;
 
 							exitButton.setFillColor(Color::Blue);
@@ -76,34 +76,34 @@ void MainGame::winMenu()
 					}
 					if (event.key.code == Keyboard::Return)
 					{
+						MainGame game;
 						if (buttonResultSelected == 1)
 						{
-							MainGame game;
+							winMenu.close();
+						}
+						else
+						{
+							updateRoom(-1);
+							winMenu.close();
 
-							// init game engine
-							resultView.close();
 							while (game.running())
 							{
 								game.update();
 								game.render();
 							}
 						}
-						else
-						{
-							resultView.close();
-						}
 					}
 					break;
 				default:
 					break;
 			}
-			resultView.clear();
+			winMenu.clear();
 
-			resultView.draw(resultString);
-			resultView.draw(exitButton);
-			resultView.draw(nextLevelButton);
+			winMenu.draw(resultString);
+			winMenu.draw(exitButton);
+			winMenu.draw(nextLevelButton);
 
-			resultView.display();
+			winMenu.display();
 		}
 	}
 }
