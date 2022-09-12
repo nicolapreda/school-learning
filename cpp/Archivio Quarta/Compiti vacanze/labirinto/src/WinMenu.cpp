@@ -85,7 +85,7 @@ void MainGame::winMenu()
 						{
 							updateRoom(-1);
 							winMenu.close();
-
+							gameMode = 0;
 							while (game.running())
 							{
 								game.update();

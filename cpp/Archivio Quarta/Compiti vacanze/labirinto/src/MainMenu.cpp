@@ -10,7 +10,7 @@ int main()
 
 	// initialize font text and variables for main menu
 	Font font;
-	Text mainMenu[3], title[2];
+	Text mainMenu[2], title[2];
 	font.loadFromFile("./content/fonts/ArcadeClassic.ttf");
 
 	/*
@@ -41,9 +41,6 @@ int main()
 				mainMenu[i].setString("PLAY");
 				break;
 			case 1:
-				mainMenu[i].setString("LOAD MAP");
-				break;
-			case 2:
 				mainMenu[i].setString("EXIT");
 			default:
 				break;
@@ -114,39 +111,17 @@ int main()
 						int x = mainMenuSelected;
 
 						// init game engine
+						MainMenu.close();
 						MainGame game;
-						switch (x)
+
+						if (x == 0)
 						{
-							case 0:
-								//generate map
-								game.initMap(5);
-								MainMenu.close();
-								while (game.running())
-								{
-									game.updateMap();
-									game.update();
-									game.render();
-								}
+							while (game.running())
+							{
 
-								break;
-							case 1:
-								MainMenu.close();
-								game.loadMapFromFile();
-								while (game.running())
-								{
-									game.loadMapFromFile();
-									game.update();
-									game.render();
-								}
-
-								break;
-							case 2:
-								MainMenu.close();
-
-								break;
-
-							default:
-								break;
+								game.update();
+								game.render();
+							}
 						}
 					}
 					break;
@@ -161,7 +136,6 @@ int main()
 
 			MainMenu.draw(mainMenu[0]);
 			MainMenu.draw(mainMenu[1]);
-			MainMenu.draw(mainMenu[2]);
 			MainMenu.display();
 		}
 	}

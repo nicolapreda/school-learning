@@ -60,7 +60,7 @@ private:
 
 	Text scoreString, roomString, lifeString;
 	int life, buttonResultSelected, rightDoor;
-
+	Clock respawnClock;
 	// matrix map
 	int map[7][7];
 
@@ -73,7 +73,7 @@ public:
 	virtual ~MainGame();
 	// accessors
 	bool running();
-
+	int gameMode;
 	// functions
 	void update();
 	void pollEvents();

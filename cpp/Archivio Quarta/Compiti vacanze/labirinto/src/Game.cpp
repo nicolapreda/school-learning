@@ -10,10 +10,14 @@ MainGame::MainGame()
 
 	initializeVariables();
 	initWindow();
-
-	if (updateRoom(0) == 5)
+	if (updateRoom(0) == 1)
 	{
-		winMenu();
+		initMap(5);
+	}
+	else
+	{
+
+		updateMap();
 	}
 
 	initPlaneTable();
@@ -22,6 +26,7 @@ MainGame::MainGame()
 	placeDoors();
 	initPlayer();
 	rightDoor = checkDoor(updateRoom(0));
+	respawnClock.restart();
 }
 
 int MainGame::checkDoor(int room)
@@ -59,6 +64,17 @@ void MainGame::update()
 
 void MainGame::initializeVariables()
 {
+	if (gameMode == 0)
+	{
+		if (updateRoom(0) == 1)
+		{
+			initMap(5);
+		}
+		else
+		{
+			updateMap();
+		}
+	}
 	window = nullptr;
 }
 
@@ -98,7 +114,22 @@ void MainGame::pollEvents()
 	{
 		window->close();
 		updateScore(100);
-		resultPage(0);
+		if (updateRoom(0) == 4)
+		{
+			winMenu();
+		}
+		else
+		{
+			resultPage(0);
+		}
+	}
+	else if (doorCollision != rightDoor && doorCollision >= 0)
+	{
+		if (respawnClock.getElapsedTime().asSeconds() > 2)
+		{
+			life--;
+			respawnClock.restart();
+		}
 	}
 	// check player movements
 	if (Keyboard::isKeyPressed(Keyboard::Key::A))
@@ -193,7 +224,8 @@ void MainGame::initPlayer()
 		cout << "Texture player not loaded" << endl;
 	}
 	player.setTexture(playerTexture);
-	player.setPosition(61.f, 144.f);
+	player.setOrigin(player.getLocalBounds().width / 2, player.getLocalBounds().height / 2);
+	player.setPosition(510, 365);
 }
 
 int MainGame::updateRoom(int addRoom)

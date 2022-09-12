@@ -5,10 +5,8 @@
 void MainGame::initPlaneTable()
 {
 	// draw plane table
-	planeTable.setFillColor(Color(246, 129, 0));
+	planeTable.setFillColor(Color(0, 0, 85));
 	planeTable.setSize(Vector2f(1020, 100));
-	planeTable.setOutlineColor(Color(128, 23, 17));
-	planeTable.setOutlineThickness(2.f);
 	planeTable.setPosition(Vector2f(0, 0));
 
 	//load font
@@ -192,22 +190,20 @@ void MainGame::placeDoors()
 		switch (i)
 		{
 			case 0:
-				door[i].setOrigin(door[i].getLocalBounds().width / 2, door[i].getLocalBounds().height / 2);
-				door[i].setPosition(512, 155);
+				door[i].setPosition(420, 86);
 				break;
 			case 1:
-				door[i].setOrigin(door[i].getLocalBounds().width / 2, door[i].getLocalBounds().height / 2);
-				door[i].setPosition(512, 670);
+				door[i].rotate(180.f);
+
+				door[i].setPosition(658, 741);
 				break;
 			case 2:
-				door[i].setOrigin(door[i].getLocalBounds().width / 2, door[i].getLocalBounds().height / 2);
-				door[i].rotate(90.f);
-				door[i].setPosition(85, 365);
+				door[i].rotate(-90.f);
+				door[i].setPosition(1, 504);
 				break;
 			case 3:
-				door[i].setOrigin(door[i].getLocalBounds().width / 2, door[i].getLocalBounds().height / 2);
 				door[i].rotate(90.f);
-				door[i].setPosition(955, 365);
+				door[i].setPosition(1019, 264);
 
 			default:
 				break;
