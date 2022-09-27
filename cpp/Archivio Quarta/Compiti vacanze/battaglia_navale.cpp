@@ -19,8 +19,7 @@ void setShots(int matrix[10][10], int ship3Pos[3][3], int ship2pos[2][2], int sh
     fstream shotsFile;
     shotsFile.open("Colpi.txt", fstream::out);
     int nShots = rand() % 10 + 20, YShot, XShot, points = 0, ship3Shots = 0, ship2Shots = 0;
-    ;
-
+    
     shotsFile << "Numero di colpi disponibili: " << nShots << endl;
     for (int i = 0; i < nShots; i++)
     {

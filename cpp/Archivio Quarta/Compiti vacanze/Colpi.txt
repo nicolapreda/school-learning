@@ -1,24 +1,23 @@
-Numero di colpi disponibili: 22
-4 1
-2 3
-3 5
-4 2
-0 9
-7 8
-Colpita e affondata nave da 1; 0 0
-4 8
-4 7
-1 1
-4 5
+Numero di colpi disponibili: 21
+3 2
 8 3
-8 1
-3 1
-4 7
-8 5
-Colpita e affondata nave da 1; 0 0
-7 0
+0 1
+Colpita nave da 3; 5 5
+8 2
+3 0
+8 6
+2 2
+5 7
+7 1
+5 8
+1 8
+2 3
+2 3
+9 7
+2 4
 5 3
-5 3
-1 5
-5 2
-Punti totali: 20
+3 7
+5 8
+5 4
+2 6
+Punti totali: 10
