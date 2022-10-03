@@ -8,58 +8,39 @@ Il processo padre scriverà a video il risultato.
 #include <unistd.h>
 #include <stdlib.h>
 #include <cstdlib>
+#include <sys/wait.h>
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    int pid = getpid();
-    int a = atoi(argv[1]);
-    int b = atoi(argv[2]);
-    int somma = a + b;
-    int differenza = a - b;
-    int prodotto = a * b;
-    int divisione = a / b;
+    int arg1 = atoi(argv[1]);
+    int arg2 = atoi(argv[2]);
     int status;
-    int w;
-    for (int i = 0; i < 4; i++)
-    {
-        if (getpid() == pid)
-        {
-            pid = fork();
-        }
-    
-    if (pid == 0)
-    {
-        switch (i)
-        {
-        case 0:
-            cout << "Somma: " << somma << endl;
-            break;
-        case 1:
-            cout << "Differenza: " << differenza << endl;
-            break;
-        case 2:
-            cout << "Prodotto: " << prodotto << endl;
-            break;
-        case 3:
-            cout << "Divisione: " << divisione << endl;
-            break;
-        default:
-            break;
+    int pid = getpid();
+
+    for(int i=0; i<4; i++){
+        fork();
+        if(getpid()!= pid){
+            if (i==0)
+            {
+                exit(arg1+arg2);
+            }else if(i==1){
+                exit(arg1-arg2);
+            }else if(i==2){
+                exit(arg1*arg2);
+            }else if(i==3){
+                exit(arg1/arg2);
+            }
+            else{
+                wait(&status);
+                int exit_status = WEXITSTATUS(status);
+                cout << "Figlio: " << i+1 << ": " << exit_status << endl;
+                
+            }
+            
         }
     }
-    else
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            w = wait(&status);
-            if (WIFEXITED(status))
-            {
-                cout << "Processo " << w << " terminato con stato " << WEXITSTATUS(status) << endl;
-            }
-        }
-    }}
 
     return 0;
 }
