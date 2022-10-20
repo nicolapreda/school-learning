@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
             else{
                 wait(&status);
                 int exit_status = WEXITSTATUS(status);
+              //scrive lo stato in usc  
                 cout << "Figlio: " << i+1 << ": " << exit_status << endl;
                 
             }
