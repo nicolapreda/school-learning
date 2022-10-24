@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <fstream>
 
 using namespace std;
 
@@ -20,14 +21,24 @@ int main()
 	
 	clock_t start,end;
 	double tempo;
-    for (int numero = 1; numero <= 54; numero++)
+    for (int numero = 1; numero <= 20; numero++)
     {
+
+//apri un file in scrittura
+ofstream output("risultati.txt");
+
         cout<< numero<< ": ";
+         
+
         start=clock();
         fib(numero);
         end=clock();
         tempo=((double)(end-start))/CLOCKS_PER_SEC;
         cout<<tempo<<" sec"<<endl;
+        
+        
+        
+        output.close();
 
     }	
 }
