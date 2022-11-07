@@ -8,25 +8,22 @@
 #include <sys/wait.h>
 #include <fstream>
 
-
-
 using namespace std;
-using std::chrono::system_clock;
 using std::chrono::steady_clock;
+using std::chrono::system_clock;
 using namespace std::chrono;
 
 int main()
 {
 
+    int array[10000];
+    int array1[10000];
 
-    long long int array[10000];
-    long long int array1[10000];
-
-    srand(time(NULL));
+    srand(time(0));
 
     for (int x = 0; x < 10000; x++)
     {
-        array[x] = rand() % 2000000000;
+        array[x] = rand() * 65536 + rand();
         array1[x] = array1[x];
     }
 
@@ -43,63 +40,69 @@ int main()
                 array[j + 1] = temp;
             }
         }
-
-        cout << array[i] << "\t";
     }
-    
-    cout<<endl;
+    ofstream myfile;
+    myfile.open("array");
+    for (int i = 0; i < 100000; i++)
+    {
+        myfile << array[i] << endl;
+    }
+    myfile.close();
+
     auto t2 = steady_clock::now();
 
     auto duration = duration_cast<microseconds>(t2 - t1).count();
-    cout<<"durata: "<< duration<<endl; 
-
-    
+    cout << "durata: " << duration << endl;
 
     auto t3 = steady_clock::now();
 
+    int pid = getpid();
     int arr1[5000];
     int arr2[5000];
-    //carica arr1 e arr2 con valori casuali con rand
-    for (int i = 0; i < 5000; i++)
-    {        arr1[i] = array[i];
-        
-    }
+    // carica arr1 e arr2 con valori casuali con rand
     for (int i = 0; i < 5000; i++)
     {
-        arr2[i] = array[i+5000];
+        arr1[i] = array1[i];
+        arr2[i] = array1[i + 5000];
     }
-    
-    int pid = fork();
-    //se è il figlio ordina arr1
-    if (pid == 0)
+
+    int pids[2];
+    for (int i = 0; i < 4; i++)
     {
-        //apri file array1.txt per scrivere
-        ofstream file1;
-        file1.open("array1.txt");
-        for (int i = 0; i < 5000; i++)
+        if (getpid() == pid)
+            pids[i] = fork();
+    }
+
+    if (pid == getppid())
+    {
+        if (pids[1] == 0)
         {
-            for (int j = 0; j < 5000; j++)
+            for (int i = 0; i < 50000; i++)
             {
-                if (arr1[i] < arr1[j])
+                for (int j = 0; j < 50000; j++)
                 {
-                    int temp = arr1[i];
-                    arr1[i] = arr1[j];
-                    arr1[j] = temp;
+                    if (arr1[i] < arr1[j])
+                    {
+                        int temp = arr1[i];
+                        arr1[i] = arr1[j];
+                        arr1[j] = temp;
+                    }
                 }
             }
-            
-        }
-    }
-    //se invece è ancora il padre crea un altro processo
-    else
-    {
-        int pid2 = fork();
-        //se è il figlio ordina arr2
-        if (pid2 == 0)
-        {
-            for (int i = 0; i < 5000; i++)
+            ofstream myfile;
+            myfile.open("arr1");
+            for (int i = 0; i < 50000; i++)
             {
-                for (int j = 0; j < 5000; j++)
+                myfile << arr1[i] << endl;
+            }
+            myfile.close();
+            exit(0);
+        }
+        else if (pids[2] == 0)
+        {
+            for (int i = 0; i < 50000; i++)
+            {
+                for (int j = 0; j < 50000; j++)
                 {
                     if (arr2[i] < arr2[j])
                     {
@@ -108,20 +111,56 @@ int main()
                         arr2[j] = temp;
                     }
                 }
-                cout << array[i] << "\t";
             }
-            cout<<endl;
-        }
-        //se invece è ancora il padre aspetta che i figli finiscano
-        else
-        {
-            waitpid(pid, NULL, 0);
-            waitpid(pid2, NULL, 0);
+            ofstream myfile;
+            myfile.open("arr2");
+            for (int i = 0; i < 50000; i++)
+            {
+                myfile << arr2[i] << endl;
+            }
+            myfile.close();
+            exit(0);
         }
     }
+    // se invece è ancora il padre crea un altro processo
+    else
+    {
+        waitpid(pids[1], NULL, 0);
+        waitpid(pids[2], NULL, 0);
+        ifstream myfile;
+        myfile.open("arr1");
+        for (int i = 0; i < 50000; i++)
+        {
+            myfile >> arr1[i];
+        }
+        myfile.close();
 
-    auto t4 = steady_clock::now();
+        myfile.open("arr2");
+        for (int i = 0; i < 50000; i++)
+        {
+            myfile >> arr2[i];
+        }
+        myfile.close();
 
+        int arr3[100000];
+        int i = 0, j = 0, k = 0;
+        while (i < 50000 && j < 50000)
+        {
+            if (arr1[i] < arr2[j])
+            {
+                arr3[k] = arr1[i];
+                i++;
+            }
+            else
+            {
+                arr3[k] = arr2[j];
+                j++;
+            }
+            k++;
+        }
 
+        auto t4 = steady_clock::now();
 
+        cout << "\ntempo: " << duration_cast<microseconds>(t4 - t3).count() << " microsecondi" << endl;
+    }
 }
