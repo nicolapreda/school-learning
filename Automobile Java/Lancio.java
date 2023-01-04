@@ -7,9 +7,14 @@ public class Lancio {
     }
 
     public static void main(String[] args) {
-        Automobile auto = new Automobile();
+        Automobile auto = new Automobile("Maserati", "Panda", 3000);
         
-        while(true){
+        Scanner sc=new Scanner(System.in);    
+        
+        int comando;
+        
+        do{
+            System.out.print('\u000c');
             System.out.println("Inserisci un comando");
             System.out.println("1 => Avvia motore");
             System.out.println("2 => Cambia marcia");
@@ -18,9 +23,9 @@ public class Lancio {
             System.out.println("5 => Spegni il motore");
             System.out.println("6 => Riempi il serbatoio");
             System.out.println("7 => Mostra lo stato dell'automobile ");
+            System.out.println("8 => Esci ");
    
-            Scanner sc=new Scanner(System.in);
-            int comando=sc.nextInt();
+            comando = sc.nextInt();
 
             switch(comando){
                 case 1:
@@ -39,8 +44,6 @@ public class Lancio {
                     break;
                 case 3:
                     auto.accelera();
-                    System.out.println("La macchina ha accelerato");
-
                     break;
                 case 4:
                     auto.frena();
@@ -58,6 +61,9 @@ public class Lancio {
                 case 7:
                     auto.mostraStato();
                     break;
+                case 8:
+                    System.out.println("bye :)");
+                    break;
                 default:
                     System.out.println("Comando non valido");
                     break;
@@ -66,8 +72,14 @@ public class Lancio {
 
 
             }
+               
+            System.out.println("Premi invio per continuare...");
+            String continua=sc.nextLine();
+            continua=sc.nextLine();
+            
    
         }
+        while(comando!=8);
 
     }
 }

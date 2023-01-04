@@ -18,14 +18,12 @@ public class Automobile {
     /**
      * Costruttore degli oggetti di classe Automobile
      */
-    public Automobile() {
-        marca = "Fiat";
-        modello = "Grande Punto";
-        accesa = false;
-        cilindrata = 1200;
-        serbatoio = 50;
-        velocita = 0;
-        marcia = 0;
+    public Automobile(String marca, String modello, int cilindrata) {
+        this.marca = marca;
+        this.modello = modello;
+        this.cilindrata = cilindrata;
+        this.serbatoio = 40;
+        this.marcia = 1;
     }
 
     /**
@@ -36,8 +34,13 @@ public class Automobile {
      */
     public void avviaMotore() {
         if (accesa == false) {
-            accesa = true;
-            System.out.println("Motore avviato");
+            if(serbatoio == 0){
+                System.out.println("Serbatoio vuoto.");
+            }else{
+                accesa = true;
+                System.out.println("Motore avviato");
+            }
+            
 
         } else {
             System.out.println("Motore già avviato!");
@@ -64,12 +67,30 @@ public class Automobile {
             System.out.println("Massima marcia raggiunta!");
     }
 
-    public void accelera() {
-        if (velocita < 200) {
-            velocita += 10;
-            System.out.println("Velocità aumentata di 10!");
-        } else
-            System.out.println("Velocità massima raggiunta!");
+        public void accelera() {
+        if(marcia>0){
+            if (velocita < 200) {
+                velocita += 5;
+                System.out.println("Velocità aumentata di 5!");
+            } else
+                System.out.println("Velocità massima raggiunta!");
+        }
+        else{
+            System.out.println("Sei in folle");
+        }
+    }
+    
+    public void accelera(int v) {
+        if(marcia>0){
+            if (velocita < 200) {
+                velocita += v;
+                System.out.println("Velocità aumentata di 5!");
+            } else
+                System.out.println("Velocità massima raggiunta!");
+        }
+        else{
+            System.out.println("Sei in folle");
+        }
     }
 
     public void frena() {
@@ -89,10 +110,10 @@ public class Automobile {
     }
 
     public void riempi(int k) {
-        if (k > 0) {
+        if ((serbatoio-k) < 0) {
             serbatoio += k;
             System.out.println("Serbatoio riempito di " + k + " litri!");
-        } else
+        } else 
             System.out.println("Impossibile riempire il serbatoio!");
     }
 
