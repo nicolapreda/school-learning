@@ -1,9 +1,9 @@
 public class Frazione {
-  // gli attributi num e den rappresentano il numeratore e il denominatore della frazione
   private int num;
   private int den;
 
-  // costruttore senza parametri, inizializza a 0 il numeratore e a 1 il denominatore
+  // costruttore senza parametri, inizializza a 0 il numeratore e a 1 il
+  // denominatore
   public Frazione() {
     this.num = 0;
     this.den = 1;
@@ -74,46 +74,48 @@ public class Frazione {
     int den = this.den * f.getNum();
     Frazione divisione = new Frazione(num, den);
     divisione.riduci();
-return divisione;
-}
+    return divisione;
+  }
 
-// metodo per semplificare una frazione tramite l'algoritmo di Euclide (usando la ricorsione)
-public void riduci() {
-int mcd = calcolaMCD(this.num, this.den);
-this.num /= mcd;
-this.den /= mcd;
-}
+  // metodo per semplificare una frazione tramite l'algoritmo di Euclide (usando
+  // la ricorsione)
+  public void riduci() {
+    int mcd = calcolaMCD(this.num, this.den);
+    this.num /= mcd;
+    this.den /= mcd;
+  }
 
-// metodo per calcolare il massimo comun divisore di due numeri interi
-private int calcolaMCD(int a, int b) {
-if (b == 0) {
-return a;
-}
-return calcolaMCD(b, a % b);
-}
+  // metodo per calcolare il massimo comun divisore di due numeri interi
+  private int calcolaMCD(int a, int b) {
+    if (b == 0) {
+      return a;
+    }
+    return calcolaMCD(b, a % b);
+  }
 
-// metodo per ottenere il numero con la virgola relativo alla frazione
-public double valore() {
-return (double) this.num / this.den;
-}
+  // metodo per ottenere il numero con la virgola relativo alla frazione
+  public double valore() {
+    return (double) this.num / this.den;
+  }
 
-// metodo per ottenere una stringa che rappresenta la frazione
-public String toString() {
-return this.num + "/" + this.den;
-}
+  // metodo per ottenere una stringa che rappresenta la frazione
+  public String toString() {
+    return this.num + "/" + this.den;
+  }
 
-// metodo per verificare se una frazione è maggiore di un'altra
-public boolean maggiore(Frazione f) {
-return this.valore() > f.valore();
-}
+  // metodo per verificare se una frazione è maggiore di un'altra
+  public boolean maggiore(Frazione f) {
+    return this.valore() > f.valore();
+  }
 
-// metodo per verificare se una frazione è minore di un'altra
-public boolean minore(Frazione f) {
-return this.valore() < f.valore();
-}
+  // metodo per verificare se una frazione è minore di un'altra
+  public boolean minore(Frazione f) {
+    return this.valore() < f.valore();
+  }
 
-// metodo per verificare se due frazioni sono uguali
-public boolean equals(Frazione f) {
-return this.num == f.getNum() && this.den == f.getDen();
-}
+  // metodo per verificare se due frazioni sono uguali
+  public boolean equals(Frazione f) {
+    return this.num == f.getNum() && this.den == f.getDen();
+  }
+
 }
