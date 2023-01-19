@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=LibroDiTesto
+comment0.text=\n\ Aggiungi\ qui\ una\ descrizione\ della\ classe\ LibroDiTesto\n\ \n\ @author\ (il\ tuo\ nome)\ \n\ @version\ (un\ numero\ di\ versione\ o\ una\ data)\n
+comment1.params=
+comment1.target=LibroDiTesto()
+comment1.text=\n\ Costruttore\ degli\ oggetti\ di\ classe\ \ LibroDiTesto\n
+comment2.params=y
+comment2.target=int\ sampleMethod(int)
+comment2.text=\n\ Un\ esempio\ di\ metodo\ -\ aggiungi\ i\ tuoi\ commenti\n\ \n\ @param\ \ y\ \ \ un\ parametro\ d'esempio\ per\ un\ metodo\n\ @return\ \ \ \ \ la\ somma\ di\ x\ e\ y\n
+numComments=3

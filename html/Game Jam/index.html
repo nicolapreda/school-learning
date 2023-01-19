@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="./dist/main.css">
+    <title>Game Jam</title>
+</head>
+
+<body style="background-image: url('./assets/img/background.png');   background-repeat: no-repeat;
+background-size: cover;">
+      <embed src="./assets/music/industry.wav" loop="true" autostart="true" width="0" height="0">
+
+    <section id="game-section">
+        <section id="main-menu">
+            <!--main menu-->
+            <div class=" flex justify-center h-screen text-white font-pixel">
+                <div class="text-center mt-32">
+                    <h1 class="text-6xl font-bold ">Inside The System</h1><br>
+                    <p class="text-xl font-normal ">Henry Ford alternative ending</p>
+                    <div class="mt-10 grid grid-rows-3">
+                        <a id="start" onclick="startGame();"
+                            class=" text-center items-center px-10 py-2 bg-gray-400 text-black text-xl text-bold my-4 rounded-lg hover:bg-gray-500 transition">Start</a>
+                        <a id="start" onclick="optionsGame();"
+                            class=" text-center items-center px-10 py-2 bg-gray-400 text-black text-xl text-bold my-4 rounded-lg hover:bg-gray-500 transition">Options</a>
+                        <a id="start" onclick="creditsGame();"
+                            class=" text-center items-center px-10 py-2 bg-gray-400 text-black text-xl text-bold my-4 rounded-lg hover:bg-gray-500 transition">Credits</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <div id="game" class="hidden">
+            <!--insert options and pause button on the top of the screen-->
+            <div class="flex justify-between p-5">
+                <div class="flex justify-center">
+                    <!--options button only with icon-->
+                    <button onclick="optionsGame();"
+                        class="flex justify-center items-center w-10 h-10 bg-gray-400 text-black text-xl text-bold my-4 rounded-lg hover:bg-gray-500 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <!--pause button only with icon-->
+                    <button onclick="pause();"
+                        class="ml-3 flex justify-center items-center w-10 h-10 bg-gray-400 text-black text-xl text-bold my-4 rounded-lg hover:bg-gray-500 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                </div>
+                <!--timer-->
+                <div class="flex justify-center">
+                    <!--canvas-->
+                    <canvas id="card1"></canvas>
+                    <canvas id="card2"></canvas>
+                    <canvas id="card3"></canvas>
+                    <canvas id="card4"></canvas>
+                    <canvas id="card5"></canvas>
+                    <canvas id="graveyard"></canvas>
+                </div>
+            </div>
+
+            <div id="items">
+            </div>
+
+        </div>
+    </section>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
