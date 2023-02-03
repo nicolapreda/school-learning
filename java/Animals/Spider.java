@@ -4,6 +4,6 @@ class Spider extends Animal {
     }
 
     public void eat() {
-        System.out.println("The spider eats insects.");
+        System.out.println("Il ragno mangia insetti.");
     }
 }

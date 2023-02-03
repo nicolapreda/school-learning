@@ -1,8 +1,12 @@
+//implements implementa l'interfaccia che serve per dare delle regole alle classi che lo implementano
+
 class Cat extends Animal implements Pet {
     private String name;
 
     public Cat(String name) {
+        //per chiamare il costruttore della superclasse
         super(4);
+        super.legs = 4;
         this.name = name;
     }
 
@@ -10,18 +14,19 @@ class Cat extends Animal implements Pet {
         this("");
     }
 
-    @Override
-    public void play() {
-        System.out.println(name + " plays with a toy.");
-    }
-
-    @Override
-    public void beFriendly() {
-        System.out.println(name + " cuddles with its owner.");
-    }
-
-    @Override
     public void eat() {
-        System.out.println(name + " eats cat food.");
+        System.out.println("Il gatto sta mangiando.");
     }
+    public String play() {
+        return "Il gatto sta giocando.";
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
 }
