@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Nodo
+comment1.params=dato
+comment1.target=Nodo(int)
+comment2.params=
+comment2.target=int\ getDato()
+comment2.text=\r\n\ \ \ \ public\ Nodo(int\ dato,\ Nodo\ link){\ //\ solo\ per\ inserire\ in\ testa\r\n\ \ \ \ \ \ \ \ this.dato\ \=\ dato;\r\n\ \ \ \ \ \ \ \ this.link\ \=\ link;\r\n\ \ \ \ }\r\n
+comment3.params=dato
+comment3.target=void\ setDato(int)
+comment4.params=
+comment4.target=Nodo\ getLink()
+comment5.params=link
+comment5.target=void\ setLink(Nodo)
+numComments=6

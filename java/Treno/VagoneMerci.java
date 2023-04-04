@@ -5,6 +5,7 @@ public class VagoneMerci extends Vagone {
     private int volumeCarico;
     private int pesoMassimoCarico;
     private int pesoEffettivoCarico;
+    
     public int getPesoEffettivoCarico() {
         return pesoEffettivoCarico;
     }

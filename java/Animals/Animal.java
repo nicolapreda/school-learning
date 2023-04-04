@@ -1,6 +1,5 @@
 abstract class Animal {
     //variabile visibile soltanto dalle classi che estendono Animal
-    
     protected int legs;
 
     protected Animal(int legs) {

@@ -56,7 +56,7 @@ public class Form extends JFrame {
         simplifyButton.addActionListener(new ClickListener());
         add(simplifyButton);
 
-
+    
         numeratorResult =new JTextField();
         numeratorResult.setBounds(340,40,60,23); 
         JLabel LIneaLabel=new JLabel("________");

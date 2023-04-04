@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Lista
+comment1.params=
+comment1.target=Lista()
+comment10.params=
+comment10.target=void\ eliminaInCoda()
+comment2.params=n
+comment2.target=Lista(Nodo)
+comment3.params=
+comment3.target=int\ conta()
+comment4.params=n
+comment4.target=void\ aggiungiInTesta(Nodo)
+comment5.params=
+comment5.target=int\ getCount()
+comment6.params=n
+comment6.target=void\ aggiungiInCoda(Nodo)
+comment7.params=n
+comment7.target=void\ aggiungiInOrdine(Nodo)
+comment8.params=
+comment8.target=void\ visualizza()
+comment9.params=
+comment9.target=void\ eliminaInTesta()
+numComments=11
