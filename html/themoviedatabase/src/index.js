@@ -1,5 +1,5 @@
-var ricerca = "rambo";
-var pagina = 2;
+var ricerca = "one piece";
+var pagina = 1;
 
 
 fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + pagina + "&include_adult=false&language=en-it")
