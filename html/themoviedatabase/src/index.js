@@ -1,25 +1,66 @@
-var ricerca = "one piece";
+var ricerca = "";
 var pagina = 1;
-
-
-fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + pagina + "&include_adult=false&language=en-it")
-    .then(response => response.json())
-    .then(risposta => fai(risposta))
-    .catch(err => console.log('Request Failed', err)); // gestisci gli errori
-
 var container = document.getElementById('container');
 
+
+
+function search() {
+
+  var input = document.getElementById("input").value;
+  ricerca = input;
+  container.innerHTML = "";
+  fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + pagina + "&include_adult=false&language=en-it")
+    .then(response => response.json())
+    .then(risposta => fai(risposta))
+    .catch(err => console.log('Request Failed', err));
+
+}
+
+
+document.getElementById("input").addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+
+    document.getElementById("search").click();
+  }
+
+});
+
+
+//se viene premuto esc, chiudi modal
+
+document.addEventListener('keydown', function (event) {
+
+  if (event.keyCode == 27) {
+
+    modalClose();
+  }
+
+});
+
+
+
 function fai(risposta) {
-    var b = 0;
-    risposta.results.forEach(a => {
-        var immagine;
+  var b = 0;
+  
+  risposta.results.forEach(a => {
+    var immagine;
 
-        if(a.backdrop_path != null)
-            immagine = "https://image.tmdb.org/t/p/original" + risposta.results[b].poster_path;
-        else
-            immagine = "https://www.edizionicantagalli.com/wp-content/uploads/2020/01/Copertina-non-disponibile.jpg";
+    if (a.backdrop_path != null)
+      immagine = "https://image.tmdb.org/t/p/original" + risposta.results[b].poster_path;
+    else
+      immagine = "https://www.edizionicantagalli.com/wp-content/uploads/2020/01/Copertina-non-disponibile.jpg";
 
-        document.getElementById("container").innerHTML += `<div class=" py-6 flex flex-col justify-center sm:py-12">
+    if (risposta.results[b].original_title.length > 30)
+      risposta.results[b].original_title = risposta.results[b].original_title.substring(0, 15) + "...";
+
+    if (risposta.results[b].overview.includes("'"))
+      risposta.results[b].overview = risposta.results[b].overview.replace(/'/g, " ");
+
+      if (risposta.results[b].overview.includes('"'))
+      risposta.results[b].overview = risposta.results[b].overview.replace(/"/g, " ");
+
+    
+    document.getElementById("container").innerHTML += `<div class=" py-6 flex flex-col justify-center sm:py-12">
   
         <div class="py-3 sm:max-w-xl sm:mx-auto">
           <div class="bg-white shadow-lg border-gray-100 max-h-80	 border sm:rounded-3xl p-8 flex space-x-8">
@@ -33,10 +74,10 @@ function fai(risposta) {
               </div>
               <div>
                 <div class="text-sm text-gray-400">Film</div>
-                <div class="text-lg text-gray-800">2019</div>
+                <div class="text-lg text-gray-800">${risposta.results[b].release_date}</div>
               </div>
                 <p class=" text-gray-400 max-h-40 overflow-y-hidden">${risposta.results[b].overview}</p>
-              <a href="./details.html" class="px-4 py-2 bg-slate-400 text-center text-2xl font-bold rounded-lg">Scopri di più</a>
+              <a onclick="openModal('${risposta.results[b].original_title}', '${risposta.results[b].backdrop_path}', '${risposta.results[b].overview}', '${risposta.results[b].vote_average}');" class="px-4 py-2 bg-blue-200 hover:bg-blue-300 transition text-center cursor-pointer rounded-lg">Scopri di più</a>
             </div>
       
           </div>
@@ -44,6 +85,59 @@ function fai(risposta) {
         
       </div>`
 
-        b++;
-    });
+    b++;
+  });
+}
+
+
+
+const modal = document.querySelector('.main-modal');
+const closeButton = document.querySelectorAll('.modal-close');
+
+const modalClose = () => {
+  modal.classList.remove('fadeIn');
+  modal.classList.add('fadeOut');
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 500);
+}
+
+
+const openModal = (title, image_path, overview, average) => {
+  modal.classList.remove('fadeOut');
+  modal.classList.add('fadeIn');
+  modal.style.display = 'flex';
+
+  document.getElementById('modal-content').innerHTML = `
+  <img class="shadow-lg" src="https://image.tmdb.org/t/p/original${image_path}" alt="${title}">
+  <div class="px-6 py-6">
+    <div class="flex justify-between items-center pb-3">
+            <p class="text-2xl font-bold">${title}</p>
+            <a onclick="modalClose();" class="cursor-pointer z-50">
+              <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 18 18">
+                <path
+                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                </path>
+              </svg>
+            </a>
+          </div>
+          <div class="bg-yellow-400 font-bold rounded-xl p-2">${average}</div>
+          <div class="my-5">
+            <p>${overview}</p>
+          </div>
+          </div>`;
+}
+
+for (let i = 0; i < closeButton.length; i++) {
+
+  const elements = closeButton[i];
+
+  elements.onclick = (e) => modalClose();
+
+  modal.style.display = 'none';
+
+  window.onclick = function (event) {
+    if (event.target == modal) modalClose();
+  }
 }
