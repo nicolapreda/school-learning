@@ -3,6 +3,16 @@ var pagina = 1;
 var container = document.getElementById('container');
 
 
+window.onload = function () {
+
+  fetch('https://api.themoviedb.org/3/movie/popular?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&language=en-US&page=' + pagina)
+    .then(response => response.json())
+    .then(risposta => fai(risposta))
+    .catch(err => console.log('Request Failed', err));
+    
+}
+
+
 
 function search() {
 
@@ -26,7 +36,6 @@ document.getElementById("input").addEventListener("keyup", function (event) {
 });
 
 
-//se viene premuto esc, chiudi modal
 
 document.addEventListener('keydown', function (event) {
 
@@ -41,14 +50,20 @@ document.addEventListener('keydown', function (event) {
 
 function fai(risposta) {
   var b = 0;
-  
+
   risposta.results.forEach(a => {
-    var immagine;
+    if (b == 30)
+      return;
+
+    
+    var locandina;
+
+
 
     if (a.backdrop_path != null)
-      immagine = "https://image.tmdb.org/t/p/original" + risposta.results[b].poster_path;
+      locandina = "https://image.tmdb.org/t/p/original" + risposta.results[b].poster_path;
     else
-      immagine = "https://www.edizionicantagalli.com/wp-content/uploads/2020/01/Copertina-non-disponibile.jpg";
+      locandina = "https://www.edizionicantagalli.com/wp-content/uploads/2020/01/Copertina-non-disponibile.jpg";
 
     if (risposta.results[b].original_title.length > 30)
       risposta.results[b].original_title = risposta.results[b].original_title.substring(0, 15) + "...";
@@ -56,16 +71,16 @@ function fai(risposta) {
     if (risposta.results[b].overview.includes("'"))
       risposta.results[b].overview = risposta.results[b].overview.replace(/'/g, " ");
 
-      if (risposta.results[b].overview.includes('"'))
+    if (risposta.results[b].overview.includes('"'))
       risposta.results[b].overview = risposta.results[b].overview.replace(/"/g, " ");
 
-    
+
     document.getElementById("container").innerHTML += `<div class=" py-6 flex flex-col justify-center sm:py-12">
   
         <div class="py-3 sm:max-w-xl sm:mx-auto">
           <div class="bg-white shadow-lg border-gray-100 max-h-80	 border sm:rounded-3xl p-8 flex space-x-8">
             <div class=" overflow-visible w-1/2">
-                <img class="rounded-3xl shadow-lg" src="${immagine}" alt="${risposta.results[b].original_title}">
+                <img class="rounded-3xl shadow-lg" src="${locandina}" alt="${risposta.results[b].original_title}">
             </div>
             <div class="flex flex-col w-1/2 space-y-4">
               <div class="flex justify-between items-start">
@@ -108,8 +123,16 @@ const openModal = (title, image_path, overview, average) => {
   modal.classList.add('fadeIn');
   modal.style.display = 'flex';
 
+  var copertina;
+
+  if (image_path != "null")
+    copertina = "https://image.tmdb.org/t/p/original" + image_path;
+  else{
+    copertina = "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces_filter(blur)/sLvS5mxJbjoh6tnzktXCYqZCfLl.jpg";
+  }
+
   document.getElementById('modal-content').innerHTML = `
-  <img class="shadow-lg" src="https://image.tmdb.org/t/p/original${image_path}" alt="${title}">
+  <img class="shadow-lg" src="${copertina}" alt="${title}">
   <div class="px-6 py-6">
     <div class="flex justify-between items-center pb-3">
             <p class="text-2xl font-bold">${title}</p>
@@ -141,3 +164,4 @@ for (let i = 0; i < closeButton.length; i++) {
     if (event.target == modal) modalClose();
   }
 }
+
