@@ -8,10 +8,9 @@ window.onload = function () {
   fetch('https://api.themoviedb.org/3/movie/popular?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&language=en-US&page=' + pagina)
     .then(response => response.json())
     .then(risposta => fai(risposta))
-    .catch(err => console.log('Request Failed', err));
-    
-}
+    .catch(err => console.error('Impossibile recuperare i film', err));
 
+}
 
 
 function search() {
@@ -19,46 +18,55 @@ function search() {
   var input = document.getElementById("input").value;
   ricerca = input;
   container.innerHTML = "";
+
   fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + pagina + "&include_adult=false&language=en-it")
     .then(response => response.json())
-    .then(risposta => fai(risposta))
-    .catch(err => console.log('Request Failed', err));
+    .then(risposta => {
+      if (risposta.results.length < 30) {
+        pagina++;
+          fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + pagina + "&include_adult=false&language=en-it")
+            .then(response => response.json())
+            .then(risposta2 => {
+              risposta.results = risposta.results.concat(risposta2.results);
+              console.log(risposta);
+              fai(risposta);
+            })
+      }
+      else {
+        fai(risposta)
+      }
+    })
 
 }
 
 
 document.getElementById("input").addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
-
     document.getElementById("search").click();
   }
-
 });
-
-
 
 document.addEventListener('keydown', function (event) {
-
   if (event.keyCode == 27) {
-
     modalClose();
   }
-
 });
 
 
 
-function fai(risposta) {
+  function fai(risposta) {
+    
+    pagina = 1;
   var b = 0;
+  risposta.results.sort(function (a, b) {
+    return b.vote_average - a.vote_average;
+  });
 
   risposta.results.forEach(a => {
     if (b == 30)
       return;
 
-    
     var locandina;
-
-
 
     if (a.backdrop_path != null)
       locandina = "https://image.tmdb.org/t/p/original" + risposta.results[b].poster_path;
@@ -92,7 +100,7 @@ function fai(risposta) {
                 <div class="text-lg text-gray-800">${risposta.results[b].release_date}</div>
               </div>
                 <p class=" text-gray-400 max-h-40 overflow-y-hidden">${risposta.results[b].overview}</p>
-              <a onclick="openModal('${risposta.results[b].original_title}', '${risposta.results[b].backdrop_path}', '${risposta.results[b].overview}', '${risposta.results[b].vote_average}');" class="px-4 py-2 bg-blue-200 hover:bg-blue-300 transition text-center cursor-pointer rounded-lg">Scopri di più</a>
+              <a onclick="openModal('${risposta.results[b].original_title}', '${risposta.results[b].backdrop_path}','${locandina}', '${risposta.results[b].overview}', '${risposta.results[b].vote_average}', 'Azione, fantasy', '${risposta.results[b].id}');" class="px-4 py-2 bg-blue-200 hover:bg-blue-300 transition text-center cursor-pointer rounded-lg">Scopri di più</a>
             </div>
       
           </div>
@@ -118,18 +126,19 @@ const modalClose = () => {
 }
 
 
-const openModal = (title, image_path, overview, average) => {
+const openModal = (title, image_path,locandina, overview, average, geners, id) => {
   modal.classList.remove('fadeOut');
   modal.classList.add('fadeIn');
   modal.style.display = 'flex';
 
-  var copertina;
+  var copertina, extdb;
 
   if (image_path != "null")
     copertina = "https://image.tmdb.org/t/p/original" + image_path;
-  else{
+  else {
     copertina = "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces_filter(blur)/sLvS5mxJbjoh6tnzktXCYqZCfLl.jpg";
   }
+  extdb = `https://www.themoviedb.org/movie/${id}`
 
   document.getElementById('modal-content').innerHTML = `
   <img class="shadow-lg" src="${copertina}" alt="${title}">
@@ -145,10 +154,16 @@ const openModal = (title, image_path, overview, average) => {
               </svg>
             </a>
           </div>
-          <div class="bg-yellow-400 font-bold rounded-xl p-2">${average}</div>
+          <div class="flex justify-between items-center pb-3">
+            <p class="text-xl font-semibold">Genere: ${geners}</p>
+            <div class="bg-yellow-400 font-bold rounded-xl p-2 block">${average}</div>
+
+          </div>
           <div class="my-5">
             <p>${overview}</p>
           </div>
+
+          <a href="${extdb}" target="_blank" class="px-4 py-2 bg-blue-200 hover:bg-blue-300 transition text-center cursor-pointer rounded-lg">Altre Informazioni</a>
           </div>`;
 }
 

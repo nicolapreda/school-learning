@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The MirkoGranaDB</title>
+  <link rel="stylesheet" href="/dist/output.css">
+  <link rel="stylesheet" href="/dist/main.css">
+  <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
+</head>
+
+
+<body class="fadeOnLoad">
+
+  <div>
+    <section class="mb-40">
+      <nav class="navbar navbar-expand-lg shadow-md py-4 bg-white relative flex items-center w-full justify-between">
+        <div class="px-6 w-full flex flex-wrap items-center justify-between">
+          <div class="flex items-center">
+            <a class="flex navbar-brand text-black font-bold text-xl" href="#!">
+              <img src="./assets/logo.svg" class="w-10 h-10 mr-5" alt="">
+              <p class="m-auto">The MirkoGranaDB</p>
+              
+            </a>
+          </div>
+        </div>
+      </nav>
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none"
+        class="svg absolute hidden lg:block" style="height: 560px; width: 100%; z-index: -10; overflow: hidden">
+        <defs>
+          <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+            <stop stop-color="hsl(217, 102%, 99%)" offset="0%"></stop>
+            <stop stop-color="hsl(217,88%, 93%)" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <path fill="url(#sw-gradient-0)"
+          d="M 0.351 264.418 C 0.351 264.418 33.396 268.165 47.112 270.128 C 265.033 301.319 477.487 325.608 614.827 237.124 C 713.575 173.504 692.613 144.116 805.776 87.876 C 942.649 19.853 1317.845 20.149 1440.003 23.965 C 1466.069 24.779 1440.135 24.024 1440.135 24.024 L 1440 0 L 1360 0 C 1280 0 1120 0 960 0 C 800 0 640 0 480 0 C 320 0 160 0 80 0 L 0 0 L 0.351 264.418 Z">
+        </path>
+      </svg>
+
+      <div class="px-6 py-12 lg:my-12 md:px-12 text-gray-800 text-center lg:text-left">
+        <div class="container mx-auto xl:px-32">
+          <div class="grid lg:grid-cols-2 gap-12 flex items-center">
+            <div class="mt-12 lg:mt-0">
+              <h1 class="text-5xl xl:text-6xl font-bold tracking-tight mb-12">Are you ready for...<br /><span
+                  class="text-blue-600"> a MirkoGrana adventure?</span></h1>
+              <div class="md:flex flex-row">
+                <input type="text"
+                  class="form-control block w-full px-4 py-2 mb-2 md:mb-0 md:mr-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  placeholder="Search" id="input" />
+                <button type="submit" href="#container"
+                  class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                  id="search" onclick="search();" data-mdb-ripple="true" data-mdb-ripple-color="light">Search</button>
+              </div>
+            </div>
+            <div class="mb-12 lg:mb-0">
+              <div class="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden"
+                style="padding-top: 56.25%">
+                <img class=" absolute top-0 right-0 bottom-0 left-0 w-full" src="./assets/hero-img.png"
+                  allowfullscreen="" data-gtm-yt-inspected-2340190_699="true" id="240632615"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+  <div class="grid xl:grid-cols-2 gap-16 xl:gap-0 mb-32" id="container">
+  </div>
+
+
+  <div
+  class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
+  style="background: rgba(0,0,0,.7);">
+  <div
+    class=" shadow-lg modal-container bg-white w-11/12 md:max-w-md mx-auto rounded z-50 overflow-y-auto">
+    <div class="modal-content  text-left" id="modal-content">
+      <div class="flex justify-between items-center pb-3">
+        <p class="text-2xl font-bold"></p>
+        <div class="modal-close cursor-pointer z-50">
+          <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            viewBox="0 0 18 18">
+            <path
+              d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <div class="my-5">
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer
+  class="bg-blue-200 text-center lg:text-left">
+  <div class="p-4 text-center text-neutral-700 ">
+    © 2023 Copyright:
+    <a
+      class="text-neutral-800"
+      href="#"
+      >The MirkoGranaDB</a
+    >
+  </div>
+</footer>
+  <script src="./index.js"></script>
+</body>
+
+</html>
