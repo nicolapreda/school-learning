@@ -1,68 +1,36 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>SCOPA Online!</title>
     <link rel="icon" href="./assets/favicon.png" type="image/x-icon">
-    <title>Scopa(mi)</title>
+
 </head>
 
-<body class="bg-green-800">
+<body class="bg-gradient-to-br from-green-600 to-green-900">
+    <div class="relative py-16  h-screen grid place-items-center">
+        <div class="relative container m-auto px-6 text-gray-500 md:px-12 xl:px-40 ">
+            <div class="m-auto md:w-8/12 lg:w-6/12 xl:w-6/12 ">
+                <div class="rounded-xl bg-white shadow-xl">
+                    <div class="p-6 sm:p-16">
+                        <div class knm  ="space-y-4">
 
-    <div class="flex items-center justify-center text-center h-screen">
-        <div class="mt-12">
-            <div>
-                <div class="grid grid-cols-3 place-items-center">
-                    <div class="col-span-1">
-                        <canvas id="nemico0" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-                    </div>
-                    <div class="col-span-1">
-                        <canvas id="nemico1" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-                    </div>
-                    <div class="col-span-1">
-                        <canvas id="nemico2" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div id="mazzo" class="grid grid-cols-4 place-items-center my-32 md:gap-16 gap-4">
-                    <div class="col-span-1">
-                        <canvas id="canvas3" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-                    </div>
-                    <div class="col-span-1">
-                        <canvas id="canvas4" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-                    </div>
-                    <div class="col-span-1">
-                        <canvas id="canvas5" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-                    </div>
-                    <div class="col-span-1">
-                        <canvas id="canvas6" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="grid grid-cols-3 place-items-center">
-                    <div class="col-span-1">
-                        <canvas id="canvas7" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-                    </div>
-                    <div class="col-span-1">
-                        <canvas id="canvas8" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-
-                    </div>
-                    <div class="col-span-1">
-                        <canvas id="canvas9" class="rounded-xl cursor-pointer hover:scale-110 transition"></canvas>
-
+                            <h2 class="mb-8 text-5xl text-black font-bold text-center">SCOPA Online!</h2>
+                        </div>
+                        <div class="mt-16 grid space-y-4" id="content">
+                                
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
+    <script src="./index.js"></script>
 </body>
-
-<script src="./app.js"></script>
 
 </html>
