@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The MirkoGranaDB</title>
+    <link rel="stylesheet" href="/dist/output.css">
+    <link rel="stylesheet" href="/dist/main.css">
+    <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
+</head>
+
+<style>
+    .demo-bg {
+        opacity: 0.2;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-size: cover;
+    }
+</style>
+
+<body class="fadeOnLoad bg-black">
+
+    <img id="backdrop_path" class="demo-bg h-full" alt="">
+    <div class="w-full h-screen relative">
+        <div class="w-full h-full flex flex-col justify-center items-center backdrop-blur">
+            <div class="grid lg:grid-cols-3 mx-auto md:mx-32 md:gap-32">
+                <div class="md:m-auto m-16">
+                    <img id="poster_path" src="https://www.themoviedb.org/t/p/w1280/liLN69YgoovHVgmlHJ876PKi5Yi.jpg" class="shadow-xl rounded-lg">
+                </div>
+                <div class="md:m-auto md:col-span-2 text-center md:text-left mt-5">
+                    <h1 class="text-4xl md:text-7xl font-bold text-white drop-shadow-xl	" id="original_title">The Tomorrow War</h1>
+                    <h2 class="text-xl md:text-3xl mt-5 font-semibold text-white drop-shadow-xl" id="vote_average">7.6</h2>
+                    <h3 class="text-md md:text-2xl font-normal text-white drop-shadow-xl" id="release_date">2021</h3>
+                    </h4>
+                    <h4 class="mt-5 text-xl text-white drop-shadow-xl" id="overview"></h4>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="./details.js"></script>
+</body>
+
+</html>

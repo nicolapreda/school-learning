@@ -7,6 +7,8 @@
   <title>The MirkoGranaDB</title>
   <link rel="stylesheet" href="/dist/output.css">
   <link rel="stylesheet" href="/dist/main.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+
   <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
 </head>
 
@@ -21,7 +23,7 @@
             <a class="flex navbar-brand text-black font-bold text-xl" href="#!">
               <img src="./assets/logo.svg" class="w-10 h-10 mr-5" alt="">
               <p class="m-auto">The MirkoGranaDB</p>
-              
+
             </a>
           </div>
         </div>
@@ -42,17 +44,189 @@
       <div class="px-6 py-12 lg:my-12 md:px-12 text-gray-800 text-center lg:text-left">
         <div class="container mx-auto xl:px-32">
           <div class="grid lg:grid-cols-2 gap-12 flex items-center">
-            <div class="mt-12 lg:mt-0">
+            <div class="mt-12 lg:mt-0 text-left">
               <h1 class="text-5xl xl:text-6xl font-bold tracking-tight mb-12">Are you ready for...<br /><span
                   class="text-blue-600"> a MirkoGrana adventure?</span></h1>
+              <input type="text"
+                class="form-control block w-full px-4 py-2 mb-2 md:mb-0 md:mr-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                placeholder="Cerca" id="input" />
+
               <div class="md:flex flex-row">
-                <input type="text"
-                  class="form-control block w-full px-4 py-2 mb-2 md:mb-0 md:mr-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  placeholder="Search" id="input" />
-                <button type="submit" href="#container"
-                  class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                  id="search" onclick="search();" data-mdb-ripple="true" data-mdb-ripple-color="light">Search</button>
+                <div class="flex items-center mt-5">
+                  <button id="dropdownDefault" data-dropdown-toggle="dropdown"
+                    class=" mr-3 text-white bg-blue-500 hover:bg-blue-800 transition focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                    type="button">
+                    Filtra
+                    <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+
+                  <!-- Dropdown menu -->
+                  <div id="dropdown" class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
+                    <h6 class="mb-3 text-md font-medium text-gray-900 dark:text-white">
+                      Filtra
+                    </h6>
+                    <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
+
+                      <li class=" items-center">
+                        <label class=" text-sm font-medium text-gray-900 dark:text-gray-100">
+                          Da
+                        </label>
+
+                        <div class="relative max-w-sm">
+                          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd"
+                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                          <input id="startDate" datepicker type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Select date">
+                        </div>
+                        <label class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">
+                          A
+                        </label>
+
+                        <div class="relative max-w-sm">
+                          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd"
+                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                          <input id="endDate" datepicker type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Select date">
+                        </div>
+
+                      </li>
+
+                      <li>
+                        <label class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">
+                          Genere
+                        </label>
+                        <select id="genere"
+                          class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline dark:text-gray-300 dark:placeholder-gray-400 dark:bg-gray-700 dark:border-gray-600 dark:focus:shadow-outline-gray"
+                          aria-label="genere">
+                          <option value="0">Tutti</option>
+                          <option value="1">Azione</option>
+                          <option value="2">Avventura</option>
+                          <option value="3">Commedia</option>
+                          <option value="4">Drammatico</option>
+                          <option value="5">Fantascienza</option>
+                          <option value="6">Horror</option>
+                          <option value="7">Thriller</option>
+                        </select>
+                      </li>
+
+                      <li>
+                        <label class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">
+                          Durata
+                        </label>
+                        <select id="durata"
+                          class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline dark:text-gray-300 dark:placeholder-gray-400 dark:bg-gray-700 dark:border-gray-600 dark:focus:shadow-outline-gray"
+                          aria-label="durata">
+                          <option value="0">Tutti</option>
+                          <option value="1">0-60 min</option>
+                          <option value="2">60-120 min</option>
+                          <option value="3">120-180 min</option>
+                          <option value="4">180-240 min</option>
+                          <option value="5">240-300 min</option>
+                          <option value="6">300-360 min</option>
+                          <option value="7">360-420 min</option>
+                          <option value="8">420-480 min</option>
+                          <option value="9">480-540 min</option>
+                          <option value="10">540-600 min</option>
+                        </select>
+                      </li>
+
+
+                      <li>
+                        <label class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">
+                          Voto
+                        </label>
+                        <input id="voto_range" type="range" min="0" max="10" value="5"
+                          class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+
+                      </li>
+
+
+
+                    </ul>
+                  </div>
+
+
+                  <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown1"
+                    class="mr-3 text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    type="button">Ordina per<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg></button>
+                  <!-- Dropdown menu -->
+                  <div id="dropdown1"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                      <li>
+                        <a id="0" href="#" class="cursor-pointer block px-4 py-2 bg-blue-400 hover:bg-blue-500 "
+                          onclick="setSorting(0)">Niente ordinamento</a>
+                      </li>
+                      <li>
+                        <a id="1" href="#" class="cursor-pointer block px-4 py-2 bg-white hover:bg-blue-500 "
+                          onclick="setSorting(1)">Popolarità crescente</a>
+                      </li>
+                      <li>
+                        <a id="2" href="#" class=" block px-4 py-2 hover:bg-gray-100 "
+                          onclick="setSorting(2)">Popolarità decrescente</a>
+                      </li>
+                      <li>
+                        <a id="3" href="#" class="cursor-pointer block px-4 py-2 hover:bg-blue-500 "
+                          onclick="setSorting(3)">Valutazione crescente</a>
+                      </li>
+                      <li>
+                        <a id="4" href="#" class="cursor-pointer block px-4 py-2 hover:bg-blue-500 "
+                          onclick="setSorting(4)">Valutazione decrescente</a>
+                      </li>
+                      <li>
+                        <a id="5" href="#" class="cursor-pointer block px-4 py-2 hover:bg-blue-500 "
+                          onclick="setSorting(5)">Data rilascio crescente</a>
+                      </li>
+                      <li>
+                        <a id="6" href="#" class="cursor-pointer block px-4 py-2 hover:bg-blue-500"
+                          onclick="setSorting(6)">Data rilascio decrescente</a>
+                      </li>
+                      <li>
+                        <a id="7" href="#" class="cursor-pointer block px-4 py-2 hover:bg-blue-500"
+                          onclick="setSorting(7)">Titolo (A-Z)</a>
+                      </li>
+                      <li>
+                        <a id="8" href="#" class="cursor-pointer block px-4 py-2 hover:bg-blue-500"
+                          onclick="setSorting(8)">Titolo (Z-A)</a>
+                      </li>
+                    </ul>
+                  </div>
+
+
+
+                  <button type="submit" href="#container"
+                    class=" text-white bg-blue-500 hover:bg-blue-800 transition focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                    id="search" onclick="search();" data-mdb-ripple="true" data-mdb-ripple-color="light">Cerca</button>
+
+
+                </div>
               </div>
+
+              <div>
+
+
+              </div>
+
             </div>
             <div class="mb-12 lg:mb-0">
               <div class="embed-responsive embed-responsive-16by9 relative w-full overflow-hidden"
@@ -73,42 +247,14 @@
   </div>
 
 
-  <div
-  class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
-  style="background: rgba(0,0,0,.7);">
-  <div
-    class=" shadow-lg modal-container bg-white w-11/12 md:max-w-md mx-auto rounded z-50 overflow-y-auto">
-    <div class="modal-content  text-left" id="modal-content">
-      <div class="flex justify-between items-center pb-3">
-        <p class="text-2xl font-bold"></p>
-        <div class="modal-close cursor-pointer z-50">
-          <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-            viewBox="0 0 18 18">
-            <path
-              d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-            </path>
-          </svg>
-        </div>
-      </div>
-      <div class="my-5">
-        <p></p>
-      </div>
+  <footer class="bg-blue-200 text-center lg:text-left">
+    <div class="p-4 text-center text-neutral-700 ">
+      © 2023 Copyright:
+      <a class="text-neutral-800" href="#">The MirkoGranaDB</a>
     </div>
-  </div>
-</div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
-
-  <footer
-  class="bg-blue-200 text-center lg:text-left">
-  <div class="p-4 text-center text-neutral-700 ">
-    © 2023 Copyright:
-    <a
-      class="text-neutral-800"
-      href="#"
-      >The MirkoGranaDB</a
-    >
-  </div>
-</footer>
   <script src="./index.js"></script>
 </body>
 
