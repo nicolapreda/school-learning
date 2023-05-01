@@ -1,16 +1,16 @@
 var ricerca = "";
-var pagina = 1;
+var page = 1;
 var container = document.getElementById('container');
 
 var sorting = 0;
 
 window.onload = function () {
 
-  fetch('https://api.themoviedb.org/3/movie/popular?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&language=it-IT&page=' + pagina)
+  fetch('https://api.themoviedb.org/3/movie/popular?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&language=it-IT&page=' + page)
     .then(response => response.json())
-    .then(risposta => {
-      console.log(risposta);
-      fai(risposta);
+    .then(result => {
+      console.log(result);
+      insert(result);
     })
     .catch(err => console.error('Impossibile recuperare i film', err));
 
@@ -19,28 +19,8 @@ window.onload = function () {
 
 function search() {
 
-  var startDate = document.getElementById("startDate").value;
-  var endDate = document.getElementById("endDate").value;
-
-  if (startDate == "") {
-    startDate = "1900-01-01";
-  }
-  if (endDate == "") {
-    endDate = "2100-12-31";
-  }
-  if (startDate > endDate) {
-    var temp = startDate;
-    startDate = endDate;
-    endDate = temp;
-  }
-  if (startDate == endDate) {
-    startDate = "1900-01-01";
-    endDate = "2100-12-31";
-  }
-
-
   var input = document.getElementById("input").value;
-  if(input == "" || input == " "){
+  if (input == "" || input == " ") {
     alert("Prima scrivi il film da cercare!")
     return;
   }
@@ -48,27 +28,23 @@ function search() {
   container.innerHTML = "";
 
 
-  
-
-
-  fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + pagina + "&include_adult=false&language=it-it" + '&primary_release_date.gte=' + startDate + '&primary_release_date.lte=' + endDate)
+  fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + page + "&include_adult=false&language=it-IT")
     .then(response => response.json())
-    .then(risposta => {
-      if (risposta.results.length < 30) {
-        pagina++;
-        fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + pagina + "&include_adult=false&language=it-it" + '&primary_release_date.gte=' + startDate + '&primary_release_date.lte=' + endDate)
+    .then(result => {
+      if (result.results.length < 30) {
+        page++;
+        fetch('https://api.themoviedb.org/3/search/movie?api_key=7dd3351fd7dcd7de4e6bcdd502b9a4e0&query=' + ricerca + '&page=' + page + "&include_adult=false&language=it-IT")
           .then(response => response.json())
-          .then(risposta2 => {
-            risposta.results = risposta.results.concat(risposta2.results);
-            console.log(risposta);
-            fai(risposta);
+          .then(result2 => {
+            result.results = result.results.concat(result2.results);
+            console.log(result);
+            insert(result);
           })
       }
       else {
-        fai(risposta)
+        insert(result)
       }
     })
-
 }
 
 
@@ -80,9 +56,9 @@ document.getElementById("input").addEventListener("keyup", function (event) {
 
 
 
-function fai(risposta) {
+function insert(result) {
 
-  pagina = 1;
+  page = 1;
   var b = 0;
 
   switch (sorting) {
@@ -90,14 +66,14 @@ function fai(risposta) {
       break;
     case 1:
       //ordina per popolarità crescente
-      risposta.results.sort(function (a, b) {
+      result.results.sort(function (a, b) {
         return a.popularity - b.popularity;
       });
       break;
     case 2:
       //ordina per popolarità decrescente
 
-      risposta.results.sort(function (a, b) {
+      result.results.sort(function (a, b) {
         return b.popularity - a.popularity;
       });
       break;
@@ -105,34 +81,32 @@ function fai(risposta) {
       //ordina per voto crescente
 
 
-      risposta.results.sort(function (a, b) {
+      result.results.sort(function (a, b) {
         return a.vote_average - b.vote_average;
       });
       break;
     case 4:
       //ordina per voto decrescente
-
-
-      risposta.results.sort(function (a, b) {
+      result.results.sort(function (a, b) {
         return b.vote_average - a.vote_average;
       });
 
       break;
     case 5:
       //ordina per data di rilascio crescente
-      risposta.results.sort(function (a, b) {
+      result.results.sort(function (a, b) {
         return new Date(a.release_date) - new Date(b.release_date);
       });
       break;
     case 6:
       //ordina per data di rilascio decrescente
-      risposta.results.sort(function (a, b) {
+      result.results.sort(function (a, b) {
         return new Date(b.release_date) - new Date(a.release_date);
       });
       break;
     case 7:
       //ordina per titolo crescente
-      risposta.results.sort(function (a, b) {
+      result.results.sort(function (a, b) {
         var x = a.title.toLowerCase();
         var y = b.title.toLowerCase();
         if (x < y) { return -1; }
@@ -143,7 +117,7 @@ function fai(risposta) {
       break;
     case 8:
       //ordina per titolo decrescente
-      risposta.results.sort(function (a, b) {
+      result.results.sort(function (a, b) {
         var x = a.title.toLowerCase();
         var y = b.title.toLowerCase();
         if (x > y) { return -1; }
@@ -158,25 +132,31 @@ function fai(risposta) {
 
 
 
-  risposta.results.forEach(a => {
+  result.results.forEach(a => {
     if (b == 30)
       return;
 
     var locandina;
 
     if (a.backdrop_path != null)
-      locandina = "https://image.tmdb.org/t/p/original" + risposta.results[b].poster_path;
+      locandina = "https://image.tmdb.org/t/p/original" + result.results[b].poster_path;
     else
       locandina = "https://www.edizionicantagalli.com/wp-content/uploads/2020/01/Copertina-non-disponibile.jpg";
 
-    if (risposta.results[b].original_title.length > 30)
-      risposta.results[b].original_title = risposta.results[b].title.substring(0, 15) + "...";
+    if (result.results[b].title.length > 30)
+      result.results[b].title = result.results[b].title.substring(0, 30) + "...";
 
-    if (risposta.results[b].overview.includes("'"))
-      risposta.results[b].overview = risposta.results[b].overview.replace(/'/g, " ");
+    if (result.results[b].overview.includes("'"))
+      result.results[b].overview = result.results[b].overview.replace(/'/g, " ");
 
-    if (risposta.results[b].overview.includes('"'))
-      risposta.results[b].overview = risposta.results[b].overview.replace(/"/g, " ");
+    if (result.results[b].overview.includes('"'))
+      result.results[b].overview = result.results[b].overview.replace(/"/g, " ");
+
+    var date = new Date(result.results[b].release_date);
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    release_date = date.toLocaleDateString('it-IT', options);
+
+    var vote = Math.round(result.results[b].vote_average * 10) / 10;
 
 
     document.getElementById("container").innerHTML += `<div class="mb-12 py-6 flex flex-col justify-center sm:py-12">
@@ -184,18 +164,18 @@ function fai(risposta) {
         <div class="py-3 sm:max-w-xl sm:mx-auto">
           <div class="bg-white shadow-lg border-gray-100 max-h-80	 border sm:rounded-3xl p-8 flex space-x-8">
             <div class=" overflow-visible w-1/2">
-                <img class="rounded-3xl shadow-lg" src="${locandina}" alt="${risposta.results[b].title}">
+                <img class="rounded-3xl shadow-lg" src="${locandina}" alt="${result.results[b].title}">
             </div>
             <div class="flex flex-col w-1/2 space-y-4">
               <div class="flex justify-between items-start">
-                <h2 class="text-3xl font-bold">${risposta.results[b].title}</h2>
-                <div class="bg-yellow-400 font-bold rounded-xl p-2">${risposta.results[b].vote_average}</div>
+                <h2 class="text-3xl font-bold">${result.results[b].title}</h2>
+                <div class="bg-yellow-400 font-bold rounded-xl p-2">${vote}</div>
               </div>
               <div>
                 <div class="text-sm text-gray-400">Film</div>
-                <div class="text-lg text-gray-800">${risposta.results[b].release_date}</div>
+                <div class="text-lg text-gray-800">${release_date}</div>
               </div>
-              <a onclick='setLocalID(${risposta.results[b].id}, "${risposta.results[b].original_language}", "${risposta.results[b].original_title}", "${risposta.results[b].overview}", "${risposta.results[b].backdrop_path}", "${risposta.results[b].poster_path}", "${risposta.results[b].release_date}", ${risposta.results[b].vote_average}, ${risposta.results[b].vote_count}, ${risposta.results[b].popularity})' class="px-4 py-2 bg-blue-200 hover:bg-blue-300 transition text-center cursor-pointer rounded-lg">Scopri di più</a>
+              <a onclick='getDetails(${result.results[b].id})' class="px-4 py-2 bg-blue-200 hover:bg-blue-300 transition text-center cursor-pointer rounded-lg">Scopri di più</a>
             </div>
       
           </div>
@@ -208,18 +188,8 @@ function fai(risposta) {
 }
 
 
-function setLocalID(id, original_language, original_title, overview, backdrop_path, poster_path, release_date, vote_average, vote_count, popularity) {
+function getDetails(id) {
   localStorage.setItem('id', id);
-  localStorage.setItem('original_language', original_language);
-  localStorage.setItem('original_title', original_title);
-  localStorage.setItem('overview', overview);
-  localStorage.setItem('backdrop_path', backdrop_path);
-  localStorage.setItem('poster_path', poster_path);
-  localStorage.setItem('release_date', release_date);
-  localStorage.setItem('vote_average', vote_average);
-  localStorage.setItem('vote_count', vote_count);
-  localStorage.setItem('popularity', popularity);
-
   window.location.href = "details.html";
 }
 

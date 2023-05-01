@@ -13,9 +13,9 @@ var url = window.location.href;
 var id = url.substring(url.lastIndexOf('=') + 1);
 
 //se il tuo nickname inizia con scopa1 o scopa0 decidi chi gioca per primo
-if (localStorage.getItem('nickname').startsWith("scopa1") || localStorage.getItem('nickname').startsWith("scopa0")) {
+/*if (localStorage.getItem('nickname').startsWith("scopa1") || localStorage.getItem('nickname').startsWith("scopa0")) {
     var turn = Math.floor(Math.random() * 2) + 1;
-}
+}*/
     
 
 //mossa:

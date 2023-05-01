@@ -120,22 +120,21 @@ function joinLobby() {
 
 
 function joinGame(id) {
-    id = id.toString();
-
+    idString = id.toString();
     let name = document.getElementById('name').value;
-    fetch(`https://classe5ID.altervista.org/games/join/${id}/${name}`, {
+
+
+    fetch(`https://classe5ID.altervista.org/games/join/${idString}/${name}`, {
         method: 'POST',
         headers: {
+            'Content-type': 'application/json; charset=UTF-8',
             'Authorization': 'Basic ' + btoa('4ID:Grena')
         }
     })
-        .then((response) => response.json())
-        .then((json) => {
-            console.log(json.description);
-            window.location.href = "game.html?id=" + json.data.id;
-        }
+
         //in caso di errore
-        )
+        
+        //window.location.href = "game.html?id=" + json.data.id;
         /*.catch((error) => {
             console.error(error);
             alert("Errore: " + error);
