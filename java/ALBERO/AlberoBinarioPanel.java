@@ -6,7 +6,7 @@ public class AlberoBinarioPanel extends JPanel {
     private AlberoBinario albero;
     private int raggioNodo = 20;
     private int distanzaOrizzontale = 80;
-    private int distanzaVerticale = 50;
+    private int distanzaVerticale = 20;
     
     public AlberoBinarioPanel(AlberoBinario albero,int W, int H) {
         this.albero = albero;
@@ -15,8 +15,6 @@ public class AlberoBinarioPanel extends JPanel {
 
     }
     
-
-
 
 
     @Override

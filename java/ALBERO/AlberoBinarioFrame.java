@@ -23,7 +23,7 @@ public class AlberoBinarioFrame extends JFrame {
         JPanel panel = new JPanel();
         JButton button = new JButton("Conferma");
 
-        JTextArea textArea = new JTextArea(10, 10);
+        JTextArea textArea = new JTextArea(2, 10);
 
 
 
