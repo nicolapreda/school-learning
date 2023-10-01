@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 break-words">
+
+
+    <nav
+  class="relative flex w-full flex-wrap items-center justify-between bg-[#FBFBFB] py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4">
+  <div class="flex w-full flex-wrap items-center justify-between px-3">
+    <a
+      class="ml-2 text-xl text-neutral-800 dark:text-neutral-200"
+      href="#"
+      >FamiliesDB</a
+    >
+    
+
+    <div class="ml-5 flex w-[30%] items-center justify-between">
+      <input
+        class="relative m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none motion-reduce:transition-none dark:border-neutral-500 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+        type="text"
+        id="searchInput"
+        
+        placeholder="Cerca tramite residenza"
+      />
+
+      <!--Search icon-->
+      <button id="searchButton">
+        <span
+        class="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
+        id="basic-addon2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="h-5 w-5">
+          <path
+            fill-rule="evenodd"
+            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+            clip-rule="evenodd" />
+        </svg>
+      </span>
+      </button>
+      
+      <button
+      id="logoutButton"
+      class="transition bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300"
+    >
+      Logout
+    </button>
+  
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container mx-10 md:mx-32">
+
+      <div class="mt-10">
+        <h1 class="text-6xl font-semibold">Benvenuto!</h1>
+        <p class="mt-5">Ti sei loggato correttamente. Effettua una ricerca delle persone con un determinato luogo di residenza</p>
+      </div>
+
+
+      <div id="familyCarousel" class="carousel slide mt-3" data-ride="carousel">
+        <div class="carousel-inner">
+          <!-- I dati delle famiglie e delle persone verranno aggiunti qui -->
+        </div>
+      </div>
+    </div>
+
+    <script src="./home.js"></script>
+  </body>
+</html>
+

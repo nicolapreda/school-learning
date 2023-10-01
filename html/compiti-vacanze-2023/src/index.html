@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+
+    <title>Login - FamiglieDB</title>
+  </head>
+
+  <body>
+    <div class="h-screen">
+      <div class="grid lg:grid-cols-2 grid-rows-1">
+        <div class="flex md:my-12 md:mx-24 m-10">
+          <div class="m-auto">
+            <div class="text-center">
+              <h1 class="uppercase">famigliedb</h1>
+              <h1 class="text-6xl font-semibold">Bentornato!</h1>
+              <p class="mt-5">
+                Effettua il Log-In per continuare.
+              </p>
+            </div>
+
+            <form class="mt-10" id="loginForm">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="block w-full rounded-lg border-0 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6 px-4 py-2"
+                placeholder="Username"
+              />
+
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="mt-4 block w-full rounded-lg border-0 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6 px-4 py-2"
+                placeholder="Password"
+              />
+
+              <button
+                type="submit"
+                id="loginBtn"
+                class="bg-black hover:bg-gray-900 transition-300 text-white font-semibold py-3 px-4 rounded-lg mt-10 w-full"
+              >
+                Login
+              </button>
+
+
+            </form>
+          </div>
+        </div>
+        <img
+          src="./assets/img/banner.jpg"
+          alt="Banner"
+          class="h-screen w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
