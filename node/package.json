@@ -12,6 +12,8 @@
   "dependencies": {
     "dgram": "^1.0.1",
     "readline-promise": "^1.0.5",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "translate": "^2.0.2",
+    "translate-google": "^1.5.0"
   }
 }
