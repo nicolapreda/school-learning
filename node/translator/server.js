@@ -3,7 +3,7 @@ const dgram = require("dgram");
 // Crea server UDP
 const server = dgram.createSocket("udp4");
 
-const translate = require('translate-google')
+const translatte = require('translatte');
 
 
 
@@ -14,7 +14,15 @@ server.on('message', (msg, info) => {
 
 
     
-    const result = translateText(data);
+    let result;
+    
+    if(data.type == 0){
+        cercaSostituisci(data);
+    }
+    else if(data.type == 1){
+        translateText(data);
+    }
+
     console.log(result)
     const response = {
         risultato: result
@@ -34,16 +42,21 @@ server.on("listening", () => {
 
 
 const translateText = (data) => {
-    
-    const {text, lang1, lang2} = data;
+    const {type, text, lang1, lang2} = data;
 
-    translate(text, {from: lang1, to: lang2}).then(res => {
-        console.log(res);
-        return res;
+    translatte(text, {to: lang2}).then(res => {
+        console.log(res.text);
+        return res.text;
     }).catch(err => {
         console.error(err);
-    })
-    
+        return err;
+    });
+
+}
+
+const cercaSostituisci = (data) => {
+    const {type, text, lang1, lang2} = data
+    return text.replaceAll(lang1, lang2);
 
 }
 

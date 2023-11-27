@@ -19,12 +19,15 @@ let message = "";
 
 const Main = async () => {
     let tipo, text, lang1, lang2;
+    tipo = await rl.questionAsync("(0 = cerca/sostituisci, 1 = traduci)")
 
     while (true) {
-            tipo = await rl.questionAsync("(0 = cerca/sostituisci, 1 = traduci)")
         switch(tipo){
             case 0:
                 text = await rl.questionAsync("Inserisci il testo")
+                lang1 = await rl.questionAsync("Inserisci la parola da cercare")
+                lang2 = await rl.questionAsync("Inserisci la parola da sostituire ")
+
 
                 break;
             case 1:
@@ -33,6 +36,7 @@ const Main = async () => {
                 lang2 = await rl.questionAsync("Inserisci la lingua con cui tradurre ")
         
                 message = JSON.stringify({
+                    type: tipo,
                     text: text,
                     lang1: lang1,
                     lang2: lang2
@@ -62,7 +66,7 @@ client.on("message", (msg) => {
     console.log(`\n>>>>>>>>>>>>>>>>> ${response.risultato}`);
     
 });
-
+ 
 process.on("SIGINT", () => {
     console.log("Chiusura del client")
     client.close();
