@@ -1,0 +1,12 @@
+openapi: 3.0.0
+info:
+  description: API Clienti
+  version: 1.0.0
+  title: API Clienti
+paths:
+  /customers:
+    get:
+      summary: Ottieni tutti i clienti
+      operationId: GetAllCustomers
+      responses: 
+        
