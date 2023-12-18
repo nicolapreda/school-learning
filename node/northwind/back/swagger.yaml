@@ -1,0 +1,104 @@
+openapi: 3.0.0
+info:
+  title: Documentazione API
+  description: Descrizione delle API per gestire i clienti
+  version: 1.0.0
+paths:
+  /customers:
+    get:
+      summary: Ottieni tutti i clienti
+      responses:
+        '200':
+          description: Elenco di clienti restituito con successo
+  /customers/{customerId}:
+    get:
+      summary: Ottieni un cliente specifico
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          description: ID del cliente
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Dettagli del cliente restituiti con successo
+        '404':
+          description: Cliente non trovato
+    post:
+      summary: Aggiungi un nuovo cliente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '400':
+          description: Richiesta non valida. L'ID del cliente non è univoco
+        '201':
+          description: Cliente aggiunto con successo
+    put:
+      summary: Aggiorna un cliente esistente
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          description: ID del cliente
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Cliente aggiornato con successo
+        '404':
+          description: Cliente non trovato
+    delete:
+      summary: Elimina un cliente
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          description: ID del cliente
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cliente eliminato con successo
+        '404':
+          description: Cliente non trovato
+        '500':
+          description: Errore interno del server
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        customerId:
+          type: string
+        companyName:
+          type: string
+        contactName:
+          type: string
+        contactTitle:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+        phone:
+          type: string
+        region:
+          type: string
+        fax:
+          type: string
+        # Aggiungi altri campi se necessario
