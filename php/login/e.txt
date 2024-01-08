@@ -1,0 +1,55 @@
+<?php
+// Funzione per registrare un tentativo di login nel file dei tentativi
+function logLoginAttempt($username, $password, $ip) {
+    $dataOra = date('Y-m-d H:i:s');
+    $logLine = "$username, " . md5($password) . ", $ip, $dataOra" . PHP_EOL;
+    file_put_contents('tentativi.dat', $logLine, FILE_APPEND);
+}
+
+// Funzione per verificare se un utente è autorizzato
+function isUserAuthorized($username, $password) {
+    $lines = file('autorizzati.dat', FILE_IGNORE_NEW_LINES);
+    foreach ($lines as $line) {
+        list($storedUsername, $storedPassword) = explode(',', $line);
+        if ($username === $storedUsername && md5($password) === trim($storedPassword)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+$ip = $_SERVER['REMOTE_ADDR'];
+
+// Verifica se l'utente è bloccato
+if (isUserBlocked($username, $ip)) {
+    die("L'utente o l'IP è bloccato per 30 minuti.");
+}
+
+// Verifica se l'utente è autorizzato
+if (isUserAuthorized($username, $password)) {
+    // Utente autorizzato, effettua l'accesso
+    echo "Accesso riuscito!";
+} else {
+    // Utente non autorizzato, registra il tentativo
+    logLoginAttempt($username, $password, $ip);
+    echo "Accesso non autorizzato!";
+}
+
+// Verifica e applica i blocchi
+$loginAttempts = file('tentativi.dat', FILE_IGNORE_NEW_LINES);
+$failedAttempts = array_filter($loginAttempts, function ($line) use ($ip) {
+    list(, , $attemptIP) = explode(',', $line);
+    return $attemptIP === $ip;
+});
+
+if (count($failedAttempts) >= 10) {
+    // Blocca l'IP per 30 minuti
+    file_put_contents('ip_bloccati.dat', $ip . PHP_EOL, FILE_APPEND);
+} elseif (count($failedAttempts) >= 5) {
+    // Blocca l'utente per 30 minuti
+    file_put_contents('utenti_bloccati.dat', $username . PHP_EOL, FILE_APPEND);
+}
+
+?>
