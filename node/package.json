@@ -16,9 +16,11 @@
     "readline-promise": "^1.0.5",
     "readline-sync": "^1.4.10",
     "swagger-ui-express": "^5.0.0",
-    "tailwindcss": "^3.3.6",
     "translate": "^2.0.2",
     "translate-google": "^1.5.0",
     "translatte": "^3.0.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }
